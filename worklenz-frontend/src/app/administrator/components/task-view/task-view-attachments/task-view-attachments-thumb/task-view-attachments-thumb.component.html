@@ -29,7 +29,7 @@
     <span class="ant-upload-list-item-actions">
 
       <button nz-button nzType="text" nzSize="small"
-              type="button" title="Preview file" (click)="previewFile(attachment.url, attachment.id, attachment.name)">
+              type="button" title="预览文件" (click)="previewFile(attachment.url, attachment.id, attachment.name)">
           <span nz-icon nzType="eye" nzTheme="outline"></span>
       </button>
 
@@ -38,18 +38,18 @@
               (click)="download(attachment.id, attachment.name)"
               [nzLoading]="downloading"
               class="ant-upload-list-item-card-actions-btn"
-              title="Download file">
+              title="下载文件">
           <span nz-icon nzType="download" nzTheme="outline"></span>
       </button>
 
       <button type="button" nz-button nztype="text" nzSize="small"
               nz-popconfirm
-              [nzOkText]="'Yes'"
-              [nzPopconfirmTitle]="'Are you sure?'"
+              [nzOkText]="'是'"
+              [nzPopconfirmTitle]="'你确定吗?'"
               (nzOnConfirm)="delete(attachment.id)"
               [nzLoading]="deleting"
               class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only "
-              title="Remove file">
+              title="删除文件">
           <span nz-icon nzType="delete" nzTheme="outline"></span>
       </button>
 
@@ -95,7 +95,7 @@
       </ng-container>
       <!-- no preview-->
       <ng-container *ngIf="currentFileType === 'unknown'">
-        <p>The preview for this file type is not available.</p>
+        <p>此文件类型无法预览。</p>
       </ng-container>
     </div>
   </ng-container>
@@ -103,7 +103,7 @@
     <button *ngIf="previewdFileId && previewdFileName" nz-button nzType="default"
             (click)="download(previewdFileId, previewdFileName)" [nzLoading]="downloading">
       <span nz-icon nzType="download" nzTheme="outline"></span>
-      Download
+      下载
     </button>
   </div>
 </nz-modal>

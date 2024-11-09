@@ -33,7 +33,7 @@
   <ul *ngIf="showMenu" nz-menu>
     <li (click)="editGroupName()" nz-menu-item>
       <span nz-icon class="me-2" nzType="edit" nzTheme="outline"></span>
-      Rename
+      重命名
     </li>
     <li *ngIf="isGroupByStatus" nz-submenu [nzTitle]="titleTemplate">
       <ul>
@@ -54,5 +54,5 @@
 </nz-dropdown-menu>
 
 <ng-template #titleTemplate>
-  <span nz-icon class="me-2" nzType="retweet" nzTheme="outline"></span> Change category
+  <span nz-icon class="me-2" nzType="retweet" nzTheme="outline"></span> 更改类别
 </ng-template>

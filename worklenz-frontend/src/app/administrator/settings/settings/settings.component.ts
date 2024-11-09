@@ -33,25 +33,25 @@ export class SettingsComponent implements OnInit {
   private buildNavigation() {
     this.navigation = [];
 
-    this.navigation.push({ label: 'Profile', icon: 'user', url: 'profile' });
-    this.navigation.push({ label: 'Notifications', icon: 'notification', url: 'notifications' });
+    this.navigation.push({ label: '个人资料', icon: 'user', url: 'profile' });
+    this.navigation.push({ label: '通知', icon: 'notification', url: 'notifications' });
 
     if (this.isOwnerOrAdmin()) {
-      this.navigation.push({ label: 'Clients', icon: 'user-switch', url: 'clients' });
-      this.navigation.push({ label: 'Job Titles', icon: 'idcard', url: 'job-titles' });
-      this.navigation.push({ label: 'Labels', icon: 'tags', url: 'labels' });
-      this.navigation.push({ label: 'Categories', icon: 'group', url: 'categories' });
-      this.navigation.push({ label: 'Project Templates', icon: 'file-zip', url: 'project-templates' });
-      this.navigation.push({ label: 'Task Templates', icon: 'profile', url: 'task-templates' });
-      this.navigation.push({ label: 'Team Members', icon: 'team', url: 'team-members' });
+      this.navigation.push({ label: '客户', icon: 'user-switch', url: 'clients' });
+      this.navigation.push({ label: '职位', icon: 'idcard', url: 'job-titles' });
+      this.navigation.push({ label: '标签', icon: 'tags', url: 'labels' });
+      this.navigation.push({ label: '分类', icon: 'group', url: 'categories' });
+      this.navigation.push({ label: '项目模板', icon: 'file-zip', url: 'project-templates' });
+      this.navigation.push({ label: '任务模板', icon: 'profile', url: 'task-templates' });
+      this.navigation.push({ label: '团队成员', icon: 'team', url: 'team-members' });
 
 
-    this.navigation.push({ label: 'Teams', icon: 'bank', url: 'teams' });
+    this.navigation.push({ label: '团队', icon: 'bank', url: 'teams' });
     }
 
     if (!this.profile?.is_google)
-      this.navigation.push({ label: 'Change Password', icon: 'lock', url: 'password' });
+      this.navigation.push({ label: '修改密码', icon: 'lock', url: 'password' });
 
-    this.navigation.push({ label: 'Language & Region', icon: 'global', url: 'language-and-region' });
+    this.navigation.push({ label: '语言&区域', icon: 'global', url: 'language-and-region' });
   }
 }

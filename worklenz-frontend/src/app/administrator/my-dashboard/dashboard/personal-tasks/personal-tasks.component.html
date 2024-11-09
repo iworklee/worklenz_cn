@@ -1,10 +1,10 @@
 <div class="card-top">
   <div class="d-flex">
     <nz-space class="align-items-center">
-      <p *nzSpaceItem nz-typography class="mb-0 card-title">To do list ({{homePageService.personal_tasks.length}})</p>
+      <p *nzSpaceItem nz-typography class="mb-0 card-title">待办事项 ({{homePageService.personal_tasks.length}})</p>
     </nz-space>
     <div class="ms-auto">
-      <button nz-button nz-tooltip nzShape="circle" nzTooltipTitle="Refresh tasks"
+      <button nz-button nz-tooltip nzShape="circle" nzTooltipTitle="刷新任务"
               nzType="default" (click)="getPersonalTasks(true)">
         <span [nzSpin]="homePageService.loadingPersonalTasks" nz-icon nzTheme="outline" nzType="sync"></span>
       </button>
@@ -30,7 +30,7 @@
         <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
       </div>
       <div class="text-center mb-3">
-        <span nz-typography class="no-data-text">No tasks to show.</span>
+        <span nz-typography class="no-data-text">没有任务显示。</span>
       </div>
     </ng-container>
   </nz-skeleton>

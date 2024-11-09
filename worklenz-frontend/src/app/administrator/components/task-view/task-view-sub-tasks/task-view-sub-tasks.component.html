@@ -26,7 +26,7 @@
           <span *ngIf="!data.names?.length">
             <button
               nz-tooltip
-              [nzTooltipTitle]="'No members assigned to this task'"
+              [nzTooltipTitle]="'没有成员分配到此任务'"
               [nzSize]="'small'"
               nz-button
               [nzType]="'dashed'"
@@ -43,15 +43,15 @@
           <div class="actions">
             <nz-space>
               <button (nzOnConfirm)="deleteTask(data.id, data)" *nzSpaceItem
-                      nz-button nz-popconfirm nz-tooltip [nzOkText]="'Yes'"
-                      [nzPopconfirmTitle]="'Are you sure?'" [nzSize]="'small'" [nzTooltipPlacement]="'top'"
-                      [nzTooltipTitle]="'Delete'"
+                      nz-button nz-popconfirm nz-tooltip [nzOkText]="'是的'"
+                      [nzPopconfirmTitle]="'你确定吗？'" [nzSize]="'small'" [nzTooltipPlacement]="'top'"
+                      [nzTooltipTitle]="'删除'"
                       [nzType]="'default'">
                 <span nz-icon [nzType]="'delete'"></span>
               </button>
               <button (click)="editTask(data)" *nzSpaceItem nz-button nz-tooltip nzSize="small"
                       [nzTooltipPlacement]="'top'"
-                      [nzTooltipTitle]="'Edit'"
+                      [nzTooltipTitle]="'编辑'"
                       [nzType]="'default'">
                 <span nz-icon nzType="edit"></span>
               </button>
@@ -73,7 +73,7 @@
             <worklenz-task-list-add-task-input
               [projectId]="service.model.task.project_id"
               [groupId]="groupId"
-              [label]="'Add sub-task'"
+              [label]="'添加子任务'"
               [parentTask]="service.model.task.id || null"
               [subTaskInput]="true"
               #subTaskInput

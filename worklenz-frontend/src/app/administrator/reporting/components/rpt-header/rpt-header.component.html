@@ -6,7 +6,7 @@
         <ng-container *nzSpaceItem>
           <button *ngIf="showArchivedToggle" nz-button [ngClass]="includeArchived ? 'archived' : ''">
             <label nz-checkbox [(ngModel)]="includeArchived" (ngModelChange)="onArchiveChange($event)">
-              Include Archived Projects
+              包含已归档项目
             </label>
           </button>
         </ng-container>
@@ -25,7 +25,7 @@
                     [nzTrigger]="'click'"
                     [nzDropdownMenu]="exportMenu"
                     [nzPlacement]="'bottomRight'">
-              Export
+              导出
               <span nz-icon [nzType]="'down'"></span>
             </button>
             <nz-dropdown-menu #exportMenu="nzDropdownMenu">
@@ -50,14 +50,14 @@
     <li nz-menu-divider></li>
     <li class="px-2 pb-2 pt-2 mt-1 custom-dropdown-range-li">
       <form nz-form>
-        <label>Custom range</label>
+        <label>自定义范围</label>
         <div class="d-block mt-1">
           <nz-range-picker [(ngModel)]="dateRange" [ngModelOptions]="{standalone: true}"
                            class="w-100"></nz-range-picker>
         </div>
         <button class="mt-2 ms-auto d-block" nz-button [nzType]="'primary'" [nzSize]="'small'"
                 (click)="customDateChange()">
-          Filter
+          筛选
         </button>
       </form>
     </li>

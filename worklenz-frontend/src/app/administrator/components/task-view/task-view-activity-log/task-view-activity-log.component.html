@@ -37,12 +37,12 @@
               <div *ngSwitchCase="activityLogTypes.LABEL">
                 <nz-tag [nzColor]="item.label_data?.color_code">{{item.label_data?.name}}</nz-tag>
                 <span nz-icon nzType="arrow-right" nzTheme="outline"></span>&nbsp;&nbsp;
-                <nz-tag [nzColor]="'default'">{{item.log_type === 'create' ? 'ADD' : 'REMOVE'}}</nz-tag>
+                <nz-tag [nzColor]="'default'">{{item.log_type === 'create' ? '添加' : '移除'}}</nz-tag>
               </div>
 
               <!-- if attribute type is status-->
               <div *ngSwitchCase="activityLogTypes.STATUS">
-                <nz-tag *ngIf="item.previous_status" [nzColor]="item.previous_status.color_code ? item.previous_status.color_code : ''">{{item.previous_status.name ? item.previous_status.name : 'None'}}</nz-tag>
+                <nz-tag *ngIf="item.previous_status" [nzColor]="item.previous_status.color_code ? item.previous_status.color_code : ''">{{item.previous_status.name ? item.previous_status.name : '无'}}</nz-tag>
                 <span nz-icon nzType="arrow-right" nzTheme="outline"></span>&nbsp;&nbsp;
                 <nz-tag [nzColor]="item.next_status?.color_code">{{item.next_status?.name}}</nz-tag>
               </div>
@@ -56,9 +56,9 @@
 
               <!-- if attribute type is phase-->
               <div *ngSwitchCase="activityLogTypes.PHASE">
-                <nz-tag [nzColor]="(item.previous_phase) ? item.previous_phase.color_code : ''">{{(item.previous_phase && item.previous_phase.name) ? item.previous_phase.name : 'Unmapped'}}</nz-tag>
+                <nz-tag [nzColor]="(item.previous_phase) ? item.previous_phase.color_code : ''">{{(item.previous_phase && item.previous_phase.name) ? item.previous_phase.name : '未映射'}}</nz-tag>
                 <span nz-icon nzType="arrow-right" nzTheme="outline"></span>&nbsp;&nbsp;
-                <nz-tag [nzColor]="(item.next_phase) ? item.next_phase.color_code : ''">{{(item.next_phase && item.next_phase.name) ? item.next_phase.name : 'Unmapped'}}</nz-tag>
+                <nz-tag [nzColor]="(item.next_phase) ? item.next_phase.color_code : ''">{{(item.next_phase && item.next_phase.name) ? item.next_phase.name : '未映射'}}</nz-tag>
               </div>
 
               <!--if attribute type is description-->
@@ -67,9 +67,9 @@
 
               <!--if attribute type is anything else-->
               <div *ngSwitchDefault>
-                <nz-tag [nzColor]="'default'">{{item.previous || 'None'}}</nz-tag>&nbsp;
+                <nz-tag [nzColor]="'default'">{{item.previous || '无'}}</nz-tag>&nbsp;
                 <span nz-icon nzType="arrow-right" nzTheme="outline"></span>&nbsp;&nbsp;
-                <nz-tag [nzColor]="'default'">{{item.current || 'None'}}</nz-tag>
+                <nz-tag [nzColor]="'default'">{{item.current || '无'}}</nz-tag>
               </div>
 
             </div>
@@ -86,7 +86,7 @@
             </nz-avatar>
           </div>
           <div nz-col nzFlex="auto">
-            <strong>{{logs.name}}</strong> created the task. &nbsp;
+            <strong>{{logs.name}}</strong> 创建了任务. &nbsp;
             <span nz-typography
                   [nzType]="'secondary'"
                   nz-tooltip

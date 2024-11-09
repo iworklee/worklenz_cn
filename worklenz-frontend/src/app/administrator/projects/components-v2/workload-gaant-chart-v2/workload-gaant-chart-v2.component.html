@@ -5,8 +5,8 @@
         <div class="no-data-img-holder mx-auto mb-3">
           <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
         </div>
-        <span nz-typography class="no-data-text">No tasks have been assigned to project members.</span>
-        <a [href]="'/worklenz/projects/'+projectId+'?group=status'" nz-typography>Assign tasks to members.</a>
+        <span nz-typography class="no-data-text">没有分配给项目成员的任务。</span>
+        <a [href]="'/worklenz/projects/'+projectId+'?group=status'" nz-typography>分配任务给成员。</a>
       </div>
     </ng-container>
   </div>
@@ -17,7 +17,7 @@
           <div class="top-left-placeholder" style="background-color: #fafafa">
             <div class="d-flex align-items-center ps-3 h-default">
               <div class="member-details">
-                <span nz-typography class="th-text">Member</span>
+                <span nz-typography class="th-text">成员</span>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
                     <div class="d-block mt-2 mb-0">
                       <span *ngIf="!member.tasks_start_date && !member.tasks_end_date" nz-typography
                             class="m-duration-text">
-                        No start date or end date assigned
+                        没有分配开始日期或结束日期
                       </span>
 
                       <span *ngIf="member.tasks_start_date && member.tasks_end_date" nz-typography
@@ -59,7 +59,7 @@
 
                       <span *ngIf="member.tasks_start_date || member.tasks_end_date" nz-icon nzType="question-circle"
                             nzTheme="outline" nz-tooltip
-                            [nzTooltipTitle]="'Duration of allocated tasks'"></span>
+                            [nzTooltipTitle]="'分配任务的持续时间'"></span>
                     </div>
                   </div>
                 </div>
@@ -84,22 +84,22 @@
                   <ng-template #tooltipMember>
                     <div class="d-block">
                       <nz-badge [nzColor]="'#fff'" [nzText]=""></nz-badge>
-                      <span>Total tasks </span>
+                      <span>总任务 </span>
                       <span>({{member.tasks_stats.total}})</span>
                     </div>
                     <div class="d-block">
                       <nz-badge [nzColor]="'#F8A9A98C'" [nzText]=""></nz-badge>
-                      <span>Tasks without Start date </span>
+                      <span>没有开始日期的任务 </span>
                       <span>({{member.tasks_stats.null_start_dates}})</span>
                     </div>
                     <div class="d-block">
                       <nz-badge [nzColor]="'#F9A0A0BF'" [nzText]=""></nz-badge>
-                      <span>Tasks without End date </span>
+                      <span>没有结束日期的任务 </span>
                       <span>({{member.tasks_stats.null_end_dates}})</span>
                     </div>
                     <div class="d-block">
                       <nz-badge [nzColor]="'#F7A7A7E5'" [nzText]=""></nz-badge>
-                      <span>Tasks without Start and End dates </span>
+                      <span>没有开始和结束日期的任务 </span>
                       <span>({{member.tasks_stats.null_start_end_dates}})</span>
                     </div>
                   </ng-template>
@@ -119,21 +119,21 @@
                     </div>
                     <div class="d-block">
                       <span nz-typography class="m-duration-text">
-                        No tasks assigned yet
+                        尚未分配任务
                       </span>
                     </div>
                   </div>
                 </div>
                 <div class="d-block d-flex align-items-center">
-                  <a [href]="'/worklenz/projects/'+projectId+'?group=status'" nz-typography>Assign Tasks</a>
+                  <a [href]="'/worklenz/projects/'+projectId+'?group=status'" nz-typography>分配任务</a>
                 </div>
               </div>
               <!--              <div *ngIf="member.isExpand" class="single-member-tasks">-->
               <!--                <div *ngIf="innerLoading" class="single-member-task pt-2">-->
-              <!--                  <span nz-typography nzType="secondary" class="ms-1">loading...</span>-->
+              <!--                  <span nz-typography nzType="secondary" class="ms-1">加载中...</span>-->
               <!--                </div>-->
               <!--                <div *ngIf="!member.tasks && !innerLoading" class="single-member-task pt-2">-->
-              <!--                  <span nz-typography nzType="secondary" class="ms-1">No tasks to show</span>-->
+              <!--                  <span nz-typography nzType="secondary" class="ms-1">没有任务显示</span>-->
               <!--                </div>-->
               <!--                <div *ngFor="let task of member.tasks; trackBy: trackById" class="single-member-task">-->
               <!--                  <div class="d-flex align-items-center h-default" (click)="afterViewScrollHandler(task.left)">-->
@@ -223,9 +223,9 @@
   </div>
   <div class="custom-tooltip-element" [style.left]="customToolTipLeft+'px'" [style.top]="customToolTipTop+'px'"
        #custom_tooltip_element>
-    <span *ngIf="customToolTipStartDate && customToolTipEndDate"  class="text-white">From {{customToolTipStartDate | date : 'MMM dd, YYYY'}}
-      to {{customToolTipEndDate | date : 'MMM dd, YYYY'}}</span>
-    <span *ngIf="!customToolTipStartDate && !customToolTipEndDate"  class="text-white">No start & end date</span>
+    <span *ngIf="customToolTipStartDate && customToolTipEndDate"  class="text-white">从 {{customToolTipStartDate | date : 'MMM dd, YYYY'}}
+      到 {{customToolTipEndDate | date : 'MMM dd, YYYY'}}</span>
+    <span *ngIf="!customToolTipStartDate && !customToolTipEndDate"  class="text-white">没有开始和结束日期</span>
   </div>
 </nz-skeleton>
 
@@ -245,4 +245,3 @@
   [projectId]="selectedTask?.project_id || null"
   [taskId]="selectedTask?.id || null"
 ></worklenz-task-view>
-

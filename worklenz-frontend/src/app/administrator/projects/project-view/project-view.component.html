@@ -1,6 +1,5 @@
 <div class="container">
-  <nz-page-header (nzBack)="back()" [nzGhost]="false" class="px-0
-  project-title-header" nzBackIcon>
+  <nz-page-header (nzBack)="back()" [nzGhost]="false" class="px-0 project-title-header" nzBackIcon>
     <nz-page-header-title>
       <nz-skeleton-element *ngIf="loading" nzType="input" [nzActive]="true" [nzSize]="'default'" style="width:200px">
       </nz-skeleton-element>
@@ -25,8 +24,8 @@
             <span nz-icon [nzType]="'calendar'" nz-tooltip style="font-size: 16px;" class="ms-2"
                   [nzTooltipTitle]="titleContent"></span>
              <ng-template #titleContent>
-                <div *ngIf="project.start_date">Start date : {{project.start_date | date: 'mediumDate'}}</div>
-                <div *ngIf="project.end_date">End date : {{project.end_date | date: 'mediumDate'}}</div>
+                <div *ngIf="project.start_date">开始日期 : {{project.start_date | date: 'mediumDate'}}</div>
+                <div *ngIf="project.end_date">结束日期 : {{project.end_date | date: 'mediumDate'}}</div>
               </ng-template>
           </span>
         </div>
@@ -41,7 +40,7 @@
         <div class="project-subtitle-btn">
           <button *ngIf="project.notes && project.notes.length > 60" nz-button nzType="link" class="m-0" nzSize="small"
                   (click)="showDescriptionModel=true">
-            (Show more)
+            (显示更多)
           </button>
         </div>
       </div>
@@ -57,42 +56,42 @@
     <nz-page-header-extra>
       <nz-space>
         <button *nzSpaceItem (click)="refresh();" nz-button nz-tooltip nzShape="circle"
-                [nzTooltipTitle]="'Refresh project'"
+                [nzTooltipTitle]="'刷新项目'"
                 nzType="default">
           <span [nzSpin]="refreshing" nz-icon [nzTheme]="'outline'" nzType="sync"></span>
         </button>
 
         <ng-container *ngIf="ownerOrAdmin">
-          <button *nzSpaceItem (click)="openTemplateCreateDrawer()" nz-button nz-tooltip nzShape="circle" [nzTooltipTitle]="'Save as template'" nzType="default">
+          <button *nzSpaceItem (click)="openTemplateCreateDrawer()" nz-button nz-tooltip nzShape="circle" [nzTooltipTitle]="'保存为模板'" nzType="default">
             <span nz-icon [nzTheme]="'outline'" nzType="save"></span>
           </button>
         </ng-container>
 
         <ng-container>
           <button *nzSpaceItem (click)="openProjectForm()" nz-button nz-tooltip nzShape="circle"
-                  [nzTooltipTitle]="'Project settings'" nzType="default">
+                  [nzTooltipTitle]="'项目设置'" nzType="default">
             <span nz-icon nzTheme="outline" nzType="setting"></span>
           </button>
         </ng-container>
 
         <ng-container>
-          <button *nzSpaceItem nz-button nz-tooltip [nzTooltipTitle]="'Receive a project summary every evening.'"
+          <button *nzSpaceItem nz-button nz-tooltip [nzTooltipTitle]="'每晚接收项目摘要。'"
                   (click)="toggleProjectSubscription()" [nzShape]="'round'" [nzType]="'default'">
             <span nz-icon nzType="bell"
-                  [nzTheme]="project.subscribed ? 'fill' : 'outline'"></span> {{project.subscribed ? 'Unsubscribe' : 'Subscribe'}}
+                  [nzTheme]="project.subscribed ? 'fill' : 'outline'"></span> {{project.subscribed ? '取消订阅' : '订阅'}}
           </button>
         </ng-container>
 
         <ng-container *ngIf="ownerOrAdmin || isProjectManager()">
           <button *nzSpaceItem (click)="openInviteMembersDrawer()" nz-button nzType="primary">
-            <span nz-icon nzType="usergroup-add" nzTheme="outline"></span> Invite
+            <span nz-icon nzType="usergroup-add" nzTheme="outline"></span> 邀请
           </button>
         </ng-container>
 
         <ng-container>
           <nz-button-group *nzSpaceItem>
             <button nz-button nzType="primary" [nzLoading]="creatingTask" (click)="openCreateTaskModal()">
-              <span nz-icon nzType="edit" nzTheme="outline"></span> Create Task
+              <span nz-icon nzType="edit" nzTheme="outline"></span> 创建任务
             </button>
             <button nz-button nz-dropdown [nzDropdownMenu]="menu1" nzPlacement="bottomRight" nzType="primary"
                     *ngIf="ownerOrAdmin">
@@ -102,7 +101,7 @@
           <nz-dropdown-menu #menu1="nzDropdownMenu">
             <ul nz-menu>
               <li nz-menu-item (click)="openImportTasksDrawer()">
-                <span nz-icon nzType="import" nzTheme="outline"></span>&nbsp; Import Tasks
+                <span nz-icon nzType="import" nzTheme="outline"></span>&nbsp; 导入任务
               </li>
             </ul>
           </nz-dropdown-menu>
@@ -132,7 +131,7 @@
         </nz-tab>
         <nz-tab>
           <a *nzTabLink [queryParams]="{ tab: 'updates' }" [routerLink]="['.']" nz-tab-link
-             [queryParamsHandling]="'merge'" class="pe-2">Updates
+             [queryParamsHandling]="'merge'" class="pe-2">更新
             <span *ngIf="enableBadge && selectedTabIndex !== 7" class="updates-badge"></span>
           </a>
         </nz-tab>

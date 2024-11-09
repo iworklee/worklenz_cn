@@ -3,15 +3,14 @@
     <div class="row position-relative home-top-row">
       <div class="home-name-date text-center">
         <nz-space>
-          <h3 *nzSpaceItem nz-typography>Hi {{name}}, {{greetingTime}}!</h3>
+          <h3 *nzSpaceItem nz-typography>你好 {{name}}, {{greetingTime}}!</h3>
         </nz-space>
-        <h4 nz-typography class="mb-0" style="margin-top: 5px;">Today
-          is {{currentDate | date:'EEEE, MMMM d, y'}}</h4>
+        <h4 nz-typography class="mb-0" style="margin-top: 5px;">今天是 {{currentDate | date:'EEEE, MMMM d, y'}}</h4>
       </div>
       <div class="home-top-action w-auto">
         <nz-button-group *ngIf="isOwnerOrAdmin()">
           <button (click)="openProjectForm()" nz-button
-                  [nzType]="'primary'"><span nz-icon nzType="edit" nzTheme="outline"></span>Create Project
+                  [nzType]="'primary'"><span nz-icon nzType="edit" nzTheme="outline"></span>创建项目
           </button>
           <button
             nz-button
@@ -25,7 +24,7 @@
           <ul nz-menu>
             <li nz-menu-item (click)="openTemplateSelector()">
               <span nz-icon nzType="import" nzTheme="outline" class="me-2"></span>
-              Import from template
+              从模板导入
             </li>
           </ul>
         </nz-dropdown-menu>

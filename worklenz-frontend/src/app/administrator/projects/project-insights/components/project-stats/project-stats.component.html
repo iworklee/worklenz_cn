@@ -10,7 +10,7 @@
           </div>
         </nz-col>
         <nz-col [nzSpan]="18">
-          <h5 class="m-0 fw-normal" nz-typography>Completed tasks</h5>
+          <h5 class="m-0 fw-normal" nz-typography>已完成任务</h5>
           <h2 class="m-0" nz-typography>{{overviewData.completed_tasks_count || 0}}</h2>
         </nz-col>
       </nz-row>
@@ -27,7 +27,7 @@
           </div>
         </nz-col>
         <nz-col [nzSpan]="18">
-          <h5 class="m-0 fw-normal" nz-typography>Incomplete tasks</h5>
+          <h5 class="m-0 fw-normal" nz-typography>未完成任务</h5>
           <h2 class="m-0" nz-typography>{{overviewData.todo_tasks_count || 0}}</h2>
         </nz-col>
       </nz-row>
@@ -44,9 +44,9 @@
           </div>
         </nz-col>
         <nz-col [nzSpan]="18">
-          <h5 class="m-0 fw-normal" nz-typography>Overdue tasks
+          <h5 class="m-0 fw-normal" nz-typography>逾期任务
             <span nz-icon nzType="info-circle" nzTheme="outline" [nz-tooltip]="'true'"
-                  [nzTooltipTitle]="'Tasks that are past their due date'"
+                  [nzTooltipTitle]="'已过期的任务'"
                   style="color: #3587ff; font-size: 14px;"></span></h5>
           <h2 class="m-0" nz-typography>{{overviewData.overdue_count || 0}}</h2>
         </nz-col>
@@ -67,9 +67,9 @@
           </div>
         </nz-col>
         <nz-col [nzSpan]="18">
-          <h5 class="m-0 fw-normal" nz-typography>{{checkOverLoggedOrNot(overviewData) ? 'Over' : 'Under'}} logged hours
+          <h5 class="m-0 fw-normal" nz-typography>{{checkOverLoggedOrNot(overviewData) ? '超' : '低于'}}记录的小时数
             <span nz-icon nzType="info-circle" nzTheme="outline" [nz-tooltip]="'true'"
-                  [nzTooltipTitle]="'Difference between task estimation and logged time for tasks.'"
+                  [nzTooltipTitle]="'任务估算时间与记录时间的差异。'"
                   style="color: #3587ff; font-size: 14px;"></span>
           </h5>
           <h2 class="m-0" nz-typography [nz-tooltip]="'true'" [nzTooltipPlacement]="'top'"
@@ -79,12 +79,12 @@
           <ng-template #contentTemplate>
             <table>
               <tr>
-                <td>Total Estimation:</td>
-                <td>&nbsp; {{overviewData.total_estimated_hours_string || 'Oh 0m'}}</td>
+                <td>总估算时间:</td>
+                <td>&nbsp; {{overviewData.total_estimated_hours_string || '0小时0分'}}</td>
               </tr>
               <tr>
-                <td>Total Logged Hours:</td>
-                <td>&nbsp; {{overviewData.total_logged_hours_string || 'Oh 0m'}}</td>
+                <td>总记录时间:</td>
+                <td>&nbsp; {{overviewData.total_logged_hours_string || '0小时0分'}}</td>
               </tr>
             </table>
           </ng-template>

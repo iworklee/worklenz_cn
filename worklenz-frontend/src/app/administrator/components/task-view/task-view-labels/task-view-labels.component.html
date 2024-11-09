@@ -1,5 +1,5 @@
 <nz-form-item *ngIf="service.model.task" class="mb-0" nz-row>
-  <nz-form-label>Labels</nz-form-label>
+  <nz-form-label>标签</nz-form-label>
   <nz-form-control class="task-view-right-max-col">
     <span (nzVisibleChange)="handleLabelsVisibleChange($event)" [nzClickHide]="false"
           [nzDropdownMenu]="labelsDropdown" [nzTrigger]="'click'" nz-dropdown>
@@ -22,9 +22,9 @@
         <ul class="members-dropdown" nz-menu>
           <li class="px-3 py-2">
             <input [(ngModel)]="labelsSearchText" class="border-default-color dropdown-search-input"
-                   nz-input placeholder="Search or create" type="text" (keydown.enter)="createLabel()"  #labelSearchInput>
+                   nz-input placeholder="搜索或创建" type="text" (keydown.enter)="createLabel()"  #labelSearchInput>
             <span *ngIf="!hasFilteredLabel" nz-typography nzType="secondary">
-              Hit enter to create!
+              按回车键创建！
             </span>
           </li>
           <li (nzCheckedChange)="handleLabelChange(item)"

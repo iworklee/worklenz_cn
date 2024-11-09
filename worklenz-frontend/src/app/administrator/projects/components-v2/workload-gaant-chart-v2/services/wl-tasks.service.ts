@@ -36,9 +36,9 @@ export class WlTasksService {
   public readonly GROUP_BY_PRIORITY_VALUE = "priority";
   public readonly GROUP_BY_PHASE_VALUE = "phase";
   public readonly GROUP_BY_OPTIONS: IGroupByOption[] = [
-    {label: "Status", value: this.GROUP_BY_STATUS_VALUE},
-    {label: "Priority", value: this.GROUP_BY_PRIORITY_VALUE},
-    {label: "Phase", value: this.GROUP_BY_PHASE_VALUE}
+    {label: "状态", value: this.GROUP_BY_STATUS_VALUE},
+    {label: "优先级", value: this.GROUP_BY_PRIORITY_VALUE},
+    {label: "阶段", value: this.GROUP_BY_PHASE_VALUE}
   ];
 
   public groups: IWLTaskListGroup[] = [];

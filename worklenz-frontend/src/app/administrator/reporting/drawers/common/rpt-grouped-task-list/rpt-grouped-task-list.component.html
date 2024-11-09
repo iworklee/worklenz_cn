@@ -1,13 +1,13 @@
 <div class="d-flex justify-content-between">
   <nz-input-group style="width: 250px" class="mb-3" [nzSuffix]="suffixIconSearch">
-    <input type="text" nz-input placeholder="Search by name" [(ngModel)]="searchText"/>
+    <input type="text" nz-input placeholder="按名称搜索" [(ngModel)]="searchText"/>
   </nz-input-group>
   <ng-template #suffixIconSearch>
     <span nz-icon [nzType]="'search'"></span>
   </ng-template>
 
   <nz-form-item class="d-flex align-items-center">
-    <nz-form-label>Group by:&nbsp;</nz-form-label>
+    <nz-form-label>分组依据:&nbsp;</nz-form-label>
     <nz-form-control>
       <nz-select [(ngModel)]="groupBy" (ngModelChange)="onGroupByChange()">
         <nz-option *ngFor="let item of groupByOptions" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
@@ -24,16 +24,16 @@
                 [nzScroll]="{ x: '300px' }" #memberTable>
         <thead>
         <tr>
-          <th nzLeft [nzWidth]="'300px'">Task</th>
-          <th *ngIf="!isGroupByStatus()" [nzWidth]="'120px'">Status</th>
-          <th *ngIf="!isGroupByPriority()" [nzWidth]="'120px'">Priority</th>
-          <th *ngIf="!isGroupByPhase()" [nzWidth]="'150px'">Phase</th>
-          <th [nzWidth]="'120px'">Due Date</th>
-          <th [nzWidth]="'120px'">Completed On</th>
-          <th [nzWidth]="'120px'" class="text-center">Days Overdue</th>
-          <th [nzWidth]="'120px'" class="text-center">Estimated Time</th>
-          <th [nzWidth]="'120px'" class="text-center">Logged Time</th>
-          <th [nzWidth]="'180px'" class="text-center">Overlogged Time</th>
+          <th nzLeft [nzWidth]="'300px'">任务</th>
+          <th *ngIf="!isGroupByStatus()" [nzWidth]="'120px'">状态</th>
+          <th *ngIf="!isGroupByPriority()" [nzWidth]="'120px'">优先级</th>
+          <th *ngIf="!isGroupByPhase()" [nzWidth]="'150px'">阶段</th>
+          <th [nzWidth]="'120px'">截止日期</th>
+          <th [nzWidth]="'120px'">完成日期</th>
+          <th [nzWidth]="'120px'" class="text-center">逾期天数</th>
+          <th [nzWidth]="'120px'" class="text-center">预计时间</th>
+          <th [nzWidth]="'120px'" class="text-center">记录时间</th>
+          <th [nzWidth]="'180px'" class="text-center">超时记录</th>
         </tr>
         </thead>
         <tbody>

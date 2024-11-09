@@ -11,8 +11,8 @@
           <p [innerHTML]="item.content"></p>
         </nz-comment-content>
         <nz-comment-action *ngIf="canDelete(item.user_id)">
-          <span nz-popconfirm [nzPopconfirmTitle]="'Are you sure?'" (nzOnConfirm)="deleteComment(item.id)">
-            Delete
+          <span nz-popconfirm [nzPopconfirmTitle]="'你确定吗？'" (nzOnConfirm)="deleteComment(item.id)">
+            删除
           </span>
         </nz-comment-action>
       </nz-comment>

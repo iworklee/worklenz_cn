@@ -69,7 +69,7 @@ export class AccountSetupComponent implements OnInit, AfterViewInit {
       tasks: this.fb.array([], [Validators.minLength(1), Validators.pattern(WHITESPACE_REGEXP)]),
       team_members: this.fb.array([], [Validators.minLength(1), this.validEmail(EMAIL_REGEXP)])
     })
-    this.app.setTitle('Setup your account');
+    this.app.setTitle('设置您的账户');
   }
 
   get profile() {
@@ -77,7 +77,7 @@ export class AccountSetupComponent implements OnInit, AfterViewInit {
   }
 
   get teamSetupPlaceholder() {
-    return `e.g., ${this.profile?.name}'s Team`;
+    return `例如，${this.profile?.name}的团队`;
   }
 
   get projectName() {

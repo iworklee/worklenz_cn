@@ -2,7 +2,7 @@
   <div>
     <nz-segmented (nzValueChange)="changeViewMode($event)" [nzDisabled]="loadingTasks" [nzOptions]="options">
     </nz-segmented>
-    <button (click)="scrollToDate(todayIndex)" [disabled]="loadingTasks" class="ms-3" nz-button nzType="default">Today
+    <button (click)="scrollToDate(todayIndex)" [disabled]="loadingTasks" class="ms-3" nz-button nzType="default">今天
     </button>
 
     <nz-skeleton [nzActive]="true" [nzLoading]="loadingTasks"></nz-skeleton>
@@ -35,13 +35,13 @@
                       style="pointer-events: none;"></span>
                 <ng-template #contentTemplate>
                   <div *ngIf="project.min_date && project.max_date">
-                    <p>Project Timeline</p>
+                    <p>项目时间表</p>
                     <p><span *ngIf="project.min_date && project.max_date">{{project.min_date | date:'mediumDate'}}
                       - {{project.max_date | date:'mediumDate'}}</span>
                     </p>
                   </div>
                   <div *ngIf="!project.min_date && !project.max_date">
-                    No timeline available.
+                    没有可用的时间表。
                   </div>
                 </ng-template>
               </li>

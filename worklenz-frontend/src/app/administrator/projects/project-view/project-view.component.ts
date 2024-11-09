@@ -1,38 +1,38 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {ProjectsApiService} from "@api/projects-api.service";
-import {TasksApiService} from "@api/tasks-api.service";
-import {IProjectTask} from "@interfaces/api-models/project-tasks-view-model";
-import {IProjectViewModel} from "@interfaces/api-models/project-view-model";
-import {ITaskCreateRequest} from "@interfaces/api-models/task-create-request";
-import {EGanttChartTypes} from "@interfaces/gantt-chart";
-import {ITask} from "@interfaces/task";
-import {AppService} from "@services/app.service";
-import {AuthService} from "@services/auth.service";
-import {DEFAULT_TASK_NAME, UNMAPPED} from "@shared/constants";
-import {dispatchTasksChange} from "@shared/events";
-import {SocketEvents} from "@shared/socket-events";
-import {log_error} from "@shared/utils";
-import {Socket} from "ngx-socket-io";
-import {ProjectFormModalComponent} from "../../components/project-form-modal/project-form-modal.component";
-import {ProjectsService} from "../projects.service";
-import {TaskListV2Service} from "../../modules/task-list-v2/task-list-v2.service";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {NotificationSettingsService} from "@services/notification-settings.service";
-import {ILocalSession} from "@interfaces/api-models/local-session";
-import {ProjectPhasesService} from "@services/project-phases.service";
-import {TaskViewService} from "@admin/components/task-view/task-view.service";
-import {ProjectFormService} from '@services/project-form-service.service';
-import {Location} from "@angular/common";
-import {filter} from "rxjs";
-import {ProjectUpdatesDrawerComponent} from "@admin/components/project-updates-drawer/project-updates-drawer.component";
-import {ProjectCommentsApiService} from "@api/project-comments-api.service";
-import {ProjectUpdatesService} from "@services/project-updates.service";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { ProjectsApiService } from "@api/projects-api.service";
+import { TasksApiService } from "@api/tasks-api.service";
+import { IProjectTask } from "@interfaces/api-models/project-tasks-view-model";
+import { IProjectViewModel } from "@interfaces/api-models/project-view-model";
+import { ITaskCreateRequest } from "@interfaces/api-models/task-create-request";
+import { EGanttChartTypes } from "@interfaces/gantt-chart";
+import { ITask } from "@interfaces/task";
+import { AppService } from "@services/app.service";
+import { AuthService } from "@services/auth.service";
+import { DEFAULT_TASK_NAME, UNMAPPED } from "@shared/constants";
+import { dispatchTasksChange } from "@shared/events";
+import { SocketEvents } from "@shared/socket-events";
+import { log_error } from "@shared/utils";
+import { Socket } from "ngx-socket-io";
+import { ProjectFormModalComponent } from "../../components/project-form-modal/project-form-modal.component";
+import { ProjectsService } from "../projects.service";
+import { TaskListV2Service } from "../../modules/task-list-v2/task-list-v2.service";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { NotificationSettingsService } from "@services/notification-settings.service";
+import { ILocalSession } from "@interfaces/api-models/local-session";
+import { ProjectPhasesService } from "@services/project-phases.service";
+import { TaskViewService } from "@admin/components/task-view/task-view.service";
+import { ProjectFormService } from '@services/project-form-service.service';
+import { Location } from "@angular/common";
+import { filter } from "rxjs";
+import { ProjectUpdatesDrawerComponent } from "@admin/components/project-updates-drawer/project-updates-drawer.component";
+import { ProjectCommentsApiService } from "@api/project-comments-api.service";
+import { ProjectUpdatesService } from "@services/project-updates.service";
 import {
   ProjectTemplateCreateDrawerComponent
 } from "@admin/components/project-template-create-drawer/project-template-create-drawer.component";
-import {RoadmapV2Service} from "../../modules/roadmap-v2/project-roadmap-v2-custom/services/roadmap-v2-service.service";
+import { RoadmapV2Service } from "../../modules/roadmap-v2/project-roadmap-v2-custom/services/roadmap-v2-service.service";
 
 @Component({
   selector: 'worklenz-project-view',
@@ -49,17 +49,17 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
 
   readonly ganttType = EGanttChartTypes;
   readonly options = [
-    {label: 'Group', value: 0, icon: 'appstore'},
-    {label: 'List', value: 1, icon: 'bars'}
+    { label: '分组', value: 0, icon: 'appstore' },
+    { label: '列表', value: 1, icon: 'bars' }
   ];
   readonly tabs = [
-    {label: 'Task List', tab: 'tasks-list', index: 0, isPinned: false},
-    {label: 'Board', tab: 'board', index: 1, isPinned: false},
-    {label: 'Workload', tab: 'workload', index: 2, isPinned: false},
-    {label: 'Roadmap', tab: 'roadmap', index: 3, isPinned: false},
-    {label: 'Insights', tab: 'project-insights-member-overview', index: 4, isPinned: false},
-    {label: 'Files', tab: 'all-attachments', index: 5, isPinned: false},
-    {label: 'Members', tab: 'members', index: 6, isPinned: false}
+    { label: '任务列表', tab: 'tasks-list', index: 0, isPinned: false },
+    { label: '看板', tab: 'board', index: 1, isPinned: false },
+    { label: '工作量', tab: 'workload', index: 2, isPinned: false },
+    { label: '路线图', tab: 'roadmap', index: 3, isPinned: false },
+    { label: '洞察', tab: 'project-insights-member-overview', index: 4, isPinned: false },
+    { label: '文件', tab: 'all-attachments', index: 5, isPinned: false },
+    { label: '成员', tab: 'members', index: 6, isPinned: false },
   ];
 
   projects: IProjectViewModel[] = [];
@@ -379,7 +379,7 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
         [],
         {
           relativeTo: this.route,
-          queryParams: {tab: this.route.snapshot.queryParamMap.get('tab')},
+          queryParams: { tab: this.route.snapshot.queryParamMap.get('tab') },
           queryParamsHandling: 'merge', // remove to replace all query params by provided
         });
     } else {
@@ -408,22 +408,22 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
         case 'updates':
           this.selectedTabIndex = 7
           break;
-        default : this.selectedTabIndex = 0;
+        default: this.selectedTabIndex = 0;
       }
     }
   }
 
   private setPinnedTab() {
-    if(this.route.snapshot.queryParamMap.get('pinned_tab')) {
+    if (this.route.snapshot.queryParamMap.get('pinned_tab')) {
 
     }
-    this.tabs.forEach( (tab) => {
+    this.tabs.forEach((tab) => {
       tab.isPinned = false
     });
-    if(this.route.snapshot.queryParamMap.get('tab') === 'board') {
+    if (this.route.snapshot.queryParamMap.get('tab') === 'board') {
       this.selectedTabIndex = 1;
     }
-    if(this.route.snapshot.queryParamMap.get('pinned_tab') === 'board') {
+    if (this.route.snapshot.queryParamMap.get('pinned_tab') === 'board') {
       this.pinnedTabIndex = 1;
     }
     this.tabs[this.pinnedTabIndex].isPinned = true;
@@ -474,11 +474,11 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
   }
 
   async updatePinnedView(pinnedTabIndex: number) {
-    if(!this.projectId) return;
+    if (!this.projectId) return;
     try {
       const res = await this.projectsApiService.updateDefaultView(this.projectId, pinnedTabIndex);
-      if(res.done) {
-        this.tabs.forEach( (tab) => {
+      if (res.done) {
+        this.tabs.forEach((tab) => {
           tab.isPinned = false
         });
 
@@ -486,7 +486,7 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
         this.tabs[pinnedTabIndex].isPinned = true;
 
         this.router.navigate([], {
-          queryParams: { pinned_tab: pinnedTabIndex === 1 ? 'board' : 'tasks-list'},
+          queryParams: { pinned_tab: pinnedTabIndex === 1 ? 'board' : 'tasks-list' },
           queryParamsHandling: 'merge'
         });
 

@@ -37,7 +37,7 @@ export class MemberTaskAddContainerComponent implements OnInit {
     @Input({required: true}) teamMember: IScheduleProjectMember | null = null;
     @Input() projectId: string | null = null;
     @Input() groupId: string | null = null;
-    @Input() label = "Add Task";
+    @Input() label = "添加任务";
 
     @Output() focusChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 

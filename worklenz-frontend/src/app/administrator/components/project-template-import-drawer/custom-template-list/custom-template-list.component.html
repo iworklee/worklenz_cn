@@ -1,7 +1,7 @@
 <div class="w-35">
   <nz-input-group [nzSuffix]="suffixIconSearch">
     <input [(ngModel)]="teamSearchText" (ngModelChange)="detectChanges()" type="text"
-           placeholder="Search by template name" nz-input #searchInput>
+           placeholder="按模板名称搜索" nz-input #searchInput>
   </nz-input-group>
 
   <ng-template #suffixIconSearch>
@@ -23,6 +23,6 @@
   <nz-empty *ngIf="!templateList.length" [nzNotFoundContent]="noCustomTemplates">
   </nz-empty>
   <ng-template #noCustomTemplates>
-    No custom templates are found!
+    未找到自定义模板！
   </ng-template>
 </nz-skeleton>

@@ -77,13 +77,13 @@ export class DashboardComponent implements OnInit {
 
     if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
       // Between 12 PM and 5PM
-      return 'Good afternoon';
+      return '下午好';
     } else if (currentHour >= splitEvening) {
       // Between 5PM and Midnight
-      return 'Good evening';
+      return '晚上好';
     }
     // Between dawn and noon
-    return 'Good morning';
+    return '早上好';
   }
 
   private startGreetingTimer() {

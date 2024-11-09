@@ -1,6 +1,6 @@
 <form [formGroup]="form" [nzLayout]="'vertical'" nz-form>
   <nz-form-item>
-    <nz-form-label [nzSpan]="null">Job Title</nz-form-label>
+    <nz-form-label [nzSpan]="null">职位名称</nz-form-label>
     <nz-form-control [nzSpan]="null">
       <input [formControlName]="'name'" (ngModelChange)="search()" [nzAutocomplete]="jobTitlesAutoComplete"
              nz-input
@@ -9,10 +9,10 @@
 
         <nz-auto-option *ngIf="searching">
           <span class="loading-icon" nz-icon nzType="loading"></span>
-          Loading Data...
+          加载数据中...
         </nz-auto-option>
         <span *ngIf="!searching">
-          <nz-auto-option *ngIf="isNew" nzValue="{{ newTitle }}">+ ADD "{{ newTitle }}"</nz-auto-option>
+          <nz-auto-option *ngIf="isNew" nzValue="{{ newTitle }}">+ 添加 "{{ newTitle }}"</nz-auto-option>
           <nz-auto-option *ngFor="let item of jobTitles" [nzValue]="item.name">{{ item.name }}</nz-auto-option>
         </span>
 

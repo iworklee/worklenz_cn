@@ -7,22 +7,22 @@
       <nz-space>
         <button *nzSpaceItem [nzDropdownMenu]="statusDropDown" [nzClickHide]="false" [nzLoading]="loadingStatuses"
                 [nzTrigger]="'click'" nz-button nz-dropdown>
-          Status
+          状态
           <span nz-icon nzType="caret-down"></span>
         </button>
         <button *nzSpaceItem [nzDropdownMenu]="healthDropDown" [nzClickHide]="false" [nzLoading]="loadingHealths"
                 [nzTrigger]="'click'" nz-button nz-dropdown>
-          Health
+          健康
           <span nz-icon nzType="caret-down"></span>
         </button>
         <button *nzSpaceItem [nzDropdownMenu]="categoryDropDown" [nzClickHide]="false" [nzLoading]="loadingCategories"
                 [nzTrigger]="'click'" nz-button nz-dropdown>
-          Category
+          类别
           <span nz-icon nzType="caret-down"></span>
         </button>
         <button *nzSpaceItem [nzDropdownMenu]="projectManagerDropDown" [nzClickHide]="false" [nzLoading]="loadingProjectManagers"
                 [nzTrigger]="'click'" nz-button nz-dropdown>
-          Project Manager
+          项目经理
           <span nz-icon nzType="caret-down"></span>
         </button>
       </nz-space>
@@ -39,7 +39,7 @@
         [nzDropdownMenu]="columnsDropdown"
         class="columns-toggle me-2"
       >
-        <span nz-icon [nzType]="'more'" [nzTheme]="'outline'"></span> Show fields
+        <span nz-icon [nzType]="'more'" [nzTheme]="'outline'"></span> 显示字段
       </button>
 
       <nz-dropdown-menu #columnsDropdown="nzDropdownMenu">
@@ -55,7 +55,7 @@
         </ul>
       </nz-dropdown-menu>
       <nz-input-group style="width: 250px" [nzSuffix]="suffixIconSearch">
-        <input type="text" nz-input placeholder="Search by name" [(ngModel)]="searchText"
+        <input type="text" nz-input placeholder="按名称搜索" [(ngModel)]="searchText"
                (ngModelChange)="searchProjects()"/>
       </nz-input-group>
     </ng-template>
@@ -78,23 +78,23 @@
       <thead>
       <tr>
         <th nzLeft [nzWidth]="'300px'" style="z-index: 9" [nzSortFn]="true" [nzColumnKey]="'name'" scope="col">
-          Project
+          项目
         </th>
-        <th [nzWidth]="'230px'" scope="col" *ngIf="estimatedActive">Estimated vs Actual</th>
-        <th [nzWidth]="'200px'" scope="col" *ngIf="progressActive">Tasks Progress</th>
-        <th [nzWidth]="'250px'" scope="col" *ngIf="lastActivityActive">Last Activity</th>
-        <th [nzWidth]="'150px'" [nzSortFn]="true" [nzColumnKey]="'status_id'" scope="col" *ngIf="statusActive">Status
+        <th [nzWidth]="'230px'" scope="col" *ngIf="estimatedActive">预计与实际</th>
+        <th [nzWidth]="'200px'" scope="col" *ngIf="progressActive">任务进度</th>
+        <th [nzWidth]="'250px'" scope="col" *ngIf="lastActivityActive">最后活动</th>
+        <th [nzWidth]="'150px'" [nzSortFn]="true" [nzColumnKey]="'status_id'" scope="col" *ngIf="statusActive">状态
         </th>
-        <th [nzWidth]="'275px'" scope="col" *ngIf="startEndDateActive">Start/End dates</th>
-        <th [nzWidth]="'170px'" scope="col" *ngIf="daysLeftActive">Days Left/Overdue</th>
+        <th [nzWidth]="'275px'" scope="col" *ngIf="startEndDateActive">开始/结束日期</th>
+        <th [nzWidth]="'170px'" scope="col" *ngIf="daysLeftActive">剩余天数/逾期</th>
         <th [nzWidth]="'170px'" [nzSortFn]="true" [nzColumnKey]="'project_health'" scope="col" *ngIf="healthActive">
-          Project Health
+          项目健康
         </th>
-        <th [nzWidth]="'150px'" scope="col" *ngIf="categoryActive">Category</th>
-        <th [nzWidth]="'250px'" scope="col" *ngIf="updateActive">Project Update</th>
-        <th [nzWidth]="'160px'" [nzSortFn]="true" [nzColumnKey]="'client'" scope="col" *ngIf="clientActive">Client</th>
-        <th [nzWidth]="'150px'" [nzSortFn]="true" [nzColumnKey]="'team_name'" scope="col" *ngIf="teamActive">Team</th>
-        <th [nzWidth]="'220px'" scope="col">Project Manager</th>
+        <th [nzWidth]="'150px'" scope="col" *ngIf="categoryActive">类别</th>
+        <th [nzWidth]="'250px'" scope="col" *ngIf="updateActive">项目更新</th>
+        <th [nzWidth]="'160px'" [nzSortFn]="true" [nzColumnKey]="'client'" scope="col" *ngIf="clientActive">客户</th>
+        <th [nzWidth]="'150px'" [nzSortFn]="true" [nzColumnKey]="'team_name'" scope="col" *ngIf="teamActive">团队</th>
+        <th [nzWidth]="'220px'" scope="col">项目经理</th>
       </tr>
       </thead>
       <tbody>
@@ -109,7 +109,7 @@
                     [nzTooltipTitle]="data.name">{{data.name}}</span>
             </nz-space>
             <button nz-button nzType="default" class="open-btn">
-              Open
+              打开
               <span nz-icon nzType="arrows-alt" nzTheme="outline"></span>
             </button>
           </div>
@@ -168,10 +168,10 @@
         <td *ngIf="daysLeftActive">
           <ng-container *ngIf="data.days_left !== null; else naTemplate">
             <ng-container [ngSwitch]="data.is_overdue">
-              <span *ngSwitchCase="true" style="color: #f37070;">{{ data.days_left }} days overdue</span>
+              <span *ngSwitchCase="true" style="color: #f37070;">{{ data.days_left }} 天逾期</span>
               <span *ngSwitchCase="false">
-                <span *ngIf="data.is_today" style="color: #80ca79;">Today</span>
-                <span *ngIf="!data.is_today" style="color: #80ca79;"> {{ data.days_left }} days left</span>
+                <span *ngIf="data.is_today" style="color: #80ca79;">今天</span>
+                <span *ngIf="!data.is_today" style="color: #80ca79;"> {{ data.days_left }} 天剩余</span>
               </span>
             </ng-container>
           </ng-container>
@@ -269,7 +269,7 @@
   <ul class="pt-0" style="max-height: 330px; overflow-y: auto;" nz-menu>
     <li class="px-3 py-2 sticky-top bg-white">
       <input [(ngModel)]="categorySearchText" (ngModelChange)="detectChanges()" type="text"
-             placeholder="Search by Category" nz-input #categorySearchInput>
+             placeholder="按类别搜索" nz-input #categorySearchInput>
     </li>
     <li *ngFor="let item of projCategories | searchByName: categorySearchInput.value" class="m-0"
         [(nzChecked)]="item.selected"
@@ -284,7 +284,7 @@
   <ul class="pt-0" style="max-height: 330px; overflow-y: auto;" nz-menu>
     <li class="px-3 py-2 sticky-top bg-white">
       <input [(ngModel)]="projectManagerSearchText" (ngModelChange)="detectChanges()" type="text"
-             placeholder="Search by name" nz-input #projectManagerSearchInput>
+             placeholder="按名称搜索" nz-input #projectManagerSearchInput>
     </li>
     <li *ngFor="let item of projectManagers | searchByName: projectManagerSearchInput.value" class="m-0"
         [(nzChecked)]="item.selected"
@@ -294,4 +294,3 @@
     </li>
   </ul>
 </nz-dropdown-menu>
-

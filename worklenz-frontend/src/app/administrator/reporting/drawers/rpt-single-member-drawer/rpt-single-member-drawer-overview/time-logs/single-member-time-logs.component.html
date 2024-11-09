@@ -5,7 +5,7 @@
         <div class="no-data-img-holder mx-auto mb-3">
           <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
         </div>
-        <span nz-typography class="no-data-text">No time logs to show.</span>
+        <span nz-typography class="no-data-text">没有时间日志可显示。</span>
       </div>
     </ng-container>
     <ng-container *ngFor="let log of timeLogs">
@@ -15,13 +15,13 @@
             <nz-timeline *ngIf="log.logs.length">
               <nz-timeline-item *ngFor="let log_item of log.logs">
               <span
-                nz-typography class="line-28 time-log-text" (click)="openTask(log_item.task_id, log_item.project_id)">Logged <b class="weight-500">{{log_item.time_spent_string}}</b> for <b class="weight-500">{{log_item.task_name}}</b> in <b class="weight-500">{{log_item.project_name}}</b>
+                nz-typography class="line-28 time-log-text" (click)="openTask(log_item.task_id, log_item.project_id)">记录了 <b class="weight-500">{{log_item.time_spent_string}}</b> 用于 <b class="weight-500">{{log_item.task_name}}</b> 在 <b class="weight-500">{{log_item.project_name}}</b>
               <nz-tag class="ms-2 mt-1">{{log_item.task_key}}</nz-tag></span>
               </nz-timeline-item>
             </nz-timeline>
             <ng-container *ngIf="!log.logs.length">
               <div class="d-block mb-4">
-                No time logs to show.
+                没有时间日志可显示。
               </div>
             </ng-container>
           </div>

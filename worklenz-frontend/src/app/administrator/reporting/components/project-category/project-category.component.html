@@ -8,7 +8,7 @@
         {{ project?.category_name }}
       </ng-container>
       <ng-container *ngIf="!project?.category_name">
-        Set Category
+        设置类别
       </ng-container>
     </span>
     <span *nzSpaceItem nz-icon nzType="down" nzTheme="outline"></span>
@@ -25,10 +25,10 @@
       <div>
         <input [(ngModel)]="categorySearchText" class="border-default-color dropdown-search-input"
                (keydown.enter)="create()"
-               nz-input placeholder="Search by name" type="text" #searchInput>
+               nz-input placeholder="按名称搜索" type="text" #searchInput>
       </div>
       <span *ngIf="!hasFilteredCategories" nz-typography nzType="secondary">
-        Hit enter to create!
+        按回车键创建！
       </span>
     </li>
     <li *ngFor="let item of filteredCategories; trackBy: trackById"

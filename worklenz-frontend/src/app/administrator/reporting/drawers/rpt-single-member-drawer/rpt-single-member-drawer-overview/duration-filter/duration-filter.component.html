@@ -19,14 +19,14 @@
     <li nz-menu-divider></li>
     <li class="px-2 pb-2 pt-2 mt-1 custom-dropdown-range-li">
       <form nz-form>
-        <label>Custom range</label>
+        <label>自定义范围</label>
         <div class="d-block mt-1">
           <nz-range-picker [(ngModel)]="service.dateRange" [ngModelOptions]="{standalone: true}"
                            class="w-100"></nz-range-picker>
         </div>
         <button class="mt-2 ms-auto d-block" nz-button [nzType]="'primary'" [nzSize]="'small'"
                 (click)="customDateChange()">
-          Filter
+          筛选
         </button>
       </form>
     </li>

@@ -16,8 +16,8 @@
     >
       <thead>
       <tr>
-        <th [nzSortFn]="true" nzAlign="left" nzColumnKey="name" scope="col">Name</th>
-        <th colspan="2" nzAlign="left" scope="col">Projects</th>
+        <th [nzSortFn]="true" nzAlign="left" nzColumnKey="name" scope="col">名称</th>
+        <th colspan="2" nzAlign="left" scope="col">项目</th>
       </tr>
       </thead>
       <tbody>
@@ -27,7 +27,7 @@
         </td>
         <td (click)="editClient(data.id)" class="cursor-pointer">
           <span nz-typography nzType="secondary">
-            {{(data.projects_count || 0) <= 0 ? 'No projects available' : (data.projects_count || 0) + ' Projects'}}
+            {{(data.projects_count || 0) <= 0 ? '没有可用的项目' : (data.projects_count || 0) + ' 个项目'}}
           </span>
         </td>
         <td class="actions-col">
@@ -35,14 +35,14 @@
             <nz-space>
               <button (click)="editClient(data.id)" *nzSpaceItem nz-button nz-tooltip nzSize="small"
                       nzTooltipPlacement="top"
-                      nzTooltipTitle="Edit"
+                      nzTooltipTitle="编辑"
                       nzType="default">
                 <span nz-icon nzType="edit"></span>
               </button>
               <button (nzOnConfirm)="deleteClient(data.id)" *nzSpaceItem
-                      nz-button nz-popconfirm nz-tooltip nzOkText="Yes"
-                      nzPopconfirmTitle="Are you sure?" nzSize="small" nzTooltipPlacement="top"
-                      nzTooltipTitle="Delete"
+                      nz-button nz-popconfirm nz-tooltip nzOkText="是"
+                      nzPopconfirmTitle="你确定吗？" nzSize="small" nzTooltipPlacement="top"
+                      nzTooltipTitle="删除"
                       nzType="default">
                 <span nz-icon nzType="delete"></span>
               </button>
@@ -58,13 +58,13 @@
     <nz-space>
       <form (ngSubmit)="searchProjects()" *nzSpaceItem [formGroup]="searchForm" [nzLayout]="'vertical'" nz-form>
         <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input [formControlName]="'search'" nz-input placeholder="Search by name" type="text"/>
+          <input [formControlName]="'search'" nz-input placeholder="按名称搜索" type="text"/>
         </nz-input-group>
         <ng-template #suffixIconSearch>
           <span nz-icon nzType="search"></span>
         </ng-template>
       </form>
-      <button (click)="showClientsModal = true" *nzSpaceItem nz-button nzType="primary">Create Client</button>
+      <button (click)="showClientsModal = true" *nzSpaceItem nz-button nzType="primary">创建客户</button>
       <worklenz-toggle-menu-button *nzSpaceItem [key]="menu.CLIENTS_MENU"></worklenz-toggle-menu-button>
     </nz-space>
   </ng-template>
@@ -75,15 +75,15 @@
   [(nzVisible)]="showClientsModal"
   [nzClosable]="true"
   nzPlacement="right"
-  nzTitle="{{action}} Client"
+  nzTitle="{{action}} 客户"
 >
   <ng-container *nzDrawerContent>
     <nz-spin [nzSpinning]="loadingSingleClient">
       <form [formGroup]="form" [nzLayout]="'vertical'" nz-form>
         <nz-form-item>
-          <nz-form-label [nzSpan]="null" nzRequired>Name</nz-form-label>
-          <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a name!">
-            <input [formControlName]="'name'" nz-input placeholder="Name"/>
+          <nz-form-label [nzSpan]="null" nzRequired>名称</nz-form-label>
+          <nz-form-control [nzSpan]="null" nzErrorTip="请输入名称！">
+            <input [formControlName]="'name'" nz-input placeholder="名称"/>
           </nz-form-control>
         </nz-form-item>
       </form>

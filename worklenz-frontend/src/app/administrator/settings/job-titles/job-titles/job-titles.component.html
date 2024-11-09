@@ -16,7 +16,7 @@
     >
       <thead>
       <tr>
-        <th [nzSortFn]="true" colspan="2" nzAlign="left" nzColumnKey="name" scope="col">Name</th>
+        <th [nzSortFn]="true" colspan="2" nzAlign="left" nzColumnKey="name" scope="col">名称</th>
       </tr>
       </thead>
       <tbody>
@@ -26,14 +26,14 @@
           <div class="actions">
             <nz-space>
               <button (click)="edit(data.id)" *nzSpaceItem nz-button nz-tooltip nzSize="small" nzTooltipPlacement="top"
-                      nzTooltipTitle="Edit"
+                      nzTooltipTitle="编辑"
                       nzType="default">
                 <span nz-icon nzType="edit"></span>
               </button>
               <button (nzOnConfirm)="delete(data.id)" *nzSpaceItem
-                      nz-button nz-popconfirm nz-tooltip nzOkText="Yes"
-                      nzPopconfirmTitle="Are you sure?" nzSize="small" nzTooltipPlacement="top"
-                      nzTooltipTitle="Delete"
+                      nz-button nz-popconfirm nz-tooltip nzOkText="是"
+                      nzPopconfirmTitle="你确定吗？" nzSize="small" nzTooltipPlacement="top"
+                      nzTooltipTitle="删除"
                       nzType="default">
                 <span nz-icon nzType="delete"></span>
               </button>
@@ -49,14 +49,14 @@
     <nz-space>
       <form (ngSubmit)="searchJobTitles()" *nzSpaceItem [formGroup]="searchForm" [nzLayout]="'vertical'" nz-form>
         <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input [formControlName]="'search'" nz-input placeholder="Search by name" type="text"/>
+          <input [formControlName]="'search'" nz-input placeholder="按名称搜索" type="text"/>
         </nz-input-group>
         <ng-template #suffixIconSearch>
           <span nz-icon nzType="search"></span>
         </ng-template>
       </form>
       <button (click)="showJobTitlesModal = true" *nzSpaceItem nz-button nzType="primary">
-        {{action}} Job Title
+        {{action}} 职称
       </button>
       <worklenz-toggle-menu-button *nzSpaceItem [key]="menu.JOB_TITLES_MENU"></worklenz-toggle-menu-button>
     </nz-space>
@@ -68,15 +68,15 @@
   [(nzVisible)]="showJobTitlesModal"
   [nzClosable]="true"
   nzPlacement="right"
-  nzTitle="{{action}} Title"
+  nzTitle="{{action}} 职称"
 >
   <ng-container *nzDrawerContent>
     <nz-spin [nzSpinning]="loadingSingle">
       <form (submit)="handleOk()" [formGroup]="form" [nzLayout]="'vertical'" nz-form>
         <nz-form-item>
-          <nz-form-label [nzSpan]="null" nzRequired>Name</nz-form-label>
-          <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a name!">
-            <input [formControlName]="'name'" nz-input placeholder="Name"/>
+          <nz-form-label [nzSpan]="null" nzRequired>名称</nz-form-label>
+          <nz-form-control [nzSpan]="null" nzErrorTip="请输入名称！">
+            <input [formControlName]="'name'" nz-input placeholder="名称"/>
           </nz-form-control>
         </nz-form-item>
         <button nz-button nzBlock nzType="primary" type="submit">{{action}}</button>

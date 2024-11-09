@@ -172,11 +172,11 @@ export class ProjectFormModalComponent {
   }
 
   get title() {
-    return this.projectId ? "Update Project" : "Create Project";
+    return this.projectId ? "更新项目" : "创建项目";
   }
 
   get submitButtonText() {
-    return this.projectId ? "Save Changes" : "Create";
+    return this.projectId ? "保存修改" : "创建";
   }
 
   get activeColorCode() {

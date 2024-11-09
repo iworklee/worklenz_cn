@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   IMyDashboardAllTasksViewModel,
   IMyDashboardMyTask
 } from "@interfaces/api-models/my-dashboard-all-tasks-view-model";
-import {ITaskStatusViewModel} from '@interfaces/api-models/task-status-get-response';
-import {NzSelectComponent} from 'ng-zorro-antd/select';
-import {Subscription} from "rxjs";
-import {ITaskListGroup} from "../../../modules/task-list-v2/interfaces";
-import {HomepageService} from "../../homepage-service.service";
-import {TasksTableComponent} from "./components/tasks-table/tasks-table.component";
+import { ITaskStatusViewModel } from '@interfaces/api-models/task-status-get-response';
+import { NzSelectComponent } from 'ng-zorro-antd/select';
+import { Subscription } from "rxjs";
+import { ITaskListGroup } from "../../../modules/task-list-v2/interfaces";
+import { HomepageService } from "../../homepage-service.service";
+import { TasksTableComponent } from "./components/tasks-table/tasks-table.component";
 
 @Component({
   selector: 'worklenz-my-tasks',
@@ -22,8 +22,8 @@ export class MyTasksComponent implements OnInit, OnDestroy {
   @ViewChild(TasksTableComponent) tasksTable!: TasksTableComponent;
 
   readonly tasksModes = [
-    {label: 'assigned to me', value: 0},
-    {label: 'assigned by me', value: 1}
+    { label: '分配给我', value: 0 },
+    { label: '我分配的', value: 1 }
   ]
 
   selectedTasksMode = this.tasksModes[0].value;

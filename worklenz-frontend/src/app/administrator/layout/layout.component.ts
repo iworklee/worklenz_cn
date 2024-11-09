@@ -107,7 +107,7 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
       void this.getTeams();
       if (this.profile?.team_id === data.teamId) {
         this.modal.confirm({
-          nzTitle: 'You no longer have permissions to stay on this team!',
+          nzTitle: '你不再有该团队的权限！',
           nzContent: data.message,
           nzClosable: false,
           nzCancelDisabled: true,
@@ -134,29 +134,29 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   @HostListener(`document:${EventMenuChanged}`)
   private buildNavigation() {
     const navigation: NavItem[] = [];
-    navigation.push({label: "Home", icon: "appstore", url: 'home', type: NavItemType.MenuItem});
-    navigation.push({label: "Projects", icon: "project", url: 'projects', type: NavItemType.MenuItem});
+    navigation.push({label: "首页", icon: "appstore", url: 'home', type: NavItemType.MenuItem});
+    navigation.push({label: "项目", icon: "project", url: 'projects', type: NavItemType.MenuItem});
 
     if (this.profile?.owner || this.profile?.is_admin) {
-      navigation.push({label: "Schedule", icon: "team", url: 'schedule', type: NavItemType.MenuItem});
-      navigation.push({label: "Reporting", icon: "team", url: 'reporting', type: NavItemType.MenuItem});
+      navigation.push({label: "计划", icon: "team", url: 'schedule', type: NavItemType.MenuItem});
+      navigation.push({label: "报表", icon: "team", url: 'reporting', type: NavItemType.MenuItem});
 
       if (this.menu.isPinned(this.menu.CLIENTS_MENU))
-        navigation.push({label: "Clients", icon: "team", url: 'settings/clients', type: NavItemType.MenuItem});
+        navigation.push({label: "客户", icon: "team", url: 'settings/clients', type: NavItemType.MenuItem});
       if (this.menu.isPinned(this.menu.JOB_TITLES_MENU))
         navigation.push({
-          label: "Job Titles",
+          label: "职位",
           icon: "team",
           url: 'settings/job-titles',
           type: NavItemType.MenuItem
         });
       if (this.menu.isPinned(this.menu.TEAMS_MENU))
-        navigation.push({label: "Teams", icon: "team", url: 'settings/teams', type: NavItemType.MenuItem});
+        navigation.push({label: "团队", icon: "team", url: 'settings/teams', type: NavItemType.MenuItem});
       if (this.menu.isPinned(this.menu.LABELS_MENU))
-        navigation.push({label: "Labels", icon: "tags", url: 'settings/labels', type: NavItemType.MenuItem});
+        navigation.push({label: "标签", icon: "tags", url: 'settings/labels', type: NavItemType.MenuItem});
       if (this.menu.isPinned(this.menu.TASK_STATUSES_MENU))
         navigation.push({
-          label: "Task Statuses",
+          label: "任务状态",
           icon: "team",
           url: 'settings/statuses',
           type: NavItemType.MenuItem

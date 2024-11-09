@@ -10,14 +10,14 @@
       </button>
       <nz-dropdown-menu #taskSearchDropdown="nzDropdownMenu">
         <form (submit)="search()" class="bg-white shadow rounded-4 p-2">
-          <input type="text" nz-input name="search" id="task-search-input" placeholder="Search by name"
+          <input type="text" nz-input name="search" id="task-search-input" placeholder="按名称搜索"
                  [(ngModel)]="taskSearch"/>
           <nz-space class="mt-2">
             <button *nzSpaceItem nz-button [nzSize]="'small'" type="submit" [nzType]="'primary'">
-              Search
+              搜索
             </button>
             <button *nzSpaceItem nz-button [nzSize]="'small'" type="button" (click)="reset()">
-              Reset
+              重置
             </button>
           </nz-space>
         </form>
@@ -26,7 +26,7 @@
       <nz-divider [nzType]="'vertical'"></nz-divider>
 
       <!-- Group by -->
-      <label class="ms-1">Group by: </label>
+      <label class="ms-1">分组依据: </label>
       <button nz-button nz-dropdown [nzTrigger]="'click'" class="ms-1 me-2" [nzDropdownMenu]="groupByMenu"
               [nzClickHide]="true">
         <span nz-tooltip [nzTooltipTitle]="selectedGroup.label">
@@ -46,18 +46,17 @@
 
       <button
         *ngIf="isGroupByStatus() && auth.isOwnerOrAdmin()" nz-button [nzType]="'primary'" class="ms-0" nz-tooltip
-        [nzTooltipTitle]="'Create status'"
+        [nzTooltipTitle]="'创建状态'"
         (click)="createStatusClick()">
-        Add Status
+        添加状态
       </button>
 
       <button
         *ngIf="isGroupByPhase() && auth.isOwnerOrAdmin()" nz-button [nzType]="'primary'" class="ms-0" nz-tooltip
-        [nzTooltipTitle]="phaseLabel + ' settings'"
+        [nzTooltipTitle]="phaseLabel + ' 设置'"
         (click)="phaseSettingsClick()">
-        Add Phase
+        添加阶段
       </button>
-
 
     </div>
   </div>

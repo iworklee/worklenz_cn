@@ -5,9 +5,9 @@
         <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
       </div>
       <div class="text-center mb-3">
-        <div nz-typography class="no-data-text mb-0">No Projects to show.</div>
+        <div nz-typography class="no-data-text mb-0">没有项目可显示。</div>
         <div nz-typography>
-          <a href="worklenz/projects">Go to create projects.</a>
+          <a href="worklenz/projects">前往创建项目。</a>
         </div>
       </div>
     </ng-container>
@@ -38,14 +38,14 @@
                                [nzSrc]="member.avatar_url"
                                class="me-2"></nz-avatar>
                     {{member.name}}
-                    <small *ngIf="member.pending_invitation" nz-typography nzType="danger" class="ms-1">(Pending Invitation)</small>
+                    <small *ngIf="member.pending_invitation" nz-typography nzType="danger" class="ms-1">(邀请待定)</small>
                   </div>
                 </div>
               </ng-container>
               <ng-container *ngIf="!project.members.length">
                 <div class="single-project-member cursor-pointer ps-3 pt-2">
                   <span nz-typography nzType="secondary">
-                  No members assigned to the project.
+                  没有分配给该项目的成员。
                   </span>
                 </div>
               </ng-container>

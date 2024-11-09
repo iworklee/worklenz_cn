@@ -4,19 +4,19 @@
   [nzClosable]="true"
   nzPlacement="right"
   (nzVisibleChange)="onVisibilityChange($event)"
-  nzTitle="{{action}} Status"
+  nzTitle="{{action}} 状态"
 >
   <ng-container *nzDrawerContent>
     <nz-skeleton [nzActive]="true" [nzLoading]="loading">
       <form (submit)="submit()" [formGroup]="form" [nzLayout]="'vertical'" nz-form>
         <nz-form-item>
-          <nz-form-label [nzSpan]="null" nzRequired>Name</nz-form-label>
-          <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a name!">
-            <input [formControlName]="'name'" nz-input placeholder="Name"/>
+          <nz-form-label [nzSpan]="null" nzRequired>名称</nz-form-label>
+          <nz-form-control [nzSpan]="null" nzErrorTip="请输入名称!">
+            <input [formControlName]="'name'" nz-input placeholder="名称"/>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
-          <nz-form-label [nzSpan]="null" nzRequired>Category</nz-form-label>
+          <nz-form-label [nzSpan]="null" nzRequired>类别</nz-form-label>
           <nz-form-control [nzSpan]="null">
             <nz-select [formControlName]="'category_id'">
               <nz-option

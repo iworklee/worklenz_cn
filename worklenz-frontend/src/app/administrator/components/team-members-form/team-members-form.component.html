@@ -16,18 +16,18 @@
             [nzTooltipTitle]="model.email && memberId ? 'Email cannot be changed.' : ''"
             nzRequired
           >
-            Email(s)
+            邮箱
           </nz-form-label>
           <nz-form-control [nzSpan]="null" [nzExtra]="emailsNote">
-            <nz-select nzMode="tags" [nzNotFoundContent]="'Type an email address and hit enter...'"
-                       [nzPlaceHolder]="'Add team members by email'"
+            <nz-select nzMode="tags" [nzNotFoundContent]="'输入邮箱地址并按回车键...'"
+                       [nzPlaceHolder]="'通过邮箱添加团队成员'"
                        [formControlName]="'email'"></nz-select>
           </nz-form-control>
         </nz-form-item>
 
         <ng-template #emailsNote>
           <span nz-typography nzType="secondary" style="font-size: 12px;">
-            Invitees will be added to the team either they accept the invitation or not.
+            无论邀请是否被接受，受邀者都会被添加到团队中。
           </span>
         </ng-template>
 
@@ -35,22 +35,22 @@
           *ngIf="canDisplayTitles()"
           (loadingChange)="jobTitlesLoading = $event"
           [title]="jobTitle"
-          [placeholder]="'Select the job title (Optional)'"
+          [placeholder]="'选择职位（可选）'"
           (titleChange)="jobTitle = $event"
         ></worklenz-job-titles-autocomplete>
 
         <nz-form-item>
           <nz-form-label
             [nzSpan]="null"
-            [nzTooltipTitle]="isOwnAccount() ? 'You cannot change your permissions. Ask owner to update it.' : ''"
+            [nzTooltipTitle]="isOwnAccount() ? '您不能更改自己的权限。请询问所有者以更新它。' : ''"
             nz-tooltip
-            nzRequired>Access
+            nzRequired>访问权限
           </nz-form-label>
           <nz-form-control [nzSpan]="null">
             <!--            <nz-switch [formControlName]="'is_admin'"></nz-switch>-->
             <nz-select [formControlName]="'access'">
-              <nz-option nzValue="admin" nzLabel="Admin"></nz-option>
-              <nz-option nzValue="member" nzLabel="Member"></nz-option>
+              <nz-option nzValue="admin" nzLabel="管理员"></nz-option>
+              <nz-option nzValue="member" nzLabel="成员"></nz-option>
             </nz-select>
           </nz-form-control>
         </nz-form-item>
@@ -62,20 +62,20 @@
                 nz-button nzBlock nzType="dashed"
                 class="mt-2"
                 (click)="resendInvitation()"
-                type="button">Resend invitation
+                type="button">重新发送邀请
         </button>
 
         <p *ngIf="isEditMember() && model.created_at" class="mb-0 mt-3" nz-typography
            nzType="secondary">
           <small nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="{{model.created_at | date: 'medium'}}">
-            Added {{model.created_at | fromNow}}
+            添加于 {{model.created_at | fromNow}}
           </small>
         </p>
         <p *ngIf="isEditMember() && model?.updated_at" class="mb-0"
            nz-typography
            nzType="secondary">
           <small nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="{{model.updated_at | date: 'medium'}}">
-            Updated {{model.updated_at | fromNow}}
+            更新于 {{model.updated_at | fromNow}}
           </small>
         </p>
       </form>

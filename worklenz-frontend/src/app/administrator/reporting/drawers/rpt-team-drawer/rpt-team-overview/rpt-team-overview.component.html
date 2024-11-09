@@ -4,7 +4,7 @@
       <ng-template #statusCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Projects By Status</h4>
+            <h4 class="mb-0">按状态分类的项目</h4>
           </div>
         </div>
       </ng-template>
@@ -14,7 +14,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No projects to show.</span>
+            <span nz-typography class="no-data-text">没有项目显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isStatusChartEmpty" class="d-flex">
@@ -32,35 +32,35 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'All (' + ( model.by_status?.all || 0) +')'"></nz-badge>
+                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'全部 (' + ( model.by_status?.all || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#80ca79'"
-                          [nzText]="'In Progress (' + ( model.by_status?.in_progress || 0) +')'"></nz-badge>
+                          [nzText]="'进行中 (' + ( model.by_status?.in_progress || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#cbc8a1'"
-                          [nzText]="'In Planning (' + ( model.by_status?.in_planning || 0) +')'"></nz-badge>
+                          [nzText]="'计划中 (' + ( model.by_status?.in_planning || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#80ca79'"
-                          [nzText]="'Completed (' + ( model.by_status?.completed || 0) +')'"></nz-badge>
+                          [nzText]="'已完成 (' + ( model.by_status?.completed || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#cbc8a1'"
-                          [nzText]="'Proposed (' + ( model.by_status?.proposed || 0) +')'"></nz-badge>
+                          [nzText]="'提议中 (' + ( model.by_status?.proposed || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#cbc8a1'"
-                          [nzText]="'On Hold (' + ( model.by_status?.on_hold || 0) +')'"></nz-badge>
+                          [nzText]="'暂停中 (' + ( model.by_status?.on_hold || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#cbc8a1'"
-                          [nzText]="'Blocked (' + ( model.by_status?.blocked || 0) +')'"></nz-badge>
+                          [nzText]="'阻塞中 (' + ( model.by_status?.blocked || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#f37070'"
-                          [nzText]="'Cancelled (' + ( model.by_status?.cancelled || 0) +')'"></nz-badge>
+                          [nzText]="'已取消 (' + ( model.by_status?.cancelled || 0) +')'"></nz-badge>
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@
       <ng-template #categoryCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Projects By Category</h4>
+            <h4 class="mb-0">按类别分类的项目</h4>
           </div>
         </div>
       </ng-template>
@@ -83,7 +83,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No projects to show.</span>
+            <span nz-typography class="no-data-text">没有项目显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isCategoryChartEmpty" class="d-flex">
@@ -101,7 +101,7 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'All (' + ( model.by_status?.all || 0) +')'"></nz-badge>
+                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'全部 (' + ( model.by_status?.all || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label" *ngFor="let category of model.by_category?.data">
                 <nz-badge [nzColor]="category.color"></nz-badge>
@@ -119,7 +119,7 @@
       <ng-template #duedateCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Projects By Health</h4>
+            <h4 class="mb-0">按健康状况分类的项目</h4>
           </div>
         </div>
       </ng-template>
@@ -129,7 +129,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No projects to show.</span>
+            <span nz-typography class="no-data-text">没有项目显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isHealthChartEmpty" class="d-flex">
@@ -147,23 +147,23 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'All (' + ( model.by_status?.all || 0) +')'"></nz-badge>
+                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'全部 (' + ( model.by_status?.all || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#a9a9a9'"
-                          [nzText]="'Not Set (' + ( model.by_health?.not_set || 0) +')'"></nz-badge>
+                          [nzText]="'未设置 (' + ( model.by_health?.not_set || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#f37070'"
-                          [nzText]="'Needs Attention (' + ( model.by_health?.needs_attention || 0) +')'"></nz-badge>
+                          [nzText]="'需要关注 (' + ( model.by_health?.needs_attention || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#fbc84c'"
-                          [nzText]="'At Risk (' + ( model.by_health?.at_risk || 0) +')'"></nz-badge>
+                          [nzText]="'有风险 (' + ( model.by_health?.at_risk || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#75c997'"
-                          [nzText]="'Good (' + ( model.by_health?.good || 0) +')'"></nz-badge>
+                          [nzText]="'良好 (' + ( model.by_health?.good || 0) +')'"></nz-badge>
               </li>
             </ul>
           </div>

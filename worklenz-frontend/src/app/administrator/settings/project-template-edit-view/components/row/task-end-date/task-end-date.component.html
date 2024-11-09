@@ -8,7 +8,7 @@
     (ngModelChange)="handleEndDateChange($event, task)"
     [nzFormat]="'MMM dd,yyyy'"
     [nzSuffixIcon]="''"
-    [nzPlaceHolder]="'Set a due date'"
+    [nzPlaceHolder]="'设置截止日期'"
     [nzDisabledDate]="task.start_date | validateMinDate"
     (nzOnOpenChange)="toggleHighlightCls($event, elementDueDate)"
   >

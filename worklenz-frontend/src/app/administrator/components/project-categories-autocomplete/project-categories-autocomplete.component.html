@@ -1,10 +1,10 @@
 <nz-form-item>
-  <nz-form-label [nzSpan]="null">Category</nz-form-label>
+  <nz-form-label [nzSpan]="null">类别</nz-form-label>
   <nz-form-control [ngSwitch]="showCategoryInput" [nzSpan]="null"
-                   [nzExtra]="showCategoryInput ? 'Hit enter to create!' : ''">
+                   [nzExtra]="showCategoryInput ? '按回车键创建!' : ''">
 
     <ng-container *ngSwitchCase="true">
-      <input nz-input placeholder="Enter a name for the category" [(ngModel)]="newCategoryName"
+      <input nz-input placeholder="输入类别名称" [(ngModel)]="newCategoryName"
              (blur)="resetInputMode()"
              [disabled]="creating"
              (keyup.enter)="$event.stopPropagation();create()"
@@ -13,7 +13,7 @@
 
     <ng-container *ngSwitchCase="false">
       <nz-select [(ngModel)]="categoryId" [nzLoading]="loading" (ngModelChange)="onCategoryChange($event)"
-                 [nzPlaceHolder]="'Add a category to the project'"
+                 [nzPlaceHolder]="'为项目添加类别'"
                  [nzDisabled]="disabled"
                  [nzAllowClear]="true">
         <nz-option *ngFor="let item of categories" [nzLabel]="item.name | safeString" [nzValue]="item.id"
@@ -22,7 +22,7 @@
         </nz-option>
         <nz-option [nzValue]="'add'" nzCustomContent>
           <button nz-button [nzType]="'dashed'" nzBlock [nzSize]="'small'" (click)="newCategory()">
-            <span nz-icon [nzType]="'plus'" [nzTheme]="'outline'"></span> New Category
+            <span nz-icon [nzType]="'plus'" [nzTheme]="'outline'"></span> 新类别
           </button>
         </nz-option>
       </nz-select>

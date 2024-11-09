@@ -16,11 +16,11 @@
     >
       <thead>
       <tr>
-        <th nzAlign="left" scope="col">Name</th>
-        <th nzAlign="left" scope="col">Attached Task</th>
-        <th nzAlign="left" scope="col">Size</th>
-        <th nzAlign="left" scope="col">Uploaded by</th>
-        <th colSpan="2" nzAlign="left" scope="col">Uploaded at</th>
+        <th nzAlign="left" scope="col">名称</th>
+        <th nzAlign="left" scope="col">附加任务</th>
+        <th nzAlign="left" scope="col">大小</th>
+        <th nzAlign="left" scope="col">上传者</th>
+        <th colSpan="2" nzAlign="left" scope="col">上传时间</th>
       </tr>
       </thead>
       <tbody>
@@ -31,7 +31,7 @@
         </td>
         <td (click)="open(data.url)" class="cursor-pointer">
           <span *ngIf="data.task_name">[{{data.task_key}}] {{data.task_name}}</span>
-          <span nz-typography nzType="secondary" *ngIf="!data.task_name">Unassigned</span>
+          <span nz-typography nzType="secondary" *ngIf="!data.task_name">未分配</span>
         </td>
         <td (click)="open(data.url)" class="cursor-pointer">{{data.size}}</td>
         <td (click)="open(data.url)" class="cursor-pointer">{{data.uploader_name}}</td>
@@ -44,14 +44,14 @@
             <nz-space>
               <button (nzOnConfirm)="delete(data.id)" *nzSpaceItem
                       nz-button nz-popconfirm nz-tooltip nzOkText="Yes"
-                      nzPopconfirmTitle="Are you sure?" nzSize="small" nzTooltipPlacement="top"
-                      nzTooltipTitle="Delete"
+                      nzPopconfirmTitle="确定删除吗？" nzSize="small" nzTooltipPlacement="top"
+                      nzTooltipTitle="删除"
                       nzType="default">
                 <span nz-icon nzType="delete"></span>
               </button>
               <button (click)="download(data.id, data.name)" *nzSpaceItem nz-button nz-tooltip nzSize="small"
                       nzTooltipPlacement="top"
-                      nzTooltipTitle="Download"
+                      nzTooltipTitle="下载"
                       nzType="default">
                 <span nz-icon nzType="cloud-download" nzTheme="outline"></span>
               </button>
@@ -69,15 +69,15 @@
                 [nzTooltipTitle]="segmentTitleTemplate"></nz-segmented>
 
   <ng-template #segmentTitleTemplate>
-    <p class="mb-0">Coming soon!</p>
-    <p class="mb-0">Switch between list view and thumbnail view.</p>
+    <p class="mb-0">即将推出！</p>
+    <p class="mb-0">在列表视图和缩略图视图之间切换。</p>
   </ng-template>
 </ng-template>
 
 <ng-template #titleTemplate>
   <small nz-typography nzType="secondary">
     <span nz-icon nzType="info-circle" nzTheme="outline"></span>
-    All attachments to tasks in this project will appear here.
+    此项目中所有任务的附件将显示在这里。
   </small>
 </ng-template>
 
@@ -86,7 +86,7 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
-    <span nz-typography class="no-data-text">There are no attachments in the project.</span>
+    <span nz-typography class="no-data-text">项目中没有附件。</span>
   </div>
 </ng-template>
 

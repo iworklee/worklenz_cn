@@ -5,7 +5,7 @@
       (ngModelChange)="handleStartDateChange($event)"
       [nzFormat]="'MMM dd,yyyy'"
       [nzSuffixIcon]="''"
-      [nzPlaceHolder]="'Set start date'"
+      [nzPlaceHolder]="'设置开始日期'"
       [nzDisabledDate]="group.end_date | validateMaxDate"
       nzBorderless
       ></nz-date-picker>
@@ -17,7 +17,7 @@
       (ngModelChange)="handleEndDateChange($event)"
       [nzFormat]="'MMM dd,yyyy'"
       [nzSuffixIcon]="''"
-      [nzPlaceHolder]="'Set end date'"
+      [nzPlaceHolder]="'设置结束日期'"
       [nzDisabledDate]="group.start_date | validateMinDate"
       nzBorderless
       ></nz-date-picker>

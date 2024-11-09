@@ -9,27 +9,27 @@
   <ng-container *nzDrawerContent>
     <nz-spin [nzSpinning]="isLoading()">
       <nz-alert *ngIf="isMember" class="mb-3" [nzType]="'warning'"
-                [nzMessage]="'Members do not have permissions to change settings.'"></nz-alert>
+                [nzMessage]="'成员没有权限更改设置。'"></nz-alert>
 
       <form [formGroup]="form" [nzLayout]="'vertical'" nz-form>
 
         <nz-form-item>
-          <nz-form-label [nzSpan]="null" nzRequired>Name</nz-form-label>
-          <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a name!">
-            <input #projectName [formControlName]="'name'" nz-input placeholder="Name"/>
+          <nz-form-label [nzSpan]="null" nzRequired>名称</nz-form-label>
+          <nz-form-control [nzSpan]="null" nzErrorTip="请输入名称！">
+            <input #projectName [formControlName]="'name'" nz-input placeholder="名称"/>
           </nz-form-control>
         </nz-form-item>
 
         <nz-form-item *ngIf="projectId">
-          <nz-form-label [nzSpan]="null" nzRequired>Key</nz-form-label>
+          <nz-form-label [nzSpan]="null" nzRequired>键</nz-form-label>
           <nz-form-control [nzSpan]="null">
             <input [formControlName]="'key'" [maxlength]="5" (keyup)="onKeyChange()" nz-input
-                   placeholder="Key"/>
+                   placeholder="键"/>
           </nz-form-control>
         </nz-form-item>
 
         <nz-form-item>
-          <nz-form-label class="pb-0" [nzSpan]="null" nzRequired>Project color
+          <nz-form-label class="pb-0" [nzSpan]="null" nzRequired>项目颜色
             <nz-tag [nzColor]="activeColorCode" nz-dropdown [nzDropdownMenu]="menu" [nzDisabled]="isMember"
                     [nzTrigger]="'click'"
                     class="ms-2 rounded-circle cursor-pointer"
@@ -47,17 +47,10 @@
               </li>
             </ul>
           </nz-dropdown-menu>
-          <!--          <nz-form-control [nzSpan]="null">-->
-          <!--            <nz-select [formControlName]="'color_code'">-->
-          <!--              <nz-option *ngFor="let item of colorCodes" [nzLabel]="'Select a color'" [nzValue]="item" nzCustomContent>-->
-          <!--                <nz-tag [nzColor]="item" class="me-1 w-100 rounded-pill" style="height: 16px;">&nbsp;</nz-tag>-->
-          <!--              </nz-option>-->
-          <!--            </nz-select>-->
-          <!--          </nz-form-control>-->
         </nz-form-item>
 
         <nz-form-item>
-          <nz-form-label [nzSpan]="null">Status</nz-form-label>
+          <nz-form-label [nzSpan]="null">状态</nz-form-label>
           <nz-form-control [nzSpan]="null">
             <nz-select [formControlName]="'status_id'" [nzLoading]="loadingProjStatuses">
               <nz-option *ngFor="let item of statuses" [nzLabel]="item.name | safeString" [nzValue]="item.id"
@@ -70,7 +63,7 @@
         </nz-form-item>
 
         <nz-form-item>
-          <nz-form-label [nzSpan]="null">Health</nz-form-label>
+          <nz-form-label [nzSpan]="null">健康</nz-form-label>
           <nz-form-control [nzSpan]="null">
             <nz-select [formControlName]="'health_id'" [nzLoading]="loadingProjHealths">
               <nz-option *ngFor="let item of healths" [nzLabel]="item.name | safeString" [nzValue]="item.id"
@@ -86,30 +79,10 @@
           [disabled]="isMember"
         ></worklenz-project-categories-autocomplete>
 
-        <!--        <nz-form-item>-->
-        <!--          <nz-form-label [nzSpan]="null">Folder</nz-form-label>-->
-        <!--          <nz-form-control [nzSpan]="null">-->
-        <!--            <nz-select [formControlName]="'folder_id'" [nzPlaceHolder]="'Select a folder for the project'"-->
-        <!--                       [nzLoading]="loadingFolders" nzAllowClear>-->
-        <!--              <nz-option *ngFor="let item of folders" [nzLabel]="item.name | safeString" [nzValue]="item.id"-->
-        <!--                         nzCustomContent>-->
-        <!--                {{item.name}}-->
-        <!--              </nz-option>-->
-        <!--              <nz-option [nzValue]="'add'" nzCustomContent>-->
-        <!--                <button nz-button [nzType]="'dashed'" nzBlock [nzSize]="'small'" (click)="newFolder()">-->
-        <!--                  <span nz-icon [nzType]="'plus'" [nzTheme]="'outline'"></span> New folder-->
-        <!--                </button>-->
-        <!--              </nz-option>-->
-        <!--            </nz-select>-->
-        <!--          </nz-form-control>-->
-        <!--        </nz-form-item>-->
-
-        <!--        <worklenz-project-folders-autocomplete></worklenz-project-folders-autocomplete>-->
-
         <nz-form-item>
-          <nz-form-label [nzSpan]="null">Notes</nz-form-label>
+          <nz-form-label [nzSpan]="null">备注</nz-form-label>
           <nz-form-control [nzSpan]="null">
-            <textarea [formControlName]="'notes'" nz-input placeholder="Notes"></textarea>
+            <textarea [formControlName]="'notes'" nz-input placeholder="备注"></textarea>
           </nz-form-control>
         </nz-form-item>
 
@@ -121,7 +94,7 @@
 
         <nz-form-item>
           <nz-form-label [nzSpan]="null">
-            Project Manager
+            项目经理
             <div (nzVisibleChange)="handleOwnerVisibleChange($event)" [nzClickHide]="false"
               [nzDropdownMenu]="projectManagerDropDown"
               [nzTrigger]="'click'" [nzDisabled]="isMember || (!isOwnerOrAdmin() && isProjectManager())"  nz-dropdown>
@@ -151,7 +124,7 @@
                     nz-menu>
                   <li class="px-3 py-2 position-sticky top-0 bg-white z-top">
                     <input class="border-default-color dropdown-search-input"
-                           nz-input placeholder="Search by name" type="text"
+                           nz-input placeholder="按名称搜索" type="text"
                            (input)="getTeamMembers()"
                            #memberSearchInput>
                   </li>
@@ -173,8 +146,7 @@
                       <div style="line-height: 15px;">
                         <span class="d-block mem-name" nz-typography>{{item.name}}</span>
                         <small nz-typography nzType="secondary">
-                          {{item.email}} <small *ngIf="item.pending_invitation" nz-typography nzType="danger">(Pending
-                          Invitation)</small>
+                          {{item.email}} <small *ngIf="item.pending_invitation" nz-typography nzType="danger">(邀请待定)</small>
                         </small>
                       </div>
                     </div>
@@ -191,7 +163,7 @@
           <div nz-row [nzGutter]="8">
             <div nz-col [nzSpan]="12">
               <nz-form-item>
-                <nz-form-label [nzSpan]="null">Start date</nz-form-label>
+                <nz-form-label [nzSpan]="null">开始日期</nz-form-label>
                 <nz-form-control [nzSpan]="null">
                   <nz-date-picker
                     [formControlName]="'start_date'" [nzDisabledDate]="utils.checkForMaxDate(endDate)"
@@ -201,7 +173,7 @@
             </div>
             <div nz-col [nzSpan]="12">
               <nz-form-item>
-                <nz-form-label [nzSpan]="null">End date</nz-form-label>
+                <nz-form-label [nzSpan]="null">结束日期</nz-form-label>
                 <nz-form-control [nzSpan]="null">
                   <nz-date-picker
                     [formControlName]="'end_date'"
@@ -212,28 +184,28 @@
             </div>
             <div nz-col [nzSpan]="24">
               <nz-form-item>
-                <nz-form-label [nzSpan]="null" nzRequired class="star-none">Estimated working days</nz-form-label>
-                <nz-form-control [nzSpan]="null" nzErrorTip="Field cannot be empty!">
+                <nz-form-label [nzSpan]="null" nzRequired class="star-none">预计工作天数</nz-form-label>
+                <nz-form-control [nzSpan]="null" nzErrorTip="字段不能为空！">
                   <nz-input-number [formControlName]="'working_days'" [nzMin]="0" [maxlength]="5" nz-input
-                                   placeholder="Estimated Working Days" class="w-100"></nz-input-number>
+                                   placeholder="预计工作天数" class="w-100"></nz-input-number>
                 </nz-form-control>
               </nz-form-item>
             </div>
             <div nz-col [nzSpan]="24">
               <nz-form-item>
-                <nz-form-label [nzSpan]="null" nzRequired class="star-none">Estimated man days</nz-form-label>
-                <nz-form-control [nzSpan]="null" nzErrorTip="Field cannot be empty!">
+                <nz-form-label [nzSpan]="null" nzRequired class="star-none">预计人天数</nz-form-label>
+                <nz-form-control [nzSpan]="null" nzErrorTip="字段不能为空！">
                   <nz-input-number [formControlName]="'man_days'" [nzMin]="0" [maxlength]="10" nz-input
-                                   placeholder="Estimated Man Days" class="w-100"></nz-input-number>
+                                   placeholder="预计人天数" class="w-100"></nz-input-number>
                 </nz-form-control>
               </nz-form-item>
             </div>
             <div nz-col [nzSpan]="24">
               <nz-form-item>
-                <nz-form-label [nzSpan]="null" nzRequired class="star-none">Hours per day</nz-form-label>
-                <nz-form-control [nzSpan]="null" nzErrorTip="Field cannot be empty!">
+                <nz-form-label [nzSpan]="null" nzRequired class="star-none">每天小时数</nz-form-label>
+                <nz-form-control [nzSpan]="null" nzErrorTip="字段不能为空！">
                   <nz-input-number [formControlName]="'hours_per_day'" [nzMin]="0" [nzMax]="24" [maxlength]="2" nz-input
-                                   placeholder="Hours Per Day" class="w-100"></nz-input-number>
+                                   placeholder="每天小时数" class="w-100"></nz-input-number>
                 </nz-form-control>
               </nz-form-item>
             </div>
@@ -246,8 +218,8 @@
                   type="button">{{submitButtonText}}</button>
           <button (nzOnConfirm)="delete()" *ngIf="projectId" [nzLoading]="deletingProject" class="mt-2"
                   nz-button nz-popconfirm nzDanger
-                  nzBlock [nzOkText]="'ok'" [nzPopconfirmTitle]="'Are you sure?'" [nzType]="'dashed'" type="button">
-            Delete Project
+                  nzBlock [nzOkText]="'确定'" [nzPopconfirmTitle]="'你确定吗？'" [nzType]="'dashed'" type="button">
+            删除项目
           </button>
         </ng-container>
       </form>
@@ -259,7 +231,7 @@
                nzType="secondary">
             <small nz-tooltip [nzTooltipPlacement]="'right'"
                    [nzTooltipTitle]="model.created_at | date: 'medium'">
-              Created {{model.created_at | fromNow}} by {{model.project_owner}}
+              创建于 {{model.created_at | fromNow}} 由 {{model.project_owner}}
             </small>
           </div>
           <div *ngIf="model.updated_at" class="mb-0"
@@ -267,7 +239,7 @@
                nzType="secondary">
             <small nz-tooltip [nzTooltipPlacement]="'right'"
                    [nzTooltipTitle]="model.updated_at | date: 'medium'">
-              Updated {{model.updated_at | fromNow}}
+              更新于 {{model.updated_at | fromNow}}
             </small>
           </div>
         </div>

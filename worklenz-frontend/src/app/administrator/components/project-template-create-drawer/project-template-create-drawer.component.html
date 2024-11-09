@@ -3,77 +3,77 @@
   [nzVisible]="show"
   nzPlacement="right"
   [nzWidth]="420"
-  [nzTitle]="'Save as template'"
+  [nzTitle]="'保存为模板'"
   [nzFooter]="footer"
   (nzOnClose)="close()"
 >
   <div *nzDrawerContent>
     <nz-form-item>
-      <nz-form-label [nzSpan]="24" nzRequired>Template name</nz-form-label>
+      <nz-form-label [nzSpan]="24" nzRequired>模板名称</nz-form-label>
       <nz-form-control [nzSpan]="24">
-        <input nz-input [placeholder]="'Enter template name'" class="w-100"
+        <input nz-input [placeholder]="'输入模板名称'" class="w-100"
                [ngClass]="showErrorText ? 'error-input' : ''" [(ngModel)]="templateName"
                (ngModelChange)="nameChange($event)" #templateNameInput>
-        <span *ngIf="showErrorText" class="empty-error-text">Name cannot be empty!</span>
+        <span *ngIf="showErrorText" class="empty-error-text">名称不能为空！</span>
       </nz-form-control>
     </nz-form-item>
 
     <div class="ant-form-item">
-      <span nz-typography>What should be included in the template from the project ?</span>
+      <span nz-typography>模板中应包含哪些项目内容？</span>
       <div class="ms-2">
         <div class="my-2">
           <label nz-checkbox [nzChecked]="pStatusCheck" [(ngModel)]="pStatusCheck" [nzDisabled]="checked"
-                 (ngModelChange)="projectCheckChange('pStatuses', $event)">Statuses</label>
+                 (ngModelChange)="projectCheckChange('pStatuses', $event)">状态</label>
         </div>
         <div>
           <label nz-checkbox [nzChecked]="pPhasesCheck" [(ngModel)]="pPhasesCheck"
-                 (ngModelChange)="projectCheckChange('pPhases', $event)">Phases</label>
+                 (ngModelChange)="projectCheckChange('pPhases', $event)">阶段</label>
         </div>
         <div class="mt-2">
           <label nz-checkbox [nzChecked]="pLabelsCheck" [(ngModel)]="pLabelsCheck"
-                 (ngModelChange)="projectCheckChange('pLabels', $event)">Labels</label>
+                 (ngModelChange)="projectCheckChange('pLabels', $event)">标签</label>
         </div>
       </div>
     </div>
 
     <div>
-      <span nz-typography>What should be included in tasks ?</span>
+      <span nz-typography>任务中应包含哪些内容？</span>
       <div class="ms-2">
         <div class="my-2">
-          <label nz-checkbox [nzChecked]="true" [(ngModel)]="checked" [nzDisabled]="checked">Name</label>
+          <label nz-checkbox [nzChecked]="true" [(ngModel)]="checked" [nzDisabled]="checked">名称</label>
         </div>
         <div class="mb-2">
-          <label nz-checkbox [nzChecked]="true" [(ngModel)]="checked" [nzDisabled]="checked">Priority</label>
+          <label nz-checkbox [nzChecked]="true" [(ngModel)]="checked" [nzDisabled]="checked">优先级</label>
         </div>
         <div class="mb-2">
           <ng-container *ngIf="pStatusCheck">
             <label nz-checkbox [nzChecked]="tStatusCheck" [(ngModel)]="tStatusCheck"
-                   [nzDisabled]="checked">Status</label>
+                   [nzDisabled]="checked">状态</label>
           </ng-container>
         </div>
         <div class="mb-2">
           <ng-container *ngIf="pPhasesCheck">
-            <label nz-checkbox [nzChecked]="tPhaseCheck" [(ngModel)]="tPhaseCheck">Phase</label>
+            <label nz-checkbox [nzChecked]="tPhaseCheck" [(ngModel)]="tPhaseCheck">阶段</label>
           </ng-container>
         </div>
         <div class="mb-2">
           <ng-container *ngIf="pLabelsCheck">
-            <label nz-checkbox [nzChecked]="tLabelsCheck" [(ngModel)]="tLabelsCheck">Labels</label>
+            <label nz-checkbox [nzChecked]="tLabelsCheck" [(ngModel)]="tLabelsCheck">标签</label>
           </ng-container>
         </div>
         <div class="mb-2">
           <ng-container>
-            <label nz-checkbox [nzChecked]="tEstimationCheck" [(ngModel)]="tEstimationCheck">Time Estimation</label>
+            <label nz-checkbox [nzChecked]="tEstimationCheck" [(ngModel)]="tEstimationCheck">时间估算</label>
           </ng-container>
         </div>
         <div class="mb-2">
           <ng-container>
-            <label nz-checkbox [nzChecked]="tDescriptionCheck" [(ngModel)]="tDescriptionCheck">Description</label>
+            <label nz-checkbox [nzChecked]="tDescriptionCheck" [(ngModel)]="tDescriptionCheck">描述</label>
           </ng-container>
         </div>
         <div>
           <ng-container>
-            <label nz-checkbox [nzChecked]="tSubTasksCheck" [(ngModel)]="tSubTasksCheck">Sub Tasks</label>
+            <label nz-checkbox [nzChecked]="tSubTasksCheck" [(ngModel)]="tSubTasksCheck">子任务</label>
           </ng-container>
         </div>
       </div>
@@ -82,12 +82,12 @@
 
   <ng-template #footer>
     <div style="float: right">
-      <button nz-button style="margin-right: 8px;" (click)="close()">Cancel</button>
+      <button nz-button style="margin-right: 8px;" (click)="close()">取消</button>
       <button nz-button nzType="primary"
               (click)="saveTemplate()"
               [nzLoading]="creating"
               [disabled]="disableBtnActive">
-        Save
+        保存
       </button>
     </div>
   </ng-template>

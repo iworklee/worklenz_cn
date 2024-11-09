@@ -1,10 +1,10 @@
-<worklenz-rpt-header [title]="'Members'" [showDuration]="true" [showArchivedToggle]="true" (isDurationLabelSelected)="isDurationLabelSelected = $event" (exportFile)="export()"></worklenz-rpt-header>
+<worklenz-rpt-header [title]="'成员'" [showDuration]="true" [showArchivedToggle]="true" (isDurationLabelSelected)="isDurationLabelSelected = $event" (exportFile)="export()"></worklenz-rpt-header>
 
 <nz-content>
   <nz-card [nzLoading]="loading" [nzTitle]="''" [nzExtra]="projectsActions">
     <ng-template #projectsActions>
       <nz-input-group style="width: 250px" [nzSuffix]="suffixIconSearch">
-        <input type="text" nz-input placeholder="Search by name" [(ngModel)]="searchText"
+        <input type="text" nz-input placeholder="按名称搜索" [(ngModel)]="searchText"
                (ngModelChange)="searchProjects()"/>
       </nz-input-group>
     </ng-template>
@@ -27,29 +27,29 @@
               (nzQueryParams)="onQueryParamsChange($event)">
       <thead>
       <tr>
-        <th [nzWidth]="'250px'">Member</th>
+        <th [nzWidth]="'250px'">成员</th>
         <!--        <th-->
         <!--          [nzWidth]="'300px'"-->
         <!--          [nzColumnKey]="'team_name'"-->
         <!--          [nzFilterFn]="true"-->
         <!--          [nzCustomFilter]="true"-->
         <!--          scope="col">-->
-        <!--          Teams-->
+        <!--          团队-->
         <!--          <nz-filter-trigger [(nzVisible)]="showTeamsFilter" [nzActive]="filteredByTeam"-->
         <!--                             [nzDropdownMenu]="categoriesDropdown">-->
         <!--            <span nz-icon [nzType]="'filter'" [nzTheme]="'fill'"></span>-->
         <!--          </nz-filter-trigger>-->
         <!--        </th>-->
-        <th [nzWidth]="'220px'" scope="col">Tasks Progress</th>
-        <th class="text-center" [nzWidth]="'100px'" scope="col">Tasks Assigned <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'Tasks assigned on selected date range'" style="color: #0d6efd"></span></th>
-        <th class="text-center" [nzWidth]="'120px'" scope="col">Overdue Tasks <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'Tasks overdue for end of the selected date range'" style="color: #0d6efd"></span></th>
-        <th class="text-center" [nzWidth]="'130px'" scope="col">Completed Tasks <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'Tasks completed on selected date range'" style="color: #0d6efd"></span></th>
-        <th class="text-center" [nzWidth]="'120px'" scope="col">Ongoing Tasks <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'Started tasks not completed yet'" style="color: #0d6efd"></span></th>
+        <th [nzWidth]="'220px'" scope="col">任务进度</th>
+        <th class="text-center" [nzWidth]="'100px'" scope="col">分配任务 <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'在选定日期范围内分配的任务'" style="color: #0d6efd"></span></th>
+        <th class="text-center" [nzWidth]="'120px'" scope="col">逾期任务 <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'在选定日期范围结束时逾期的任务'" style="color: #0d6efd"></span></th>
+        <th class="text-center" [nzWidth]="'130px'" scope="col">已完成任务 <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'在选定日期范围内完成的任务'" style="color: #0d6efd"></span></th>
+        <th class="text-center" [nzWidth]="'120px'" scope="col">进行中任务 <span nz-icon nzType="exclamation-circle" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'已开始但尚未完成的任务'" style="color: #0d6efd"></span></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let data of table.data trackBy: trackBy" class="cursor-pointer" (click)="openMember(data)">
-        <!-- Member -->
+        <!-- 成员 -->
         <td>
           <nz-space class="align-items-center">
             <nz-avatar *nzSpaceItem [nzSrc]="data.avatar_url" [nzText]="data.name | firstCharUpper"
@@ -58,7 +58,7 @@
           </nz-space>
         </td>
 
-        <!-- Tasks -->
+        <!-- 任务 -->
         <td>
           <worklenz-tasks-progress-bar
             *ngIf="(data.tasks_stat.todo || data.tasks_stat.doing || data.tasks_stat.done); else naTemplate"
@@ -93,13 +93,13 @@
   <ul class="pt-0" style="max-height: 330px; overflow-y: auto;" nz-menu>
     <li class="px-3 py-2 sticky-top bg-white">
       <input [(ngModel)]="teamSearchText" (ngModelChange)="detectChanges()" type="text"
-             placeholder="Search by team name" nz-input #teamSearchInput>
+             placeholder="按团队名称搜索" nz-input #teamSearchInput>
     </li>
     <li
       class="m-0 align-items-baseline"
       [(nzChecked)]="selectAllTeams"
       (nzCheckedChange)="selectAllTeamsChecked($event)"
-      nz-checkbox nz-menu-item>Select all
+      nz-checkbox nz-menu-item>全选
     </li>
     <li nz-menu-divider></li>
     <li *ngFor="let item of teams | searchByName: teamSearchInput.value" class="m-0 align-items-baseline"
@@ -115,13 +115,13 @@
   <ul class="pt-0" nz-menu style="max-height: 330px;overflow-y: auto;">
     <li class="px-3 py-2 sticky-top bg-white">
       <input [(ngModel)]="projectSearchText" (ngModelChange)="detectChanges()" type="text"
-             placeholder="Search by project name" nz-input #projectSearchInput>
+             placeholder="按项目名称搜索" nz-input #projectSearchInput>
     </li>
     <li
       class="m-0 align-items-baseline"
       [(nzChecked)]="selectAllProjects"
       (nzCheckedChange)="selectAllProjectsChecked($event)"
-      nz-checkbox nz-menu-item>Select all
+      nz-checkbox nz-menu-item>全选
     </li>
     <li nz-menu-divider></li>
     <li *ngFor="let item of projectsDropdown | searchByName: projectSearchInput.value"

@@ -1,16 +1,16 @@
 <nz-skeleton [nzLoading]="loading" [nzActive]="true" class="d-block">
   <div class="d-flex justify-content-between">
     <nz-input-group style="width: 250px" class="mb-3" [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input placeholder="Search by name" [(ngModel)]="searchText"/>
+      <input type="text" nz-input placeholder="按名称搜索" [(ngModel)]="searchText"/>
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <span nz-icon nzType="search"></span>
     </ng-template>
 
     <nz-form-item class="d-flex align-items-center" *ngIf="!disableProjectsFilter">
-      <nz-form-label>Filter by:&nbsp;</nz-form-label>
+      <nz-form-label>筛选条件:&nbsp;</nz-form-label>
       <nz-form-control>
-        <nz-select [(ngModel)]="projectId" [nzPlaceHolder]="'Select project'"
+        <nz-select [(ngModel)]="projectId" [nzPlaceHolder]="'选择项目'"
                    (ngModelChange)="onProjectChange($event)" [nzAllowClear]="true" style="min-width: 125px;">
           <nz-option *ngFor="let item of projects" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
         </nz-select>
@@ -21,15 +21,15 @@
             [nzHideOnSinglePage]="true" #taskTable [nzScroll]="{ x: '300px' }">
     <thead>
     <tr>
-      <th nzLeft [nzWidth]="'260px'">Task</th>
-      <th [nzWidth]="'200px'">Project</th>
-      <th [nzWidth]="'160px'">Status</th>
-      <th [nzWidth]="'120px'">Priority</th>
-      <th [nzWidth]="'150px'">Due Date</th>
-      <th [nzWidth]="'160px'">Completed Date</th>
-      <th [nzWidth]="'150px'" class="text-center">Estimated Time</th>
-      <th [nzWidth]="'150px'" class="text-center">Logged Time</th>
-      <th [nzWidth]="'150px'" class="text-center">Overlogged Time</th>
+      <th nzLeft [nzWidth]="'260px'">任务</th>
+      <th [nzWidth]="'200px'">项目</th>
+      <th [nzWidth]="'160px'">状态</th>
+      <th [nzWidth]="'120px'">优先级</th>
+      <th [nzWidth]="'150px'">截止日期</th>
+      <th [nzWidth]="'160px'">完成日期</th>
+      <th [nzWidth]="'150px'" class="text-center">预计时间</th>
+      <th [nzWidth]="'150px'" class="text-center">记录时间</th>
+      <th [nzWidth]="'150px'" class="text-center">超时记录</th>
     </tr>
     </thead>
     <tbody>

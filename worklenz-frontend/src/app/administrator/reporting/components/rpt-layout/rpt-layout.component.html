@@ -2,7 +2,7 @@
   <nz-layout>
     <nz-sider [nzCollapsible]="true" [(nzCollapsed)]="collapsed"
               [nzCollapsedWidth]="0" [nzWidth]="160" [nzTrigger]="null">
-      <p nz-typography nz-tooltip [nzTooltipTitle]="'Current Organization'" [ngSwitch]="loading">
+      <p nz-typography nz-tooltip [nzTooltipTitle]="'当前组织'" [ngSwitch]="loading">
         <nz-skeleton-element *ngSwitchCase="true" nzType="input" nzSize="default" [nzActive]="true" style="width:100%">
         </nz-skeleton-element>
 
@@ -12,27 +12,27 @@
       </p>
       <ul nz-menu [nzMode]="'inline'">
         <li nz-menu-item [routerLink]="'overview'"
-            [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" [style.padding-left]="'14px'">Overview
+            [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" [style.padding-left]="'14px'">概览
         </li>
         <li nz-menu-item [routerLink]="'projects'" [routerLinkActive]="['ant-menu-item-selected']"
-            [routerLinkActiveOptions]="{exact:false}" [style.padding-left]="'14px'">Projects
+            [routerLinkActiveOptions]="{exact:false}" [style.padding-left]="'14px'">项目
         </li>
         <li nz-menu-item [routerLink]="'members'" [routerLinkActive]="['ant-menu-item-selected']"
-            [routerLinkActiveOptions]="{exact:false}" [style.padding-left]="'14px'">Members
+            [routerLinkActiveOptions]="{exact:false}" [style.padding-left]="'14px'">成员
         </li>
-        <li nz-submenu [nzTitle]="'Time Reports'" [nzOpen]="opened" class="reporting-submenu">
+        <li nz-submenu [nzTitle]="'时间报告'" [nzOpen]="opened" class="reporting-submenu">
           <ul>
             <li nz-menu-item [routerLink]="'time-sheet-overview'"
-                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26">Overview
+                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26">概览
             </li>
             <li nz-menu-item [routerLink]="'time-sheet-projects'"
-                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26">Projects
+                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26">项目
             </li>
             <li nz-menu-item [routerLink]="'time-sheet-members'"
-                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26">Members
+                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26">成员
             </li>
             <li nz-menu-item [routerLink]="'time-sheet-estimated-vs-actual'"
-                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26 d-block ellipsis-trigger">Estimated vs Actual
+                [routerLinkActive]="['ant-menu-item-selected']" [routerLinkActiveOptions]="{exact:false}" class="ps-26 d-block ellipsis-trigger">预估 vs 实际
             </li>
           </ul>
         </li>

@@ -59,8 +59,8 @@ export class TeamMembersAutocompleteComponent implements OnInit, AfterViewInit {
   @Output() membersChange: EventEmitter<string | string[]> = new EventEmitter<string | string[]>();
   @Input() members: string | string[] = [];
 
-  @Input() placeholder = 'Select Members';
-  @Input() label: string | null = 'Members';
+  @Input() placeholder = '选择成员';
+  @Input() label: string | null = '成员';
 
   @Input() multiple = false;
   @Input() disabled = false;
@@ -80,7 +80,7 @@ export class TeamMembersAutocompleteComponent implements OnInit, AfterViewInit {
   projectId: string | null = null;
 
   get buttonText() {
-    return this.isValueIsAnEmail() ? 'Invite as a member' : 'Invite a new member by email';
+    return this.isValueIsAnEmail() ? '邀请为成员' : '通过电子邮件邀请新成员';
   }
 
   constructor(

@@ -1,5 +1,5 @@
 <nz-form-item *ngIf="service.model.task" class="w-100" nz-row>
-  <nz-form-label [nzSm]="6" [nzXs]="24">Due Date</nz-form-label>
+  <nz-form-label [nzSm]="6" [nzXs]="24">截止日期</nz-form-label>
   <nz-form-control class="ms-custom-def">
     <div *ngIf="service.model.task" class="d-flex align-items-center">
       <div *ngIf="showStartDateSection" class="start-date-section" #std_Section>
@@ -10,7 +10,7 @@
           (keydown.enter)="handleStartDateChange(service.model.task.start_date)"
           [attr.id]="utils.isTestServer() ? 'task-start-date' : null"
           [nzDisabledDate]="utils.checkForMaxDate(service.model.task.end_date)"
-          [nzPlaceHolder]="'Start date'"
+          [nzPlaceHolder]="'开始日期'"
           class="task-form-date-picker start-date-picker-input task-modal-dp"
           nzFormat="MMM dd,yyyy"></nz-date-picker>
         <span class="ms-2 me-2"> - </span>
@@ -27,7 +27,7 @@
           (keydown.enter)="handleEndDateChange(service.model.task.end_date)"
           [attr.id]="utils.isTestServer() ? 'task-end-date' : null"
           [nzDisabledDate]="utils.checkForMinDate(service.model.task.start_date)"
-          [nzPlaceHolder]="'End date'"
+          [nzPlaceHolder]="'结束日期'"
           class="task-form-date-picker task-modal-dp"
           nzFormat="MMM dd,yyyy"></nz-date-picker>
 

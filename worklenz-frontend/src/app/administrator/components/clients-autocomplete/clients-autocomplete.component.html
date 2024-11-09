@@ -1,18 +1,18 @@
 <form [formGroup]="form" [nzLayout]="'vertical'" nz-form>
   <nz-form-item>
-    <nz-form-label [nzSpan]="null" [nzTooltipTitle]="'You can manage clients under settings.'">Client</nz-form-label>
+    <nz-form-label [nzSpan]="null" [nzTooltipTitle]="'您可以在设置中管理客户。'">客户</nz-form-label>
     <nz-form-control [nzSpan]="null">
       <input [formControlName]="'name'" (ngModelChange)="search()" [nzAutocomplete]="jobTitlesAutoComplete"
              nz-input
-             placeholder="Select client"/>
+             placeholder="选择客户"/>
       <nz-autocomplete #jobTitlesAutoComplete>
 
         <nz-auto-option *ngIf="searching">
           <span class="loading-icon" nz-icon nzType="loading"></span>
-          Loading Data...
+          加载数据中...
         </nz-auto-option>
         <span *ngIf="!searching">
-          <nz-auto-option *ngIf="isNew" nzValue="{{ newName }}">+ ADD "{{ newName }}"</nz-auto-option>
+          <nz-auto-option *ngIf="isNew" nzValue="{{ newName }}">+ 添加 "{{ newName }}"</nz-auto-option>
           <nz-auto-option *ngFor="let item of clients" [nzValue]="item.name">{{ item.name }}</nz-auto-option>
         </span>
       </nz-autocomplete>

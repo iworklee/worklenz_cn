@@ -42,7 +42,7 @@
                             nz-menu-item>
                             <span nz-icon class="me-2" nzType="edit"
                                   nzTheme="outline"></span>
-                            Rename
+                            重命名
                           </li>
                           <li nz-submenu [nzTitle]="titleTemplate">
                             <ul>
@@ -68,17 +68,17 @@
                           <li
                             (click)="deleteStatus(column)"
                             nz-tooltip
-                            [nzTooltipTitle]="!!column.tasks.length ? 'Move all tasks to a different section.' : null"
+                            [nzTooltipTitle]="!!column.tasks.length ? '将所有任务移动到不同的部分。' : null"
                             nz-menu-item>
                             <span nz-icon class="me-2" nzType="delete"
-                                  nzTheme="outline"></span> Delete
+                                  nzTheme="outline"></span> 删除
                           </li>
                         </ul>
                       </nz-dropdown-menu>
 
                       <ng-template #titleTemplate>
                         <span nz-icon class="me-1" nzType="retweet"
-                              nzTheme="outline"></span> Change category
+                              nzTheme="outline"></span> 更改类别
                       </ng-template>
 
                       <span *ngSwitchCase="true"
@@ -128,7 +128,7 @@
                       <ng-template #indicatorTemplate><span nz-icon nzType="loading"></span></ng-template>
 
                       <!-- task name -->
-                      <input nz-input #inputValue [placeholder]="'Enter task name'" [(ngModel)]="newTaskName"
+                      <input nz-input #inputValue [placeholder]="'输入任务名称'" [(ngModel)]="newTaskName"
                              (keydown.enter)="onCreateButtonClicked(column.id)" maxlength="100"
                              [disabled]="creatingTask">
                       <small *ngIf="this.newTaskName?.length"
@@ -142,7 +142,7 @@
                         <span nz-typography class="date-text"
                               [class.past-date]="checkForPastDate(createTaskEndDate)"
                               [class.soon-date]="checkForSoonDate(createTaskEndDate)">{{createTaskEndDate | dateFormatter}}</span>
-                          <nz-date-picker [nzPlaceHolder]="'Due date'" [nzSuffixIcon]="''"
+                          <nz-date-picker [nzPlaceHolder]="'到期日期'" [nzSuffixIcon]="''"
                                           [(ngModel)]="createTaskEndDate"
                                           class="kanban-task-create-dp bg-transparent kanban-task-card-due-date"></nz-date-picker>
                         </div>
@@ -156,11 +156,11 @@
 
                       <div>
                         <button nz-button nzType="default" (click)="deleteTask(); resetAll();"
-                                class="add-task-btn-card me-2">Cancel
+                                class="add-task-btn-card me-2">取消
                         </button>
                         <button nz-button nzType="primary" [disabled]="!this.newTaskName?.length"
                                 [nzLoading]="updatingTask" (click)="onCreateButtonClicked(column.id)"
-                                class="add-task-btn-card a-t">Add task
+                                class="add-task-btn-card a-t">添加任务
                         </button>
                       </div>
 
@@ -169,7 +169,7 @@
                             (click)="showTaskCreateInput(column.id, tasksContainer)"
                             class="add-task-btn bottom-task-add" [nzLoading]="createButtons[column.id]">
                       <span nz-icon nzType="plus" nzTheme="outline"></span>
-                      Create Task
+                      创建任务
                     </button>
                   </div>
 
@@ -178,17 +178,17 @@
                       <li (click)="assignToMe()" nz-menu-item>
                         <span class="me-2" nz-icon
                               [nzType]="assigningTasks ? 'loading' : 'user-add'"
-                              nzTheme="outline"></span> Assign to me
+                              nzTheme="outline"></span> 分配给我
                       </li>
                       <li *ngIf="!contextSelectedTask?.is_sub_task" (click)="archiveSelected()" nz-menu-item>
                         <span class="me-2" nz-icon
                               [nzType]="archivingTasks ? 'loading' : 'inbox'"
-                              nzTheme="outline"></span> Archive
+                              nzTheme="outline"></span> 归档
                       </li>
                       <li (click)="deleteSelected()" nz-menu-item>
                         <span class="me-2" nz-icon
                               [nzType]="deletingTasks ? 'loading' : 'delete'"
-                              nzTheme="outline"></span> Delete
+                              nzTheme="outline"></span> 删除
                       </li>
                     </ul>
                   </nz-dropdown-menu>
@@ -202,27 +202,27 @@
                 </div>
                 <span nz-typography
                       class="mx-auto d-block text-center no-data-text"
-                      style="width: max-content;">There are no status groups to show
-                  in this project.</span>
+                      style="width: max-content;">此项目中没有状态组可显示。
+                </span>
                 <div>
                   <span nz-typography
                         class="d-flex align-items-center no-data-text">
-                    Click on
+                    点击
                     <button nz-button nzType="default" nz-tooltip
-                            nzTooltipTitle="Add Status"
+                            nzTooltipTitle="添加状态"
                             (click)="openCreateStatusDrawer()"
                             class="text-plus-btn mx-2">
                       <span style="font-size: 18px;" nz-icon nzType="plus"
                             nzTheme="outline"></span>
                     </button>
-                    button to create status groups as you desire.
+                    按钮以创建您想要的状态组。
                   </span>
                 </div>
               </div>
 
               <div class="new-column-sec" *ngIf="isOwnerOrAdmin() || isProjectManager()">
                 <button nz-button nzType="default" nz-tooltip
-                        nzTooltipTitle="Add Status"
+                        nzTooltipTitle="添加状态"
                         (click)="openCreateStatusDrawer()">
                   <span style="font-size: 18px;" nz-icon nzType="plus"
                         nzTheme="outline"></span>
@@ -265,7 +265,7 @@
   *ngIf="projectId"
   (onCancel)="showStatusModal = false;"
   (onCreateOrUpdate)="onStatusCreateOrUpdate()"
-  action="Create"
+  action="创建"
   [show]="showStatusModal"
   [statusId]="null"
   [projectId]="projectId"></worklenz-status-form>
@@ -274,7 +274,7 @@
   [nzClosable]="true"
   [nzVisible]="showStatusesReplaceModal"
   [nzPlacement]="'right'"
-  [nzTitle]="'You are deleting a status'"
+  [nzTitle]="'您正在删除一个状态'"
   (nzOnClose)="closeStatusesReplaceModal()">
   <ng-container *nzDrawerContent>
     <nz-alert nzType="warning" [nzMessage]="statusDeleteWarning"></nz-alert>
@@ -299,7 +299,7 @@
       <button [nzLoading]="deletingStatus" [disabled]="deletingStatus"
               (click)="moveAndDelete()" class="mt-3" nz-button
               nzType="primary" nzBlock>
-        Done
+        完成
       </button>
     </nz-card>
   </ng-container>

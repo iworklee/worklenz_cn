@@ -559,13 +559,13 @@ export default class ReportingController extends WorklenzControllerBase {
       const sheet = workbook.addWorksheet(item.name.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "_"));
 
       sheet.columns = [
-        { header: "Project", key: "project", width: 30 },
-        { header: "Status", key: "status", width: 20 },
-        { header: "Due Date", key: "due_date", width: 20 },
-        { header: "Overdue", key: "overdue", width: 20 },
-        { header: "Total Allocation", key: "total_allocation", width: 20 },
-        { header: "Over Logged Time", key: "over_logged_time", width: 20 },
-        { header: "Members", key: "members", width: 30 },
+        { header: "项目", key: "project", width: 30 },
+        { header: "状态", key: "status", width: 20 },
+        { header: "截止日期", key: "due_date", width: 20 },
+        { header: "逾期", key: "overdue", width: 20 },
+        { header: "总分配", key: "total_allocation", width: 20 },
+        { header: "超时记录", key: "over_logged_time", width: 20 },
+        { header: "成员", key: "members", width: 30 }
       ];
 
       sheet.getCell("A1").value = `Team : ${item.name}`;
@@ -593,13 +593,13 @@ export default class ReportingController extends WorklenzControllerBase {
       };
 
       sheet.getRow(4).values = [
-        "Project",
-        "Status",
-        "Due Date",
-        "Overdue",
-        "Total Allocation",
-        "Over Logged Time",
-        "Members",
+        "项目",
+        "状态",
+        "截止日期",
+        "逾期",
+        "总分配",
+        "超时记录",
+        "成员",
       ];
       sheet.getRow(4).font = {
         bold: true
@@ -678,9 +678,9 @@ export default class ReportingController extends WorklenzControllerBase {
     const sheet = workbook.addWorksheet("Allocation");
 
     sheet.columns = [
-      { header: "Project", key: "project", width: 25 },
-      { header: "Logged Time", key: "logged_time", width: 20 },
-      { header: "Total", key: "total", width: 25 },
+      { header: "项目", key: "project", width: 25 },
+      { header: "记录时间", key: "logged_time", width: 20 },
+      { header: "总计", key: "total", width: 25 },
     ];
 
     sheet.getCell("A1").value = `Allocation`;

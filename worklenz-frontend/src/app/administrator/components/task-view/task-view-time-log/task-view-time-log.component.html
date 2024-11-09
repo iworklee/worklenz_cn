@@ -2,7 +2,7 @@
 
   <div class="mb-0 fw-normal d-flex align-items-center justify-content-between" style="user-select: text;" nz-typography
        [nzType]="'secondary'">
-    <span>Total Logged: {{totalLogged}}</span>
+    <span>总记录时间: {{totalLogged}}</span>
     <div class="d-flex align-items-center">
       <worklenz-task-timer
         *ngIf="taskId"
@@ -14,7 +14,7 @@
         class="task-view-timer"
       ></worklenz-task-timer>
       <button nz-button nzType="default" nzSize="small" [nzLoading]="exporting" class="ms-1" (click)="exportExcel()">
-        <span nz-icon nzType="download" nzTheme="outline"></span> Export to Excel
+        <span nz-icon nzType="download" nzTheme="outline"></span> 导出到Excel
       </button>
     </div>
   </div>
@@ -25,10 +25,10 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
-    <span nz-typography class="no-data-text">No time logs found in the task.</span>
+    <span nz-typography class="no-data-text">任务中没有找到时间记录。</span>
     <div class="d-block mt-2">
       <button nz-button nzType="primary" (click)="setTodayAsDefault()"><span nz-icon nzType="plus"
-                                                                                 nzTheme="outline"></span>Add Timelog
+                                                                                 nzTheme="outline"></span>添加时间记录
       </button>
     </div>
   </div>
@@ -44,8 +44,8 @@
         </nz-list-item-meta-avatar>
         <nz-list-item-meta-title>
           <span nz-typography style="font-weight: normal" class="item-meta-title">
-            <strong>{{item.user_name}}</strong> logged <strong>{{item.time_spent_text}}</strong> {{item.logged_by_timer ? 'via Timer' : ''}}
-            about {{item.created_at | fromNow}}
+            <strong>{{item.user_name}}</strong> 记录了 <strong>{{item.time_spent_text}}</strong> {{item.logged_by_timer ? '通过计时器' : ''}}
+            大约 {{item.created_at | fromNow}}
           </span>
         </nz-list-item-meta-title>
 
@@ -73,14 +73,14 @@
         <ul class="m-0" nz-list-item-actions>
           <nz-list-item-action>
             <button class="px-0" [disabled]="!!editId" (click)="editRecord(item)" nz-button [nzSize]="'small'"
-                    [nzType]="'link'">Edit
+                    [nzType]="'link'">编辑
             </button>
           </nz-list-item-action>
           <nz-list-item-action>
-            <button class="px-0" [disabled]="!!editId" nz-popconfirm [nzPopconfirmTitle]="'Are you sure?'"
+            <button class="px-0" [disabled]="!!editId" nz-popconfirm [nzPopconfirmTitle]="'确定删除吗?'"
                     (nzOnConfirm)="delete(item.id)"
                     nz-button [nzSize]="'small'"
-                    [nzType]="'link'">Delete
+                    [nzType]="'link'">删除
             </button>
           </nz-list-item-action>
         </ul>
@@ -95,7 +95,7 @@
 
     <nz-form-item *ngIf="!showForm" class="mb-1">
       <button *ngIf="timeLogs.length" nz-button nzType="primary" class="ms-1" (click)="setTodayAsDefault()">
-        <span nz-icon nzType="plus" nzTheme="outline"></span> Add Timelog
+        <span nz-icon nzType="plus" nzTheme="outline"></span> 添加时间记录
       </button>
     </nz-form-item>
 
@@ -103,7 +103,7 @@
       <div nz-row [nzGutter]="24" class="mb-3 position-relative">
         <div nz-col [nzSpan]="6">
           <nz-form-item class="mb-1">
-            <nz-form-label [nzSpan]="null">Date</nz-form-label>
+            <nz-form-label [nzSpan]="null">日期</nz-form-label>
             <nz-form-control [nzSpan]="null">
               <nz-date-picker class="w-100" [formControlName]="'date'" [nzDisabledDate]="disabledDate"></nz-date-picker>
             </nz-form-control>
@@ -111,7 +111,7 @@
         </div>
         <div nz-col [nzSpan]="6">
           <nz-form-item class="mb-1">
-            <nz-form-label [nzSpan]="null">Start time</nz-form-label>
+            <nz-form-label [nzSpan]="null">开始时间</nz-form-label>
             <nz-form-control [nzSpan]="null">
               <nz-time-picker class="w-100" [formControlName]="'start'" [nzFormat]="'HH:mm'"
                               [nzMinuteStep]="1"
@@ -122,7 +122,7 @@
         </div>
         <div nz-col [nzSpan]="6">
           <nz-form-item class="mb-1">
-            <nz-form-label [nzSpan]="null">End time</nz-form-label>
+            <nz-form-label [nzSpan]="null">结束时间</nz-form-label>
             <nz-form-control [nzSpan]="null">
               <nz-time-picker class="w-100" [formControlName]="'end'" [nzFormat]="'HH:mm'"
                               [nzMinuteStep]="1"
@@ -138,10 +138,10 @@
       <div nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="24">
           <nz-form-item class="mb-1">
-            <nz-form-label [nzSpan]="null">Work description</nz-form-label>
-            <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a description!">
+            <nz-form-label [nzSpan]="null">工作描述</nz-form-label>
+            <nz-form-control [nzSpan]="null" nzErrorTip="请输入描述!">
             <textarea [attr.id]="utils.isTestServer() ? 'description' : null" [formControlName]="'description'"
-                      autofocus nz-input placeholder="Add a description"></textarea>
+                      autofocus nz-input placeholder="添加描述"></textarea>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -149,11 +149,11 @@
           <nz-space>
             <button *nzSpaceItem class="mt-2" (click)="setFormVisibility(false)" nz-button nzBlock [nzType]="'default'"
                     type="button">
-              Cancel
+              取消
             </button>
             <button *nzSpaceItem [disabled]="!isValid()" class="mt-2" [nzLoading]="loading" nz-button nzBlock
                     nzType="primary" type="submit">
-              <span nz-icon nzType="field-time" [nzTheme]="'outline'"></span> {{editId ? 'Update' : 'Log time'}}
+              <span nz-icon nzType="field-time" [nzTheme]="'outline'"></span> {{editId ? '更新' : '记录时间'}}
             </button>
           </nz-space>
         </div>

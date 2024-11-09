@@ -35,7 +35,7 @@ export class AddTaskInputComponent {
   @Input() parentTask: string | null = null;
   @Input() groupId: string | null = null;
   @Input({required: true}) chartStart: string | null = null;
-  @Input() label = "Add Task";
+  @Input() label = "添加任务";
 
   @Output() focusChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 

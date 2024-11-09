@@ -1,28 +1,28 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {AppService} from "@services/app.service";
-import {ReportingApiService} from "../../../reporting-api.service";
-import {IRPTProject} from "../../../interfaces";
-import {ReportingDrawersService} from "../../../drawers/reporting-drawers.service";
-import {log_error} from "@shared/utils";
-import {IProjectHealth} from "@interfaces/project-health";
-import {ProjectHealthsApiService} from "@api/project-healths-api.service";
-import {ReportingExportApiService} from "@api/reporting-export-api.service";
-import {AuthService} from "@services/auth.service";
-import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {SocketEvents} from "@shared/socket-events";
-import {Socket} from "ngx-socket-io";
-import {IProjectStatus} from "@interfaces/project-status";
-import {ProjectStatusesApiService} from "@api/project-statuses-api.service";
-import {ProjectUpdatesDrawerComponent} from "@admin/components/project-updates-drawer/project-updates-drawer.component";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {ProjectUpdatesService} from "@services/project-updates.service";
-import {IProjectCategoryViewModel} from "@interfaces/project-category";
-import {ProjectCategoriesApiService} from "@api/project-categories-api.service";
-import {merge} from "rxjs";
-import {ReportingService} from "../../../reporting.service";
-import {AvatarNamesMap} from "@shared/constants";
-import {ProjectManagersApiService} from "@api/project-managers-api.service";
-import {IProjectManager} from "@interfaces/project-manager";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AppService } from "@services/app.service";
+import { ReportingApiService } from "../../../reporting-api.service";
+import { IRPTProject } from "../../../interfaces";
+import { ReportingDrawersService } from "../../../drawers/reporting-drawers.service";
+import { log_error } from "@shared/utils";
+import { IProjectHealth } from "@interfaces/project-health";
+import { ProjectHealthsApiService } from "@api/project-healths-api.service";
+import { ReportingExportApiService } from "@api/reporting-export-api.service";
+import { AuthService } from "@services/auth.service";
+import { NzTableQueryParams } from "ng-zorro-antd/table";
+import { SocketEvents } from "@shared/socket-events";
+import { Socket } from "ngx-socket-io";
+import { IProjectStatus } from "@interfaces/project-status";
+import { ProjectStatusesApiService } from "@api/project-statuses-api.service";
+import { ProjectUpdatesDrawerComponent } from "@admin/components/project-updates-drawer/project-updates-drawer.component";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { ProjectUpdatesService } from "@services/project-updates.service";
+import { IProjectCategoryViewModel } from "@interfaces/project-category";
+import { ProjectCategoriesApiService } from "@api/project-categories-api.service";
+import { merge } from "rxjs";
+import { ReportingService } from "../../../reporting.service";
+import { AvatarNamesMap } from "@shared/constants";
+import { ProjectManagersApiService } from "@api/project-managers-api.service";
+import { IProjectManager } from "@interfaces/project-manager";
 
 @Component({
   selector: 'worklenz-rpt-projects',
@@ -50,7 +50,7 @@ export class RptProjectsComponent implements OnInit, OnDestroy {
   searchText!: string;
 
   // pagination
-  total:number | null = null;
+  total: number | null = null;
   pageSize = 10;
   pageIndex = 1;
   paginationSizes = [5, 10, 15, 20, 50, 100];
@@ -75,17 +75,17 @@ export class RptProjectsComponent implements OnInit, OnDestroy {
   };
 
   public columns: { key: string; label: string; pinned: boolean }[] = [
-    {key: "ESTIMATED_VS_ACTUAL", label: "Estimated vs Actual", pinned: true},
-    {key: "TASKS_PROGRESS", label: "Tasks Progress", pinned: true},
-    {key: "LAST_ACTIVITY", label: "Last Activity", pinned: true},
-    {key: "STATUS", label: "Status", pinned: true},
-    {key: "START_END_DATE", label: "Start/End dates", pinned: true},
-    {key: "DAYS_LEFT_OVERDUE", label: "Days Left/Overdue", pinned: true},
-    {key: "HEALTH", label: "Project Health", pinned: true},
-    {key: "CATEGORY", label: "Category", pinned: true},
-    {key: "UPDATE", label: "Project Update", pinned: true},
-    {key: "CLIENT", label: "Client", pinned: true},
-    {key: "TEAM", label: "Team", pinned: true},
+    { key: "ESTIMATED_VS_ACTUAL", label: "预计 vs 实际", pinned: true },
+    { key: "TASKS_PROGRESS", label: "任务进度", pinned: true },
+    { key: "LAST_ACTIVITY", label: "最后活动", pinned: true },
+    { key: "STATUS", label: "状态", pinned: true },
+    { key: "START_END_DATE", label: "开始/结束日期", pinned: true },
+    { key: "DAYS_LEFT_OVERDUE", label: "剩余天数/逾期", pinned: true },
+    { key: "HEALTH", label: "项目健康", pinned: true },
+    { key: "CATEGORY", label: "分类", pinned: true },
+    { key: "UPDATE", label: "项目更新", pinned: true },
+    { key: "CLIENT", label: "客户", pinned: true },
+    { key: "TEAM", label: "团队", pinned: true }
   ];
 
   statusActive = true;
@@ -195,7 +195,7 @@ export class RptProjectsComponent implements OnInit, OnDestroy {
   }
 
   onQueryParamsChange(params: NzTableQueryParams) {
-    const {pageSize, pageIndex, sort} = params;
+    const { pageSize, pageIndex, sort } = params;
     this.pageIndex = pageIndex;
     this.pageSize = pageSize;
 

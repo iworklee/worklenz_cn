@@ -13,28 +13,28 @@
     </nz-skeleton>
   </div>
   <div class="temp-details px-4 py-3">
-    <h4 nz-typography>Details</h4>
+    <h4 nz-typography>详情</h4>
     <nz-skeleton [nzActive]="true" [nzLoading]="loadingDetails">
 
-      <!--  template preview    -->
+      <!--  模板预览    -->
       <div class="preview">
-        <img [src]="templateDetails.image_url" alt="preview" class="img-fluid">
+        <img [src]="templateDetails.image_url" alt="预览" class="img-fluid">
       </div>
 
-      <!--  template description    -->
+      <!--  模板描述    -->
       <div class="d-flex mb-3">
         <div class="worklenz_key_sec">
-          <span nz-typography>Description</span>
+          <span nz-typography>描述</span>
         </div>
         <div class="worklenz_value_sec">
           <span nz-typography>{{templateDetails.description}}</span>
         </div>
       </div>
 
-      <!--  template phases    -->
+      <!--  模板阶段    -->
       <div class="d-flex mb-4">
         <div class="worklenz_key_sec">
-          <span nz-typography>Phases</span>
+          <span nz-typography>阶段</span>
         </div>
         <div class="worklenz_value_sec">
           <nz-tag *ngFor="let item of templateDetails.phases" [nzColor]="item.color_code"
@@ -42,10 +42,10 @@
         </div>
       </div>
 
-      <!--  template statuses    -->
+      <!--  模板状态    -->
       <div class="d-flex mb-4">
         <div class="worklenz_key_sec">
-          <span nz-typography>Statuses</span>
+          <span nz-typography>状态</span>
         </div>
         <div class="worklenz_value_sec">
           <nz-tag *ngFor="let item of templateDetails.status" [nzColor]="item.color_code"
@@ -53,10 +53,10 @@
         </div>
       </div>
 
-      <!--  template priorities    -->
+      <!--  模板优先级    -->
       <div class="d-flex mb-4">
         <div class="worklenz_key_sec">
-          <span nz-typography>Priorities</span>
+          <span nz-typography>优先级</span>
         </div>
         <div class="worklenz_value_sec">
           <nz-tag *ngFor="let item of templateDetails.priorities" [nzColor]="item.color_code"
@@ -64,10 +64,10 @@
         </div>
       </div>
 
-      <!--  template labels    -->
+      <!--  模板标签    -->
       <div class="d-flex mb-4">
         <div class="worklenz_key_sec">
-          <span nz-typography>Labels</span>
+          <span nz-typography>标签</span>
         </div>
         <div class="worklenz_value_sec">
           <nz-tag *ngFor="let item of templateDetails.labels" [nzColor]="item.color_code"
@@ -76,9 +76,9 @@
       </div>
 
 
-      <!--  template tasks    -->
+      <!--  模板任务    -->
       <div class="worklenz_key_sec">
-        <span nz-typography>Tasks</span>
+        <span nz-typography>任务</span>
       </div>
       <div class="mt-2">
         <ul nz-list>

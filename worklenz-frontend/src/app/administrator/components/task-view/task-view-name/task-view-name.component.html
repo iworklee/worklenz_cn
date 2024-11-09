@@ -10,7 +10,7 @@
           <input
             nz-input
             [(ngModel)]="service.model.task.name"
-            placeholder="Type your task"
+            placeholder="输入你的任务"
             class="task-name-input"
             [nzBorderless]="true"
             (focus)="addFocusCls(input)"
@@ -31,12 +31,12 @@
   </div>
   <div class="pe-0" nz-col [nzSpan]="5">
     <nz-form-item class="mb-0">
-      <nz-form-control class="text-right mt-1" [nzErrorTip]="'Status is required!'">
+      <nz-form-control class="text-right mt-1" [nzErrorTip]="'状态是必需的!'">
         <nz-select [nzDropdownMatchSelectWidth]="false" [style.background-color]="service.model.task.status_color"
                    [(ngModel)]="service.model.task.status_id"
                    (ngModelChange)="handleStatusChange($event, service.model.task)"
                    class="w-auto rounded-pill custom-status-pill custom-select"
-                   [nzPlaceHolder]="'Select status'">
+                   [nzPlaceHolder]="'选择状态'">
           <nz-option *ngFor="let item of service.model.statuses" [nzValue]="item.id"
                      [nzLabel]="item.name | safeString"></nz-option>
         </nz-select>

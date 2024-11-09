@@ -5,11 +5,11 @@
     </div>
   </div>
   <div *ngIf="isEditing" class="name-editor">
-    <input nz-input placeholder="Enter task name" [(ngModel)]="task.task_name" (blur)="validateName()"
+    <input nz-input placeholder="输入任务名称" [(ngModel)]="task.task_name" (blur)="validateName()"
            (keydown.enter)="validateName()" type="text" #input/>
   </div>
   <button *ngIf="!isEditing" nz-tooltip nz-button (click)="openTask.emit(task)" class="task-open-btn px-1" [nzType]="'text'">
     <span nz-icon [nzType]="'expand-alt'" [nzTheme]="'outline'"></span>
-    Open
+    打开
   </button>
 </div>

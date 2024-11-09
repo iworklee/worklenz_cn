@@ -1,19 +1,19 @@
 <form (submit)="proceedRegistration()" [formGroup]="form" class="login-form" nz-form>
 
-  <h5 nz-typography>Pick a name for your team</h5>
+  <h5 nz-typography>为您的团队选择一个名称</h5>
 
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your Team name!">
+    <nz-form-control nzErrorTip="请输入您的团队名称！">
       <nz-input-group nzSize="large">
-        <input autofocus formControlName="team_name" nz-input placeholder="E.g., Game Devs" type="text"/>
+        <input autofocus formControlName="team_name" nz-input placeholder="例如，游戏开发者" type="text"/>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
 
-  <button [nzLoading]="loading" [nzType]="'primary'" nz-button nzBlock nzSize="large">Continue</button>
+  <button [nzLoading]="loading" [nzType]="'primary'" nz-button nzBlock nzSize="large">继续</button>
   <button (click)="back.emit()" *ngIf="showBackButton" [nzLoading]="loading" [nzType]="'default'" class="mt-2" nz-button
           nzBlock nzSize="large">
     <i [nzType]="'left'" nz-icon></i>
-    Go Back
+    返回
   </button>
 </form>

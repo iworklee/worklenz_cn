@@ -1,6 +1,6 @@
 <nz-skeleton [nzLoading]="loading" [nzActive]="true">
   <nz-input-group style="width: 250px" class="mb-3" [nzSuffix]="suffixIconSearch">
-    <input type="text" nz-input placeholder="Search by name" [(ngModel)]="searchText"/>
+    <input type="text" nz-input placeholder="按姓名搜索" [(ngModel)]="searchText"/>
   </nz-input-group>
   <ng-template #suffixIconSearch>
     <span nz-icon nzType="search"></span>
@@ -11,13 +11,13 @@
             #membersTable>
     <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th class="text-center">Projects</th>
-      <th class="text-center">Tasks</th>
-      <th class="text-center">Overdue Tasks</th>
-      <th class="text-center">Completed Tasks</th>
-      <th class="text-center">Ongoing Tasks</th>
+      <th>姓名</th>
+      <th>邮箱</th>
+      <th class="text-center">项目</th>
+      <th class="text-center">任务</th>
+      <th class="text-center">逾期任务</th>
+      <th class="text-center">已完成任务</th>
+      <th class="text-center">进行中任务</th>
     </tr>
     </thead>
     <tbody>

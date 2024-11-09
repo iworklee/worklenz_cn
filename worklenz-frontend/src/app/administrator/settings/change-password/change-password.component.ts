@@ -26,7 +26,7 @@ export class ChangePasswordComponent {
     private fb: FormBuilder,
     private app: AppService
   ) {
-    this.app.setTitle("Change Password");
+    this.app.setTitle("修改密码");
 
     this.passwordChangeForm = this.fb.group({
         password: [null, [Validators.required]],

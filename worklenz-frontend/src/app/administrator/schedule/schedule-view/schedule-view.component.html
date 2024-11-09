@@ -6,7 +6,7 @@
     <div class="right-column ms-auto">
       <nz-space>
         <div *nzSpaceItem>
-          <button nz-button nzType="default" (click)="scrollToday()">Today</button>
+          <button nz-button nzType="default" (click)="scrollToday()">今天</button>
           <nz-divider nzType="vertical" class="me-0"></nz-divider>
         </div>
         <div *nzSpaceItem>
@@ -16,7 +16,7 @@
         </div>
         <div *nzSpaceItem>
           <nz-date-picker [nzMode]="dateModeModel === 0 ? 'week' : 'month'" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"
-                          [nzFormat]="dateModeModel === 0 ? 'YYYY - \'Week\' ww' : 'YYYY - MMM'" [nzDisabledDate]="disabledDate"></nz-date-picker>
+                          [nzFormat]="dateModeModel === 0 ? 'YYYY - \'周\' ww' : 'YYYY - MMM'" [nzDisabledDate]="disabledDate"></nz-date-picker>
 
         </div>
       </nz-space>
@@ -33,4 +33,3 @@
   <worklenz-projects-schedule></worklenz-projects-schedule>
 
 </div>
-

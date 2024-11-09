@@ -1,34 +1,20 @@
 <div class="container">
   <nz-page-header [nzGhost]="false" class="px-0">
-    <nz-page-header-title>{{ total || 0 }} Project{{total > 1 ? 's' : ''}}</nz-page-header-title>
+    <nz-page-header-title>{{ total || 0 }} 项目{{total > 1 ? 's' : ''}}</nz-page-header-title>
     <nz-page-header-extra>
       <nz-space>
 
         <button (click)="refresh()" *nzSpaceItem nz-button nz-tooltip [nzShape]="'circle'"
-                [nzTooltipTitle]="'Refresh projects'" [nzType]="'default'">
+                [nzTooltipTitle]="'刷新项目'" [nzType]="'default'">
           <span [nzSpin]="loading" nz-icon [nzTheme]="'outline'" [nzType]="'sync'"></span>
         </button>
 
         <nz-segmented *nzSpaceItem [(ngModel)]="filterIndex" [nzOptions]="filters"
                       (nzValueChange)="onFilterChange($event)"></nz-segmented>
 
-        <!--        <nz-segmented-->
-        <!--          *nzSpaceItem-->
-        <!--          [(ngModel)]="displayAs"-->
-        <!--          [nzLabelTemplate]="displayModeSegments"-->
-        <!--          [nzOptions]="displayModes"-->
-        <!--        ></nz-segmented>-->
-
-        <!--        <ng-template let-index="index" #displayModeTemplate>-->
-        <!--          <ng-container [ngSwitch]="index">-->
-        <!--            <span *ngSwitchCase="0" nz-icon style="color: #767676;" [nzType]="'hdd'" [nzTheme]="'fill'"></span>-->
-        <!--            <span *ngSwitchCase="1" nz-icon style="color: #767676;" [nzType]="'folder'" [nzTheme]="'fill'"></span>-->
-        <!--          </ng-container>-->
-        <!--        </ng-template>-->
-
         <form (ngSubmit)="searchProjects()" *nzSpaceItem [formGroup]="searchForm" [nzLayout]="'vertical'" nz-form>
           <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input [formControlName]="'search'" nz-input placeholder="Search by name" type="text"/>
+            <input [formControlName]="'search'" nz-input placeholder="按名称搜索" type="text"/>
           </nz-input-group>
           <ng-template #suffixIconSearch>
             <span nz-icon nzType="search"></span>
@@ -39,7 +25,7 @@
           <span *nzSpaceItem>
             <nz-button-group>
               <button *ngIf="isOwnerOrAdmin()" (click)="openProjectForm()" nz-button
-                      [nzType]="'primary'"><span nz-icon nzType="edit" nzTheme="outline"></span>Create Project</button>
+                      [nzType]="'primary'"><span nz-icon nzType="edit" nzTheme="outline"></span>创建项目</button>
               <button *ngIf="isOwnerOrAdmin()" nz-button
                       [nzType]="'primary'" nz-dropdown [nzDropdownMenu]="menu" [nzTrigger]="'click'"
                       [nzPlacement]="'bottomRight'">
@@ -52,34 +38,10 @@
             <ul nz-menu>
               <li nz-menu-item (click)="openTemplateSelector()">
                 <span nz-icon nzType="import" nzTheme="outline" class="me-2"></span>
-                Create from template
+                从模板创建
               </li>
             </ul>
           </nz-dropdown-menu>
-          <!--          <button *nzSpaceItem-->
-          <!--                  nz-button-->
-          <!--                  nz-dropdown-->
-          <!--                  [nzType]="'primary'"-->
-          <!--                  [nzDropdownMenu]="menu"-->
-          <!--                  [nzTrigger]="'click'"-->
-          <!--                  [nzClickHide]="true"-->
-          <!--                  style="padding: 4px 8px;"-->
-          <!--                  [nzPlacement]="'bottomRight'">-->
-          <!--            <span nz-icon [nzType]="'plus'" [nzTheme]="'outline'"></span> New <span nz-icon nzType="down"-->
-          <!--                                                                                    nzTheme="outline"></span>-->
-          <!--          </button>-->
-          <!--          <nz-dropdown-menu #menu="nzDropdownMenu">-->
-          <!--            <ul nz-menu>-->
-          <!--              <li (click)="openProjectForm()" nz-menu-item>-->
-          <!--                <span nz-icon [nzType]="'snippets'" style="color: #70a6f3;" [nzTheme]="'fill'"></span>-->
-          <!--                &nbsp;Project-->
-          <!--              </li>-->
-          <!--              <li (click)="openFolderForm()" nz-menu-item>-->
-          <!--                <span nz-icon [nzType]="'folder'" class="folder-icon" [nzTheme]="'fill'"></span>-->
-          <!--                &nbsp;Folder-->
-          <!--              </li>-->
-          <!--            </ul>-->
-          <!--          </nz-dropdown-menu>-->
         </ng-container>
       </nz-space>
     </nz-page-header-extra>
@@ -104,39 +66,35 @@
       >
         <thead>
         <tr>
-          <th [nzSortFn]="true" [nzColumnKey]="'name'" scope="col">Name</th>
-          <th [nzSortFn]="true" [nzColumnKey]="'client_name'" scope="col">Client</th>
+          <th [nzSortFn]="true" [nzColumnKey]="'name'" scope="col">名称</th>
+          <th [nzSortFn]="true" [nzColumnKey]="'client_name'" scope="col">客户</th>
           <th [nzSortFn]="true" [nzColumnKey]="'category_id'" scope="col" [nzFilterFn]="true" [nzCustomFilter]="true">
-            Category
+            类别
             <nz-filter-trigger [(nzVisible)]="showCategoriesFilter" [nzActive]="filteredByCategory"
                                [nzDropdownMenu]="categoriesDropdown">
               <span nz-icon [nzType]="'filter'" [nzTheme]="'fill'"></span>
             </nz-filter-trigger>
           </th>
           <th [nzSortFn]="true" [nzColumnKey]="'status_id'" scope="col" style="width: 110px" [nzFilterFn]="true" [nzCustomFilter]="true">
-            Status
+            状态
             <nz-filter-trigger [(nzVisible)]="showStatusesFilter" [nzActive]="filteredByStatus"
                                [nzDropdownMenu]="statusesDropdown">
               <span nz-icon [nzType]="'filter'" [nzTheme]="'fill'"></span>
             </nz-filter-trigger>
           </th>
-          <th class="pe-5 b-none" scope="col">Tasks Progress</th>
-          <th [nzSortFn]="true" [nzColumnKey]="'updated_at'" [nzAlign]="'left'" scope="col">Last Updated</th>
-          <th colspan="2" [nzAlign]="'left'" scope="col">Members</th>
+          <th class="pe-5 b-none" scope="col">任务进度</th>
+          <th [nzSortFn]="true" [nzColumnKey]="'updated_at'" [nzAlign]="'left'" scope="col">最后更新</th>
+          <th colspan="2" [nzAlign]="'left'" scope="col">成员</th>
         </tr>
         </thead>
         <tbody>
-        <!--suppress TypeScriptValidateTypes -->
         <tr *ngFor="let data of table.data; trackBy: trackBy" class="actions-row cursor-pointer"
             (click)="selectProject(data.id, data.team_member_default_view ? data.team_member_default_view : 'TASK_LIST')">
           <td class="">
             <div class="align-items-center d-flex w-100">
-              <!--              <div class="me-2">-->
-              <!--                <span class="folder-icon" nz-icon [nzType]="'folder'" [nzTheme]="'fill'"></span>-->
-              <!--              </div>-->
               <nz-rate
                 nz-tooltip
-                [nzTooltipTitle]="data.favorite ? 'Remove from favorites' : 'Add to favorites'"
+                [nzTooltipTitle]="data.favorite ? '从收藏中移除' : '添加到收藏'"
                 [nzCount]="1"
                 [ngModel]="data.favorite ? 1 : 0"
                 (click)="$event.stopPropagation();toggleFavorite(data.id)"
@@ -150,8 +108,8 @@
                     <span nz-icon [nzType]="'calendar'" [nzTheme]="'outline'"></span>
                   </span>
                   <ng-template #titleContent>
-                    <div *ngIf="data.start_date">Start date : {{data.start_date | date: 'mediumDate'}}</div>
-                    <div *ngIf="data.end_date">End date : {{data.end_date | date: 'mediumDate'}}</div>
+                    <div *ngIf="data.start_date">开始日期 : {{data.start_date | date: 'mediumDate'}}</div>
+                    <div *ngIf="data.end_date">结束日期 : {{data.end_date | date: 'mediumDate'}}</div>
                   </ng-template>
                 </ng-container>
               </span>
@@ -184,7 +142,7 @@
 
           <td>
             <ng-container *ngIf="!data.names?.length; else avatars">
-              N/A
+              无
             </ng-container>
             <ng-template #avatars>
               <worklenz-avatars [names]="data.names || []"></worklenz-avatars>
@@ -198,7 +156,7 @@
                   (click)="$event.stopPropagation();openProjectForm(data.id);"
                   nz-button nz-tooltip
                   [nzSize]="'small'" [nzTooltipPlacement]="'top'"
-                  [nzTooltipTitle]="'Settings'"
+                  [nzTooltipTitle]="'设置'"
                   [nzType]="'default'"
                   *nzSpaceItem
                 >
@@ -208,7 +166,7 @@
                   (click)="$event.stopPropagation();toggleArchive(data);"
                   nz-button nz-tooltip
                   [nzSize]="'small'" [nzTooltipPlacement]="'top'"
-                  [nzTooltipTitle]="data.archived ? 'Remove from archive' : 'Archive'"
+                  [nzTooltipTitle]="data.archived ? '从归档中移除' : '归档'"
                   [nzLoading]="data.loading"
                   [nzType]="'default'"
                   *nzSpaceItem
@@ -244,9 +202,9 @@
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
     <div nz-typography class="no-data-text" [ngSwitch]="filterIndex">
-      <ng-container *ngSwitchCase="0">The team currently has no active projects.</ng-container>
-      <ng-container *ngSwitchCase="1">You're yet to mark any projects as favorites.</ng-container>
-      <ng-container *ngSwitchCase="2">The selected team has no archived projects.</ng-container>
+      <ng-container *ngSwitchCase="0">团队目前没有活跃项目。</ng-container>
+      <ng-container *ngSwitchCase="1">您还没有标记任何项目为收藏。</ng-container>
+      <ng-container *ngSwitchCase="2">所选团队没有归档项目。</ng-container>
     </div>
   </div>
 </ng-template>
@@ -259,7 +217,7 @@
           (nzCheckedChange)="onCategoryFilterChange()"
           nz-menu-item>{{item.name}}</li>
     </ng-container>
-    <li *ngIf="!categories.length" nz-menu-item nzDisabled>No categories found</li>
+    <li *ngIf="!categories.length" nz-menu-item nzDisabled>未找到类别</li>
   </ul>
 </nz-dropdown-menu>
 
@@ -271,6 +229,6 @@
           (nzCheckedChange)="onStatusFilterChange()"
           nz-menu-item>{{item.name}}</li>
     </ng-container>
-    <li *ngIf="!statuses.length" nz-menu-item nzDisabled>No categories found</li>
+    <li *ngIf="!statuses.length" nz-menu-item nzDisabled>未找到状态</li>
   </ul>
 </nz-dropdown-menu>

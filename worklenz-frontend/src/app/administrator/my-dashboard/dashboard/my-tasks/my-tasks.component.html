@@ -1,7 +1,7 @@
 <div class="card-top">
   <div class="d-flex">
     <nz-space class="align-items-center">
-      <p *nzSpaceItem nz-typography class="mb-0 card-title">Tasks</p>
+      <p *nzSpaceItem nz-typography class="mb-0 card-title">任务</p>
       <nz-select *nzSpaceItem [(ngModel)]="selectedTasksMode" (ngModelChange)="handleModeChange($event)">
         <nz-option *ngFor="let opt of tasksModes" [nzValue]="opt.value" [nzLabel]="opt.label"></nz-option>
       </nz-select>
@@ -9,7 +9,7 @@
     <div class="ms-auto">
       <div class="d-flex">
         <nz-space>
-          <button *nzSpaceItem nz-button nz-tooltip nzShape="circle" nzTooltipTitle="Refresh tasks"
+          <button *nzSpaceItem nz-button nz-tooltip nzShape="circle" nzTooltipTitle="刷新任务"
                   nzType="default" (click)="emitGetTasks()">
             <span [nzSpin]="service.loadingTasks" nz-icon nzTheme="outline" nzType="sync"></span>
           </button>
@@ -24,15 +24,15 @@
   <ng-container *ngIf=" activeFilter === 0 ">
     <nz-skeleton [nzActive]="true" [nzLoading]="loading">
       <nz-tabset nzType="card" class="mob-overflow">
-        <nz-tab [nzTitle]="'All ('+ this.service.tasksModel.total + ')'"
+        <nz-tab [nzTitle]="'全部 ('+ this.service.tasksModel.total + ')'"
                 (nzClick)="handleTasksTabChange('All')"></nz-tab>
-        <nz-tab [nzTitle]="'Today (' +  this.service.tasksModel.today + ')'"
+        <nz-tab [nzTitle]="'今天 (' +  this.service.tasksModel.today + ')'"
                 (nzClick)="handleTasksTabChange('Today')"></nz-tab>
-        <nz-tab [nzTitle]="'Upcoming (' +  this.service.tasksModel.upcoming + ')'"
+        <nz-tab [nzTitle]="'即将到期 (' +  this.service.tasksModel.upcoming + ')'"
                 (nzClick)="handleTasksTabChange('Upcoming')"></nz-tab>
-        <nz-tab [nzTitle]="'Overdue (' +  this.service.tasksModel.overdue + ')'"
+        <nz-tab [nzTitle]="'逾期 (' +  this.service.tasksModel.overdue + ')'"
                 (nzClick)="handleTasksTabChange('Overdue')"></nz-tab>
-        <nz-tab [nzTitle]="'No due date (' +  this.service.tasksModel.no_due_date + ')'"
+        <nz-tab [nzTitle]="'无截止日期 (' +  this.service.tasksModel.no_due_date + ')'"
                 (nzClick)="handleTasksTabChange('NoDueDate')"></nz-tab>
       </nz-tabset>
     </nz-skeleton>
@@ -45,7 +45,7 @@
         <nz-calendar (nzSelectChange)="selectDateChange($event)"
                      class="home-calendar"></nz-calendar>
         <nz-alert nzType="success"
-                  nzMessage="Tasks due on : {{service.tasksViewConfig?.selected_date | date:'MMM d, y'}}"
+                  nzMessage="任务截止日期 : {{service.tasksViewConfig?.selected_date | date:'MMM d, y'}}"
                   [nzIcon]="customIconTemplate"
                   nzShowIcon class="mt-2 mb-3"></nz-alert>
         <ng-template #customIconTemplate>
@@ -67,13 +67,13 @@
 <!--              <div class="d-flex align-items-center">-->
 <!--                <input nz-input [ngModelOptions]="{standalone: true}" [(ngModel)]="taskNameInput" tabindex="1"-->
 <!--                       (ngModelChange)="taskNameInputChange($event)" (focus)="taskInputFocus()" (blur)="taskInputBlur()"-->
-<!--                       class="task-name-input-field task-input-default" placeholder="+ Add Task" #task_input-->
+<!--                       class="task-name-input-field task-input-default" placeholder="+ 添加任务" #task_input-->
 <!--                       (keydown)="taskNameKeyDown($event)"/>-->
 <!--              </div>-->
 <!--              <div class="form-describe ms-2 d-grid">-->
 <!--                <small id="tab_text" class="text-dark d-none" nz-typography nzType="secondary">-->
-<!--                  <span *ngIf="activeFilter !== 3">Hit "Enter" or "Tab" to go to next.</span>-->
-<!--                  <span *ngIf="activeFilter === 3">Hit "Enter" to create.</span>-->
+<!--                  <span *ngIf="activeFilter !== 3">按 "Enter" 或 "Tab" 进入下一步。</span>-->
+<!--                  <span *ngIf="activeFilter === 3">按 "Enter" 创建。</span>-->
 <!--                </small>-->
 <!--              </div>-->
 <!--            </nz-form-control>-->
@@ -84,7 +84,7 @@
 <!--                         [compareWith]="compareFn" (ngModelChange)="dueDateFieldValidate($event,due_date_selector)"-->
 <!--                         (keydown)="dueDateKeyDown($event,task_input)"-->
 <!--                         (nzBlur)="dueDateFieldValidate($event,due_date_selector)"-->
-<!--                         [nzDropdownMatchSelectWidth]="false" [nzShowArrow]="false" nzPlaceHolder="Due Date"-->
+<!--                         [nzDropdownMatchSelectWidth]="false" [nzShowArrow]="false" nzPlaceHolder="截止日期"-->
 <!--                         class="task-due-date-selector task-input-default" [(nzOpen)]="dueDateOpened">-->
 <!--                <nz-option *ngFor="let option of dueDateOptionsList" [nzValue]="option"-->
 <!--                           [nzLabel]="option.label"></nz-option>-->
@@ -95,7 +95,7 @@
 <!--            <nz-form-control>-->
 <!--              <nz-select #project_selector nzShowSearch [ngModelOptions]="{standalone: true}" [(ngModel)]="projectId"-->
 <!--                         (ngModelChange)="createMainTask($event)" [nzOpen]="true" [nzDropdownMatchSelectWidth]="false"-->
-<!--                         [nzShowArrow]="false" nzPlaceHolder="Project" [(nzOpen)]="projectSelectOpened"-->
+<!--                         [nzShowArrow]="false" nzPlaceHolder="项目" [(nzOpen)]="projectSelectOpened"-->
 <!--                         class="task-project-selector task-input-default">-->
 <!--                <nz-option *ngFor="let item of myProjects" [nzValue]="item.id" nzLabel="{{item.name}}">-->
 <!--                </nz-option>-->
@@ -154,7 +154,7 @@
 <!--              <nz-date-picker class="border-0 bg-transparent w-100 date-text-small" [(ngModel)]="data.end_date"-->
 <!--                              (ngModelChange)="handleEndDateChange($event, data)" nzFormat="MMM dd,yyyy"-->
 <!--                              [nzSuffixIcon]="''"-->
-<!--                              [nzPlaceHolder]="'Set due date'" nzBorderless></nz-date-picker>-->
+<!--                              [nzPlaceHolder]="'设置截止日期'" nzBorderless></nz-date-picker>-->
 <!--            </nz-space>-->
 <!--          </div>-->
 <!--        </td>-->
@@ -169,7 +169,7 @@
 <!--            <nz-space>-->
 <!--              <button (click)="editItem(data)" *nzSpaceItem nz-button nz-tooltip nzSize="small"-->
 <!--                      nzTooltipPlacement="top"-->
-<!--                      nzTooltipTitle="Edit"-->
+<!--                      nzTooltipTitle="编辑"-->
 <!--                      nzType="default">-->
 <!--                <span nz-icon nzType="edit"></span>-->
 <!--              </button>-->
@@ -178,7 +178,7 @@
 <!--                      [nzLoading]="!!deleteMap[data.id || '']" nz-button-->
 <!--                      nz-tooltip nzSize="small"-->
 <!--                      nzTooltipPlacement="top"-->
-<!--                      nzTooltipTitle="Delete"-->
+<!--                      nzTooltipTitle="删除"-->
 <!--                      nzType="default">-->
 <!--                <span nz-icon nzType="delete"></span>-->
 <!--              </button>-->
@@ -197,22 +197,22 @@
 <!--    <div class="no-data-img-holder mx-auto mb-3">-->
 <!--      <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">-->
 <!--    </div>-->
-<!--    <span nz-typography class="no-data-text">No tasks scheduled for today.</span>-->
+<!--    <span nz-typography class="no-data-text">今天没有安排任务。</span>-->
 <!--  </div>-->
 
 <!--  <div *ngIf="activeFilter === 1" class="pt-4 pb-5">-->
 <!--    <div class="no-data-img-holder mx-auto mb-3">-->
 <!--      <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">-->
 <!--    </div>-->
-<!--    <span nz-typography class="no-data-text">All caught up, no upcoming tasks to you.</span>-->
+<!--    <span nz-typography class="no-data-text">所有任务都已完成，没有即将到期的任务。</span>-->
 <!--  </div>-->
 
 <!--  <div *ngIf="activeFilter === 2" class="pt-4 pb-5">-->
 <!--    <div class="no-data-img-holder mx-auto mb-3">-->
 <!--      <img src="/assets/images/confetti (1).png" class="img-fluid" alt="">-->
 <!--    </div>-->
-<!--    <div><span nz-typography class="no-data-text">Congratulations you have no overdue tasks.</span></div>-->
-<!--    <div><span nz-typography class="no-data-text">All tasks completed on time.</span></div>-->
+<!--    <div><span nz-typography class="no-data-text">恭喜你，没有逾期任务。</span></div>-->
+<!--    <div><span nz-typography class="no-data-text">所有任务都按时完成。</span></div>-->
 <!--  </div>-->
 
 <!--</ng-template>-->
@@ -223,7 +223,7 @@
 
 <!--<ng-template #searchTemplate>-->
 <!--  <nz-space nzAlign="center">-->
-<!--    <button (click)="get()" *nzSpaceItem nz-button nz-tooltip nzShape="circle" nzTooltipTitle="Refresh tasks"-->
+<!--    <button (click)="get()" *nzSpaceItem nz-button nz-tooltip nzShape="circle" nzTooltipTitle="刷新任务"-->
 <!--            nzType="default">-->
 <!--      <span [nzSpin]="loading" nz-icon nzTheme="outline" nzType="sync"></span>-->
 <!--    </button>-->
@@ -236,21 +236,21 @@
 <!--  [(nzVisible)]="showEditDrawer"-->
 <!--  [nzClosable]="true"-->
 <!--  nzPlacement="right"-->
-<!--  nzTitle="Update Task"-->
+<!--  nzTitle="更新任务"-->
 <!--&gt;-->
 <!--  <ng-container *nzDrawerContent>-->
 <!--    <form (submit)="update()" *ngIf="selectedItem" [nzLayout]="'vertical'" nz-form>-->
 <!--      <nz-form-item>-->
-<!--        <nz-form-label [nzSpan]="null" nzRequired>Task</nz-form-label>-->
+<!--        <nz-form-label [nzSpan]="null" nzRequired>任务</nz-form-label>-->
 <!--        <nz-form-control [nzSpan]="null">-->
-<!--          <input [(ngModel)]="selectedItem.name" name="name" nz-input placeholder="What needs to be done?"/>-->
+<!--          <input [(ngModel)]="selectedItem.name" name="name" nz-input placeholder="需要做什么？"/>-->
 <!--        </nz-form-control>-->
 <!--      </nz-form-item>-->
 <!--      <nz-form-item>-->
-<!--        <nz-form-label [nzSpan]="null">Description</nz-form-label>-->
-<!--        <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a name!">-->
+<!--        <nz-form-label [nzSpan]="null">描述</nz-form-label>-->
+<!--        <nz-form-control [nzSpan]="null" nzErrorTip="请输入名称！">-->
 <!--          <input [(ngModel)]="selectedItem.description" name="description" nz-input-->
-<!--                 placeholder="Add a short description"/>-->
+<!--                 placeholder="添加简短描述"/>-->
 <!--        </nz-form-control>-->
 <!--      </nz-form-item>-->
 <!--      <nz-form-item>-->
@@ -258,7 +258,7 @@
 <!--          <button [nzDropdownMenu]="colorCodesDropdown" [style.background-color]="selectedItem.color_code" nz-button-->
 <!--                  nz-dropdown-->
 <!--                  nz-tooltip-->
-<!--                  nzTooltipTitle="Select a color"-->
+<!--                  nzTooltipTitle="选择颜色"-->
 <!--                  nzTrigger="click" nzType="default"-->
 <!--                  type="button">&nbsp;-->
 <!--          </button>-->
@@ -271,7 +271,7 @@
 <!--          </nz-dropdown-menu>-->
 <!--        </nz-form-control>-->
 <!--      </nz-form-item>-->
-<!--      <button [nzLoading]="updating" nz-button nzBlock nzType="primary" type="submit">Save Changes</button>-->
+<!--      <button [nzLoading]="updating" nz-button nzBlock nzType="primary" type="submit">保存更改</button>-->
 <!--    </form>-->
 <!--  </ng-container>-->
 <!--</nz-drawer>-->

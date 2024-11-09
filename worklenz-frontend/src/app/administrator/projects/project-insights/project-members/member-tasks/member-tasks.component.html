@@ -1,4 +1,4 @@
-<nz-card class="mt-3" [nzTitle]="'Tasks by members'">
+<nz-card class="mt-3" [nzTitle]="'成员任务'">
   <div class="row mx-0 mt-3 g-4 mt-0">
     <div class="col-md-12 mt-0 pe-0 pd-mobile-pe-0">
       <nz-spin *ngIf="loading"></nz-spin>
@@ -6,20 +6,20 @@
         <div class="table-header table-row">
           <div class="td"></div>
           <div class="td"></div>
-          <div class="td">Name</div>
-          <div class="td">Task Count</div>
-          <div class="td">Contribution</div>
-          <div class="td">Completed</div>
-          <div class="td">Incomplete</div>
-          <div class="td">Overdue</div>
-          <div class="td">Progress</div>
+          <div class="td">姓名</div>
+          <div class="td">任务数量</div>
+          <div class="td">贡献</div>
+          <div class="td">已完成</div>
+          <div class="td">未完成</div>
+          <div class="td">逾期</div>
+          <div class="td">进度</div>
         </div>
 
         <div *ngIf="!projectMembers.length" class="pt-4 pb-5">
           <div class="no-data-img-holder mx-auto mb-3">
             <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
           </div>
-          <span nz-typography class="mx-auto d-block no-data-text" style="width: max-content;">The project does not have any members yet.</span>
+          <span nz-typography class="mx-auto d-block no-data-text" style="width: max-content;">项目还没有任何成员。</span>
         </div>
 
         <div class="table-row" *ngFor="let member of projectMembers; let i = index;">
@@ -33,7 +33,7 @@
             </div>
             <div class="td" *ngIf="!isRowClickable(member)"></div>
             <div class="td">
-              <span *ngIf="overdueTasksPresent(member)" nz-tooltip [nzTooltipTitle]="'This member has overdue tasks.'"
+              <span *ngIf="overdueTasksPresent(member)" nz-tooltip [nzTooltipTitle]="'该成员有逾期任务。'"
                     nz-icon [nzType]="'exclamation-circle'"
                     [nzTheme]="'outline'"
                     class="overdue-tasks-present">
@@ -59,18 +59,18 @@
                 <div>
                   <div class="table-header table-row">
                     <div class="child-td"></div>
-                    <div class="child-td">Name</div>
-                    <div class="child-td">Status</div>
-                    <div class="child-td">Due Date</div>
-                    <div class="child-td text-center">Days Overdue</div>
-                    <div class="child-td text-center">Completed Date</div>
-                    <div class="child-td text-center">Total Allocation</div>
-                    <div class="child-td text-center">Over Logged Time</div>
+                    <div class="child-td">名称</div>
+                    <div class="child-td">状态</div>
+                    <div class="child-td">截止日期</div>
+                    <div class="child-td text-center">逾期天数</div>
+                    <div class="child-td text-center">完成日期</div>
+                    <div class="child-td text-center">总分配时间</div>
+                    <div class="child-td text-center">超时记录</div>
                   </div>
                   <div class="table-row mb-0" *ngFor="let task of member.tasks;">
                     <div class="child-td">
                       <span *ngIf="task.is_overdue" nz-tooltip
-                            [nzTooltipTitle]="'This task is overdue.'"
+                            [nzTooltipTitle]="'该任务已逾期。'"
                             nz-icon [nzType]="'exclamation-circle'"
                             [nzTheme]="'outline'"
                             class="overdue-tasks-present">

@@ -25,14 +25,14 @@
         <td class="cursor-pointer" nz-typography>
           <nz-space class="d-flex align-items-center w-100">
             <strong *nzSpaceItem [style.color]="data.project_color">{{data.name}}</strong>
-            <span *nzSpaceItem nz-tooltip nz-typography nzTooltipTitle="Project name"
+            <span *nzSpaceItem nz-tooltip nz-typography nzTooltipTitle="项目名称"
                   nzType="secondary">{{data.project_name}}</span>
           </nz-space>
           <nz-space *ngIf="data.start_date || data.end_date">
             <small *ngIf="data.start_date" class="me-2" nz-typography
-                   nzType="secondary">Start date: {{(data.start_date | date: "mediumDate") || "-"}}</small>
+                   nzType="secondary">开始日期: {{(data.start_date | date: "mediumDate") || "-"}}</small>
             <small *ngIf="data.end_date" nz-typography
-                   nzType="secondary">End date: {{(data.end_date | date: "mediumDate") || "-"}}</small>
+                   nzType="secondary">结束日期: {{(data.end_date | date: "mediumDate") || "-"}}</small>
           </nz-space>
         </td>
         <td>
@@ -42,7 +42,7 @@
           <span *ngIf="!data.names?.length">
             <button
               nz-tooltip
-              nzTooltipTitle="No members assigned to this task"
+              nzTooltipTitle="此任务没有分配成员"
               nzSize="small"
               nz-button
               nzType="dashed"
@@ -68,14 +68,14 @@
 <ng-template #searchTemplate>
   <nz-space nzAlign="center">
     <button (click)="get()" *nzSpaceItem nz-button nz-tooltip nzShape="circle"
-            nzTooltipTitle="Refresh tasks" nzType="default">
+            nzTooltipTitle="刷新任务" nzType="default">
       <span [nzSpin]="loading" nz-icon nzTheme="outline" nzType="sync"></span>
     </button>
     <nz-segmented *nzSpaceItem [(ngModel)]="activeFilter" (ngModelChange)="get()"
                   [nzOptions]="options"></nz-segmented>
     <form *nzSpaceItem [formGroup]="searchForm" [nzLayout]="'vertical'" nz-form>
       <nz-input-group [nzSuffix]="suffixIconSearch">
-        <input [formControlName]="'search'" nz-input placeholder="Search by name" type="text"/>
+        <input [formControlName]="'search'" nz-input placeholder="按名称搜索" type="text"/>
       </nz-input-group>
       <ng-template #suffixIconSearch>
         <span nz-icon nzType="search"></span>

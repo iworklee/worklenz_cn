@@ -4,14 +4,14 @@
     [nzValueWith]="valueWith"
     [nzLoading]="loadingMembers"
     (nzOnSearchChange)="onSearchChange($event)"
-    [nzNotFoundContent]="'No members found!'"
+    [nzNotFoundContent]="'未找到成员!'"
     (nzOnSelect)="onSelect($event)"
     (click)="setFocus(true, input)"
   >
     <nz-textarea-count [nzMaxCharacterCount]="2000">
       <textarea
         nz-input
-        placeholder="Add a comment..."
+        placeholder="添加评论..."
         [rows]="rows"
         [nzAutosize]="{ minRows: rows, maxRows: rows }"
         [formControlName]="'content'"
@@ -25,8 +25,8 @@
 
   <div class="mt-3 justify-content-end d-flex" *ngIf="commentsInputFocused">
     <nz-space>
-      <button *nzSpaceItem type="button" (click)="cancel()" nz-button nzType="default">Cancel</button>
-      <button *nzSpaceItem [disabled]="!isValid()" type="submit" nz-button nzType="primary">Comment</button>
+      <button *nzSpaceItem type="button" (click)="cancel()" nz-button nzType="default">取消</button>
+      <button *nzSpaceItem [disabled]="!isValid()" type="submit" nz-button nzType="primary">评论</button>
     </nz-space>
   </div>
 </form>

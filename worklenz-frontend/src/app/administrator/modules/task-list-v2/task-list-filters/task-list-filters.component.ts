@@ -75,14 +75,14 @@ export class TaskListFiltersComponent implements OnInit, OnDestroy {
   statuses: ISelectableTaskStatus[] = [];
 
   readonly sortableColumns: ITaskListSortableColumn[] = [
-    {label: "Task", key: "name", sort_order: this.ASCEND},
-    {label: "Status", key: "status", sort_order: this.ASCEND},
-    {label: "Priority", key: "priority", sort_order: this.ASCEND},
-    {label: "Start Date", key: "start_date", sort_order: this.ASCEND},
-    {label: "End Date", key: "end_date", sort_order: this.ASCEND},
-    {label: "Completed Date", key: "completed_at", sort_order: this.ASCEND},
-    {label: "Created Data", key: "created_at", sort_order: this.ASCEND},
-    {label: "Last Updated", key: "updated_at", sort_order: this.ASCEND},
+    {label: "任务", key: "name", sort_order: this.ASCEND},
+    {label: "状态", key: "status", sort_order: this.ASCEND},
+    {label: "优先级", key: "priority", sort_order: this.ASCEND},
+    {label: "开始日期", key: "start_date", sort_order: this.ASCEND},
+    {label: "结束日期", key: "end_date", sort_order: this.ASCEND},
+    {label: "完成日期", key: "completed_at", sort_order: this.ASCEND},
+    {label: "创建日期", key: "created_at", sort_order: this.ASCEND},
+    {label: "最后更新", key: "updated_at", sort_order: this.ASCEND},
   ];
 
   get selectedGroup() {

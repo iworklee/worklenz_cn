@@ -15,12 +15,12 @@
     >
       <thead>
       <tr>
-        <th [nzSortFn]="true" [nzColumnKey]="'name'" scope="col">Name</th>
-        <th [nzSortFn]="true" [nzColumnKey]="'job_title'" scope="col">Job Title</th>
-        <th [nzSortFn]="true" [nzColumnKey]="'email'" scope="col">Email</th>
-        <th scope="col" [nzAlign]="'center'">Tasks</th>
-        <th [nzWidth]="'200px'" scope="col">Tasks Progress</th>
-        <th [nzSortFn]="true" [nzAlign]="'left'" [nzColumnKey]="'access'" colspan="2" scope="col">Access</th>
+        <th [nzSortFn]="true" [nzColumnKey]="'name'" scope="col">姓名</th>
+        <th [nzSortFn]="true" [nzColumnKey]="'job_title'" scope="col">职位</th>
+        <th [nzSortFn]="true" [nzColumnKey]="'email'" scope="col">电子邮件</th>
+        <th scope="col" [nzAlign]="'center'">任务</th>
+        <th [nzWidth]="'200px'" scope="col">任务进度</th>
+        <th [nzSortFn]="true" [nzAlign]="'left'" [nzColumnKey]="'access'" colspan="2" scope="col">访问权限</th>
       </tr>
       </thead>
       <tbody>
@@ -38,7 +38,7 @@
           <span *ngIf="data.email && !data.pending_invitation">{{data.email}}</span>
           <span *ngIf="!data.email && !data.pending_invitation">-</span>
           <em *ngIf="data.email && data.pending_invitation" nz-typography>
-            {{data.email}} <span nz-typography nzType="secondary">(Pending Invitation)</span>
+            {{data.email}} <span nz-typography nzType="secondary">(邀请待定)</span>
           </em>
         </td>
         <td nzAlign="center" (click)="selectMember(data.team_member_id)">
@@ -55,11 +55,11 @@
               <button
                 (nzOnConfirm)="removeMember(data.id)"
                 *nzSpaceItem nz-button nz-popconfirm nz-tooltip
-                [nzOkText]="'OK'"
-                [nzPopconfirmTitle]="'Member will also removes from assigned tasks.'"
+                [nzOkText]="'确定'"
+                [nzPopconfirmTitle]="'成员也将从分配的任务中移除。'"
                 [nzSize]="'small'"
                 [nzTooltipPlacement]="'top'"
-                [nzTooltipTitle]="'Remove from project'"
+                [nzTooltipTitle]="'从项目中移除'"
                 [nzType]="'default'"
                 [disabled]="data.team_member_id === auth.getCurrentSession()?.team_member_id"
               >
@@ -77,12 +77,12 @@
 <ng-template #projectMembersForm>
   <nz-space>
     <button (click)="get()" *nzSpaceItem nz-button nz-tooltip nzShape="circle"
-            nzTooltipTitle="Refresh members" nzType="default">
+            nzTooltipTitle="刷新成员" nzType="default">
       <span [nzSpin]="loading" nz-icon nzTheme="outline" nzType="sync"></span>
     </button>
     <!--    <form *nzSpaceItem [formGroup]="searchForm" [nzLayout]="'vertical'" nz-form>-->
     <!--      <nz-input-group [nzSuffix]="suffixIconSearch">-->
-    <!--        <input [formControlName]="'search'" nz-input placeholder="Search by name" type="text"/>-->
+    <!--        <input [formControlName]="'search'" nz-input placeholder="按姓名搜索" type="text"/>-->
     <!--      </nz-input-group>-->
     <!--      <ng-template #suffixIconSearch>-->
     <!--        <span nz-icon nzType="search"></span>-->
@@ -97,7 +97,7 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
-    <span nz-typography class="no-data-text">No members found in the project.</span>
+    <span nz-typography class="no-data-text">项目中未找到成员。</span>
   </div>
 </ng-template>
 

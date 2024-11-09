@@ -12,9 +12,9 @@
 
 <ng-template #actionTemplate1>
   <button nz-button [nzSize]="'small'" [routerLink]="'admin-center/billing'" *ngIf="profile.owner || profile.is_admin"
-          [nzType]="'primary'">{{profile.subscription_status === 'trialing' ? 'Upgrade now' : 'Go to Billing'}}</button>
+          [nzType]="'primary'">{{profile.subscription_status === 'trialing' ? '立即升级' : '前往账单'}}</button>
 </ng-template>
 
 <ng-template #messageTemplate>
-  Action required! {{string1}} <b>{{string2}}</b>
+  需要操作！{{string1}} <b>{{string2}}</b>
 </ng-template>

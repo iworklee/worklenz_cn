@@ -4,6 +4,7 @@ FROM node:18
 # Create and set the working directory
 WORKDIR /usr/src/app
 
+RUN npm config set registry https://registry.npmmirror.com
 # Install global dependencies
 RUN npm install -g ts-node typescript grunt grunt-cli
 

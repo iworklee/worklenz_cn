@@ -32,7 +32,7 @@ export class TaskViewInfoComponent {
 
   getAttachmentsHeader() {
     const count = this.service.model.task?.attachments_count || 0;
-    return `Attachments (${count})`;
+    return `附件 (${count})`;
   }
 
   isSubTask() {

@@ -8,20 +8,20 @@ import {
   OnInit,
   Output, ViewChild
 } from '@angular/core';
-import {IRPTOverviewProject, IRPTProject, IRPTProjectsViewModel} from "../../../interfaces";
-import {ReportingApiService} from "../../../reporting-api.service";
-import {log_error} from "@shared/utils";
-import {ProjectHealthsApiService} from "@api/project-healths-api.service";
-import {IProjectHealth} from "@interfaces/project-health";
-import {SocketEvents} from "@shared/socket-events";
-import {Socket} from "ngx-socket-io";
-import {IProjectStatus} from "@interfaces/project-status";
-import {ProjectStatusesApiService} from "@api/project-statuses-api.service";
-import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {ProjectUpdatesDrawerComponent} from "@admin/components/project-updates-drawer/project-updates-drawer.component";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {ProjectUpdatesService} from "@services/project-updates.service";
-import {ReportingService} from "../../../reporting.service";
+import { IRPTOverviewProject, IRPTProject, IRPTProjectsViewModel } from "../../../interfaces";
+import { ReportingApiService } from "../../../reporting-api.service";
+import { log_error } from "@shared/utils";
+import { ProjectHealthsApiService } from "@api/project-healths-api.service";
+import { IProjectHealth } from "@interfaces/project-health";
+import { SocketEvents } from "@shared/socket-events";
+import { Socket } from "ngx-socket-io";
+import { IProjectStatus } from "@interfaces/project-status";
+import { ProjectStatusesApiService } from "@api/project-statuses-api.service";
+import { NzTableQueryParams } from "ng-zorro-antd/table";
+import { ProjectUpdatesDrawerComponent } from "@admin/components/project-updates-drawer/project-updates-drawer.component";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { ProjectUpdatesService } from "@services/project-updates.service";
+import { ReportingService } from "../../../reporting.service";
 
 @Component({
   selector: 'worklenz-rpt-projects-list',
@@ -71,18 +71,18 @@ export class RptProjectsListComponent implements OnInit, OnDestroy {
   };
 
   public columns: { key: string; label: string; pinned: boolean }[] = [
-    {key: "ESTIMATED_VS_ACTUAL", label: "Estimated vs Actual", pinned: true},
-    {key: "TASKS_PROGRESS", label: "Tasks Progress", pinned: true},
-    {key: "LAST_ACTIVITY", label: "Last Activity", pinned: true},
-    {key: "STATUS", label: "Status", pinned: true},
-    {key: "START_END_DATE", label: "Start/End dates", pinned: true},
-    {key: "DAYS_LEFT_OVERDUE", label: "Days Left/Overdue", pinned: true},
-    {key: "HEALTH", label: "Project Health", pinned: true},
-    {key: "CATEGORY", label: "Category", pinned: true},
-    {key: "UPDATE", label: "Project Update", pinned: true},
-    {key: "PROJECT_MANAGER", label: "Project Manager", pinned: true},
-    {key: "CLIENT", label: "Client", pinned: false},
-    {key: "TEAM", label: "Team", pinned: false},
+    { key: "ESTIMATED_VS_ACTUAL", label: "预计 vs 实际", pinned: true },
+    { key: "TASKS_PROGRESS", label: "任务进度", pinned: true },
+    { key: "LAST_ACTIVITY", label: "最后活动", pinned: true },
+    { key: "STATUS", label: "状态", pinned: true },
+    { key: "START_END_DATE", label: "开始/结束日期", pinned: true },
+    { key: "DAYS_LEFT_OVERDUE", label: "剩余天数/逾期", pinned: true },
+    { key: "HEALTH", label: "项目健康", pinned: true },
+    { key: "CATEGORY", label: "分类", pinned: true },
+    { key: "UPDATE", label: "项目更新", pinned: true },
+    { key: "PROJECT_MANAGER", label: "项目经理", pinned: true },
+    { key: "CLIENT", label: "客户", pinned: false },
+    { key: "TEAM", label: "团队", pinned: false }
   ];
 
   clientActive = false;
@@ -114,7 +114,7 @@ export class RptProjectsListComponent implements OnInit, OnDestroy {
     private readonly socket: Socket,
     private readonly statusesApi: ProjectStatusesApiService,
     private readonly service: ReportingService
-  ) {}
+  ) { }
 
   ngOnInit() {
     void this.getProjectHealths();
@@ -133,7 +133,7 @@ export class RptProjectsListComponent implements OnInit, OnDestroy {
   }
 
   onQueryParamsChange(params: NzTableQueryParams) {
-    const {pageSize, pageIndex, sort} = params;
+    const { pageSize, pageIndex, sort } = params;
     this.pageIndex = pageIndex;
     this.pageSize = pageSize;
 

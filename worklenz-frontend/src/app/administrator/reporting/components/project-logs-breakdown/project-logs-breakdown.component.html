@@ -11,7 +11,7 @@
     <nz-skeleton [nzActive]="true" [nzLoading]="loading" [class.p-4]="loading" class="pt-3">
       <div class="d-block w-100 text-end">
       <button nz-button nzType="default" nzSize="small" [nzLoading]="exporting" class="mb-3" (click)="exportExcel()">
-        <span nz-icon nzType="download" nzTheme="outline"></span> Export to Excel
+        <span nz-icon nzType="download" nzTheme="outline"></span> 导出到Excel
       </button>
       </div>
       <ng-container *ngIf="!timelogsBreakDown?.length">
@@ -19,7 +19,7 @@
           <div class="no-data-img-holder mx-auto mb-3">
             <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
           </div>
-          <span nz-typography class="no-data-text">No time logs to show.</span>
+          <span nz-typography class="no-data-text">没有时间日志显示。</span>
         </div>
       </ng-container>
       <ng-container *ngFor="let log of timelogsBreakDown">
@@ -34,13 +34,13 @@
                              [nzSrc]="log_item.avatar_url"
                              class="me-2"></nz-avatar>
                   <span
-                    nz-typography><b>{{log_item.user_name}}</b> logged <b>{{log_item.time_spent_string}}</b> for <b>{{log_item.task_name}}</b>
+                    nz-typography><b>{{log_item.user_name}}</b> 记录了 <b>{{log_item.time_spent_string}}</b> 用于 <b>{{log_item.task_name}}</b>
                   <nz-tag class="ms-2 mt-1">{{log_item.task_key}}</nz-tag></span>
                 </nz-timeline-item>
               </nz-timeline>
               <ng-container *ngIf="!log.logs.length">
                 <div class="d-block mb-4">
-                  No time logs to show.
+                  没有时间日志显示。
                 </div>
               </ng-container>
             </div>
@@ -85,14 +85,14 @@
     <li nz-menu-divider></li>
     <li class="px-2 pb-2 pt-2 mt-1 custom-dropdown-range-li">
       <form nz-form>
-        <label>Custom range</label>
+        <label>自定义范围</label>
         <div class="d-block mt-1">
           <nz-range-picker [(ngModel)]="dateRange" [ngModelOptions]="{standalone: true}"
                            class="w-100"></nz-range-picker>
         </div>
         <button class="mt-2 ms-auto d-block" nz-button [nzType]="'primary'" [nzSize]="'small'"
                 (click)="customDateChange()">
-          Filter
+          筛选
         </button>
       </form>
     </li>

@@ -1,5 +1,5 @@
 <nz-page-header [nzGhost]="false" class="px-0">
-  <nz-page-header-title>{{teams.length ? teams.length + 1 : 1}} Teams</nz-page-header-title>
+  <nz-page-header-title>{{teams.length ? teams.length + 1 : 1}} 团队</nz-page-header-title>
   <nz-page-header-extra>
     <worklenz-toggle-menu-button [key]="menu.TEAMS_MENU"></worklenz-toggle-menu-button>
   </nz-page-header-extra>
@@ -11,9 +11,9 @@
               nzPaginationType="small" nzSize="small" [nzNoResult]="currentTeam ? noDataTemplate1  : noDataTemplate">
       <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Created</th>
-        <th colspan="2" nzAlign="left" scope="col">Owns By</th>
+        <th scope="col">名称</th>
+        <th scope="col">创建时间</th>
+        <th colspan="2" nzAlign="left" scope="col">拥有者</th>
       </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@
             <nz-space>
               <button (click)="editTeam(currentTeam)" *ngIf="currentTeam.owner" nz-button nz-tooltip nzSize="small"
                       nzTooltipPlacement="top"
-                      nzTooltipTitle="Edit"
+                      nzTooltipTitle="编辑"
                       nzType="default">
                 <span nz-icon nzType="edit"></span>
               </button>
@@ -43,7 +43,7 @@
             <nz-space>
               <button (click)="editTeam(data)" *ngIf="data.owner" nz-button nz-tooltip nzSize="small"
                       nzTooltipPlacement="top"
-                      nzTooltipTitle="Edit"
+                      nzTooltipTitle="编辑"
                       nzType="default">
                 <span nz-icon nzType="edit"></span>
               </button>
@@ -65,7 +65,7 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
-    <span nz-typography class="no-data-text">No teams found.</span>
+    <span nz-typography class="no-data-text">未找到团队。</span>
   </div>
 </ng-template>
 
@@ -74,14 +74,14 @@
 </ng-template>
 
 <nz-modal (nzOnCancel)="closeModal()" (nzOnOk)="handleOk()" [(nzVisible)]="showTeamEditModal"
-          [nzOkLoading]="updating" nzOkText="Update Name" nzTitle="Edit Team Name">
+          [nzOkLoading]="updating" nzOkText="更新名称" nzTitle="编辑团队名称">
   <ng-container *nzModalContent>
 
     <form [formGroup]="form" [nzLayout]="'vertical'" nz-form>
       <nz-form-item>
-        <nz-form-label [nzSpan]="null" nzRequired>Name</nz-form-label>
-        <nz-form-control [nzSpan]="null" nzErrorTip="Please enter a name!">
-          <input [formControlName]="'name'" nz-input placeholder="Name"/>
+        <nz-form-label [nzSpan]="null" nzRequired>名称</nz-form-label>
+        <nz-form-control [nzSpan]="null" nzErrorTip="请输入名称！">
+          <input [formControlName]="'name'" nz-input placeholder="名称"/>
         </nz-form-control>
       </nz-form-item>
     </form>

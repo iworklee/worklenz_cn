@@ -5,27 +5,27 @@
         <li class="d-flex mb-3">
           <span nz-icon class="stat-icon me-2" [nzType]="'check-circle'" [nzTheme]="'outline'"
                 style="color:#75c997;"></span>
-          {{model.stats?.completed}} Completed Tasks
+          {{model.stats?.completed}} 已完成任务
         </li>
         <li class="d-flex mb-3">
           <span nz-icon class="stat-icon me-2" [nzType]="'file-excel'" [nzTheme]="'outline'"
                 style="color: #ffc63b;"></span>
-          {{model.stats?.incompleted}} Incomplete Tasks
+          {{model.stats?.incompleted}} 未完成任务
         </li>
         <li class="d-flex mb-3">
           <span nz-icon class="stat-icon me-2" [nzType]="'exclamation-circle'" [nzTheme]="'outline'"
                 style="color: #eb6363;"></span>
-          {{model.stats?.overdue}} Overdue Tasks
+          {{model.stats?.overdue}} 逾期任务
         </li>
         <li class="d-flex mb-3">
           <span nz-icon class="stat-icon me-2" [nzType]="'clock-circle'" [nzTheme]="'outline'"
                 style="color: #7cb5ec;"></span>
-          {{model.stats?.total_allocated}} Allocated Hours
+          {{model.stats?.total_allocated}} 分配工时
         </li>
         <li class="d-flex">
           <span nz-icon class="stat-icon me-2" [nzType]="'clock-circle'" [nzTheme]="'outline'"
                 style="color:#75c997;"></span>
-          {{model.stats?.total_logged}} Logged Hours
+          {{model.stats?.total_logged}} 已记录工时
         </li>
       </ul>
     </nz-card>
@@ -35,7 +35,7 @@
       <ng-template #statusCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Tasks By Status</h4>
+            <h4 class="mb-0">任务状态</h4>
           </div>
 <!--          <div class="ms-auto">-->
 <!--            <button nz-button [nzType]="'link'" [nzSize]="'small'" class="ms-auto" (click)="openList('status')">-->
@@ -50,7 +50,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No tasks to show.</span>
+            <span nz-typography class="no-data-text">没有任务显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isStatusChartEmpty" class="d-flex">
@@ -68,16 +68,16 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#333333'" [nzText]="'All (' + (model.by_status?.all || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#333333'" [nzText]="'全部 (' + (model.by_status?.all || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'To Do (' + (model.by_status?.todo || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#a9a9a9'" [nzText]="'待办 (' + (model.by_status?.todo || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#70a6f3'" [nzText]="'Doing (' + (model.by_status?.doing || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#70a6f3'" [nzText]="'进行中 (' + (model.by_status?.doing || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#75c997'" [nzText]="'Done (' + (model.by_status?.done || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#75c997'" [nzText]="'已完成 (' + (model.by_status?.done || 0) + ')'"></nz-badge>
               </li>
             </ul>
           </div>
@@ -90,7 +90,7 @@
       <ng-template #priorityCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Tasks By Priority</h4>
+            <h4 class="mb-0">任务优先级</h4>
           </div>
 <!--          <div class="ms-auto">-->
 <!--            <button nz-button [nzType]="'link'" [nzSize]="'small'" class="ms-auto" (click)="openList('priority')">-->
@@ -105,7 +105,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No tasks to show.</span>
+            <span nz-typography class="no-data-text">没有任务显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isPriorityChartEmpty" class="d-flex">
@@ -123,17 +123,17 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#333333'" [nzText]="'All (' + (model.by_priority?.all || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#333333'" [nzText]="'全部 (' + (model.by_priority?.all || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#75c997'" [nzText]="'Low (' + (model.by_priority?.low || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#75c997'" [nzText]="'低 (' + (model.by_priority?.low || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#fbc84c'"
-                          [nzText]="'Medium (' + (model.by_priority?.medium || 0) + ')'"></nz-badge>
+                          [nzText]="'中 (' + (model.by_priority?.medium || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#f37070'" [nzText]="'High (' + (model.by_priority?.high || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#f37070'" [nzText]="'高 (' + (model.by_priority?.high || 0) + ')'"></nz-badge>
               </li>
             </ul>
           </div>
@@ -146,7 +146,7 @@
       <ng-template #duedateCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Tasks By Due Date</h4>
+            <h4 class="mb-0">任务截止日期</h4>
           </div>
           <div class="ms-auto">
             <!--            <button nz-button [nzType]="'link'" [nzSize]="'small'" class="ms-auto" (click)="openList()">-->
@@ -161,7 +161,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No tasks to show.</span>
+            <span nz-typography class="no-data-text">没有任务显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isDueDateChartEmpty" class="d-flex">
@@ -179,21 +179,21 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#333333'" [nzText]="'All (' + (model.by_due?.all || 0) +')'"></nz-badge>
+                <nz-badge [nzColor]="'#333333'" [nzText]="'全部 (' + (model.by_due?.all || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#75c997'"
-                          [nzText]="'Completed (' + (model.by_due?.completed || 0) +')'"></nz-badge>
+                          [nzText]="'已完成 (' + (model.by_due?.completed || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#70a6f3'" [nzText]="'Upcoming (' + (model.by_due?.upcoming || 0) +')'"></nz-badge>
+                <nz-badge [nzColor]="'#70a6f3'" [nzText]="'即将到期 (' + (model.by_due?.upcoming || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#f37070'" [nzText]="'Overdue (' + (model.by_due?.overdue || 0) +')'"></nz-badge>
+                <nz-badge [nzColor]="'#f37070'" [nzText]="'逾期 (' + (model.by_due?.overdue || 0) +')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label">
                 <nz-badge [nzColor]="'#a9a9a9'"
-                          [nzText]="'No Due Date (' + (model.by_due?.no_due || 0) +')'"></nz-badge>
+                          [nzText]="'无截止日期 (' + (model.by_due?.no_due || 0) +')'"></nz-badge>
               </li>
             </ul>
           </div>

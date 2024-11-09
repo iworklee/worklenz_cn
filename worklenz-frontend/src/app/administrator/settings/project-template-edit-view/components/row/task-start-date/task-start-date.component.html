@@ -1,5 +1,4 @@
-
-  <div class="editable h-100 d-flex w-100 position-relative" #elementStartDate>
+<div class="editable h-100 d-flex w-100 position-relative" #elementStartDate>
   <!--  <span class="align-items-center d-flex h-100 w-100 picker-padding">-->
   <!--    {{task.start_date | date: 'MMM dd,yyyy'}}-->
   <!--  </span>-->
@@ -10,7 +9,7 @@
     (ngModelChange)="handleStartDateChange($event, task)"
     [nzFormat]="'MMM dd,yyyy'"
     [nzSuffixIcon]="''"
-    [nzPlaceHolder]="'Set a start date'"
+    [nzPlaceHolder]="'设置开始日期'"
     [nzDisabledDate]="task.end_date | validateMaxDate"
     (nzOnOpenChange)="toggleHighlightCls($event, elementStartDate)"
   >

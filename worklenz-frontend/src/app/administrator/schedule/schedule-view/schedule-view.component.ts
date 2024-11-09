@@ -25,11 +25,11 @@ export class ScheduleViewComponent {
   dateModes = [
     {
       value: 0,
-      label: 'Week'
+      label: '周'
     },
     {
       value: 1,
-      label: 'Month'
+      label: '月'
     }
   ]
 

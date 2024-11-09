@@ -417,15 +417,15 @@ export default class ReportingMembersController extends ReportingControllerBase 
     const sheet = workbook.addWorksheet("Members");
 
     sheet.columns = [
-      { header: "Member", key: "name", width: 30 },
-      { header: "Email", key: "email", width: 20 },
-      { header: "Tasks Assigned", key: "tasks", width: 20 },
-      { header: "Overdue Tasks", key: "overdue_tasks", width: 20 },
-      { header: "Completed Tasks", key: "completed_tasks", width: 20 },
-      { header: "Ongoing Tasks", key: "ongoing_tasks", width: 20 },
-      { header: "Done Tasks(%)", key: "done_tasks", width: 20 },
-      { header: "Doing Tasks(%)", key: "doing_tasks", width: 20 },
-      { header: "Todo Tasks(%)", key: "todo_tasks", width: 20 }
+      { header: "成员", key: "name", width: 30 },
+      { header: "邮箱", key: "email", width: 20 },
+      { header: "分配的任务", key: "tasks", width: 20 },
+      { header: "逾期的任务", key: "overdue_tasks", width: 20 },
+      { header: "已完成的任务", key: "completed_tasks", width: 20 },
+      { header: "进行中的任务", key: "ongoing_tasks", width: 20 },
+      { header: "已完成任务(%)", key: "done_tasks", width: 20 },
+      { header: "进行中任务(%)", key: "doing_tasks", width: 20 },
+      { header: "待办任务(%)", key: "todo_tasks", width: 20 }
     ];
 
     // set title
@@ -447,7 +447,7 @@ export default class ReportingMembersController extends ReportingControllerBase 
     sheet.mergeCells("A3:D3");
 
     // set table headers
-    sheet.getRow(5).values = ["Member", "Email", "Tasks Assigned", "Overdue Tasks", "Completed Tasks", "Ongoing Tasks", "Done Tasks(%)", "Doing Tasks(%)", "Todo Tasks(%)"];
+    sheet.getRow(5).values = ["成员", "邮箱", "分配的任务", "逾期的任务", "已完成的任务", "进行中的任务", "已完成任务(%)", "进行中任务(%)", "待办任务(%)"];
     sheet.getRow(5).font = { bold: true };
 
     for (const member of result.members) {

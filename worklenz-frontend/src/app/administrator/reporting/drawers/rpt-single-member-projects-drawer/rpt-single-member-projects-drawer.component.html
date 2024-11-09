@@ -16,16 +16,16 @@
               [nzScroll]="{ x: '300px' }" #projectsTable>
       <thead>
       <tr>
-        <th nzLeft [nzWidth]="'300px'">Name</th>
-        <th [nzWidth]="'120px'">Start Date</th>
-        <th [nzWidth]="'120px'">End Date</th>
-        <th [nzWidth]="'150px'">Days Left/Overdue</th>
-        <th [nzWidth]="'120px'">Estimated Time</th>
-        <th [nzWidth]="'120px'">Actual Time</th>
-        <th [nzWidth]="'150px'">Status</th>
-        <th [nzWidth]="'120px'">Health</th>
-        <th [nzWidth]="'120px'">Category</th>
-        <th [nzWidth]="'180px'">Project Manager</th>
+        <th nzLeft [nzWidth]="'300px'">名称</th>
+        <th [nzWidth]="'120px'">开始日期</th>
+        <th [nzWidth]="'120px'">结束日期</th>
+        <th [nzWidth]="'150px'">剩余天数/逾期天数</th>
+        <th [nzWidth]="'120px'">预计时间</th>
+        <th [nzWidth]="'120px'">实际时间</th>
+        <th [nzWidth]="'150px'">状态</th>
+        <th [nzWidth]="'120px'">健康状况</th>
+        <th [nzWidth]="'120px'">类别</th>
+        <th [nzWidth]="'180px'">项目经理</th>
       </tr>
       </thead>
       <tbody>
@@ -42,10 +42,10 @@
         <td>
           <ng-container *ngIf="data.days_left !== null; else naTemplate">
             <ng-container [ngSwitch]="data.is_overdue">
-              <span *ngSwitchCase="true" style="color: #f37070;">{{ data.days_left }} days overdue</span>
+              <span *ngSwitchCase="true" style="color: #f37070;">{{ data.days_left }} 天逾期</span>
               <span *ngSwitchCase="false">
-                <span *ngIf="data.is_today" style="color: #80ca79;">Today</span>
-                <span *ngIf="!data.is_today" style="color: #80ca79;"> {{ data.days_left }} days left</span>
+                <span *ngIf="data.is_today" style="color: #80ca79;">今天</span>
+                <span *ngIf="!data.is_today" style="color: #80ca79;"> {{ data.days_left }} 天剩余</span>
               </span>
             </ng-container>
           </ng-container>
@@ -84,7 +84,7 @@
 </ng-template>
 
 <ng-template #title>
-  <span nz-typography class="title-text">{{titleText}}'s Projects</span>
+  <span nz-typography class="title-text">{{titleText}} 的项目</span>
 </ng-template>
 
 <ng-template #closeIcon>

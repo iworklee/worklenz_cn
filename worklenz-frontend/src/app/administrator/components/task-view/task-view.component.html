@@ -15,12 +15,12 @@
 
         <!-- Tabs -->
         <nz-tabset [nzAnimated]="false" [nzType]="'card'" class="task-drawer-tabset pb-4">
-          <nz-tab [nzTitle]="'Info'">
+          <nz-tab [nzTitle]="'信息'">
             <ng-template nz-tab>
               <worklenz-task-view-info class="d-block px-4"></worklenz-task-view-info>
             </ng-template>
           </nz-tab>
-          <nz-tab [nzTitle]="'Time Log'">
+          <nz-tab [nzTitle]="'时间日志'">
             <ng-template nz-tab>
               <worklenz-task-view-time-log
                 class="d-block px-4"
@@ -31,7 +31,7 @@
               ></worklenz-task-view-time-log>
             </ng-template>
           </nz-tab>
-          <nz-tab [nzTitle]="'Activity Log'">
+          <nz-tab [nzTitle]="'活动日志'">
             <ng-template nz-tab>
               <worklenz-task-view-activity-log [taskId]="taskId"></worklenz-task-view-activity-log>
             </ng-template>
@@ -46,8 +46,8 @@
 
 <ng-template [ngSwitch]="isSubTask()" #iconTemplate>
   <span *ngSwitchCase="false" nz-icon [nzType]="'close'" [nzTheme]="'outline'"></span>
-  <div *ngSwitchCase="true" (click)="onBackClick()" nz-tooltip [nzTooltipTitle]="'Back to parent task'">
-    <span nz-icon [nzType]="'left'" [nzTheme]="'outline'"></span> Back
+  <div *ngSwitchCase="true" (click)="onBackClick()" nz-tooltip [nzTooltipTitle]="'返回父任务'">
+    <span nz-icon [nzType]="'left'" [nzTheme]="'outline'"></span> 返回
   </div>
 </ng-template>
 
@@ -57,7 +57,7 @@
   </button>
   <nz-dropdown-menu #menu="nzDropdownMenu">
     <ul nz-menu nzSelectable>
-      <li (click)="deleteTask()" nz-menu-item nzDanger>Delete task</li>
+      <li (click)="deleteTask()" nz-menu-item nzDanger>删除任务</li>
     </ul>
   </nz-dropdown-menu>
 </ng-template>

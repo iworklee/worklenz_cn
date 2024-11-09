@@ -5,7 +5,7 @@
         <img alt="Worklenz" height="50" src="/assets/images/logo.png">
       </div>
       <h5 nz-typography class="mb-4 mt-1 text-center">
-        Setup your account.
+        设置您的账户。
       </h5>
       <div class="mt-4 pt-5 col-xl-8 col-lg-10 col-md-12 mx-auto bg-white">
         <nz-space nzDirection="vertical" class="w-100">
@@ -26,9 +26,9 @@
 
                 <!-- workspace name step -->
                 <nz-form-item *ngSwitchCase="0">
-                  <h2 nz-typography>Name your organization.</h2>
+                    <h2 nz-typography>命名您的组织。</h2>
                   <span nz-typography class="label-description">
-                    Pick a name for your Worklenz account.
+                    为您的 Worklenz 账户选择一个名称。
                   </span>
                   <nz-form-control [nzSpan]="null">
                     <input [formControlName]="'team_name'" nz-input [placeholder]="teamSetupPlaceholder" type="text"
@@ -39,12 +39,12 @@
 
                 <!-- project name step -->
                 <nz-form-item *ngSwitchCase="1">
-                  <h2 nz-typography>Create your first project.</h2>
+                    <h2 nz-typography>创建您的第一个项目。</h2>
                   <span nz-typography class="label-description">
-                    What project are you working on right now?
+                    您现在正在做什么项目？
                   </span>
                   <nz-form-control [nzSpan]="null">
-                    <input [formControlName]="'project_name'" nz-input [placeholder]="'e.g. Worklenz marketing plan'"
+                    <input [formControlName]="'project_name'" nz-input [placeholder]="'例如：Worklenz 营销计划'"
                            [id]="projectNameId"
                            type="text" tabindex="0"/>
                   </nz-form-control>
@@ -55,7 +55,7 @@
                   </div>
 
                   <button [nzType]="'primary'" nz-button (click)="openTemplateSelector()"
-                          class="ms-auto me-auto">Import from templates
+                            class="ms-auto me-auto">从模板导入
                   </button>
 
                 </nz-form-item>
@@ -63,14 +63,14 @@
 
                 <!-- start of add tasks step -->
                 <div *ngSwitchCase="2">
-                  <h2 nz-typography>Create your first task.</h2>
+                    <h2 nz-typography>创建您的第一个任务。</h2>
                   <span nz-typography class="label-description">
-                    Type few tasks that you are going to do in <span nz-typography>"<mark>{{projectName}}</mark>".</span>
+                    输入您将在 <span nz-typography>"<mark>{{projectName}}</mark>"</span> 中要做的一些任务。
                   </span>
                   <nz-list>
                     <nz-list-item *ngFor="let item of getTaskControls.controls; let i = index;"
                                   [formArrayName]="'tasks'">
-                      <input nz-input placeholder="Your Task" [attr.id]="'task-name-input-' + i" [formControlName]="i"
+                        <input nz-input placeholder="您的任务" [attr.id]="'task-name-input-' + i" [formControlName]="i"
                              tabindex="0"/>
                       <ul nz-list-item-actions>
                         <nz-list-item-action>
@@ -82,7 +82,7 @@
                     <nz-list-item>
                       <button nz-button nzType="dashed" class="add-button" (click)="addNewTaskRow($event)">
                         <span nz-icon nzType="plus"></span>
-                        Add another
+                        添加另一个
                       </button>
                     </nz-list-item>
                   </nz-list>
@@ -92,7 +92,7 @@
                 <!-- start of team members step -->
                 <nz-form-item *ngSwitchCase="3">
                   <h2 nz-typography>
-                    Invite your team to work with <br>
+                    邀请您的团队一起工作 <br>
                     <span nz-typography style="font-size: 20px;font-weight:
                       400;">
                       <!-- use team name here -->
@@ -100,14 +100,14 @@
                     </span>
                   </h2>
                   <span nz-typography class="label-description">
-                  Invite with email <span class="ms-1" nz-icon nzType="mail" nzTheme="outline"></span>
+                    通过电子邮件邀请 <span class="ms-1" nz-icon nzType="mail" nzTheme="outline"></span>
                 </span>
 
                   <nz-list>
                     <nz-list-item *ngFor="let item of getTeamMemberControls.controls; let i = index;"
                                   [formArrayName]="'team_members'">
                       <ng-container>
-                        <input nz-input placeholder="Email address" [attr.id]="emailInputId"
+                        <input nz-input placeholder="电子邮件地址" [attr.id]="emailInputId"
                                [formControlName]="i"/>
                         <ul nz-list-item-actions>
                           <nz-list-item-action>
@@ -120,7 +120,7 @@
                     <nz-list-item>
                       <button nz-button nzType="dashed" class="add-button" (click)="addNewTeamMemberRow($event)">
                         <span nz-icon nzType="plus"></span>
-                        Add another
+                        添加另一个
                       </button>
                     </nz-list-item>
                   </nz-list>
@@ -131,17 +131,17 @@
               <!-- button steps for account setup -->
               <div class="d-flex mt-5">
                 <button (click)="previous()" nz-button type="button" class="ps-0" nzType="link" *ngIf="index !== 0">
-                  Go back
+                    返回
                 </button>
                 <button *ngIf="index === 3 && !loading" (click)="skipInvite()" [nzLoading]="loading" nzType="text"
                         type="button"
                         nz-button>
                     <span nz-typography style="font-weight:
-                      500;color:#00000073;">Skip for now</span>
+                        500;color:#00000073;">暂时跳过</span>
                 </button>
                 <!-- rename to Finish when goes to last step -->
                 <button [nzLoading]="loading" [nzType]="'primary'" [disabled]="!isValid()" nz-button
-                        class="ms-auto">Continue
+                        class="ms-auto">继续
                 </button>
               </div>
               <!-- button steps for account setup -->

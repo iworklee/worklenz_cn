@@ -1,6 +1,8 @@
+version: '3.8'
+
 services:
   frontend:
-    image: ghcr.io/worklenz/worklenz-frontend
+    image: opple/worklenz-frontend:20241108
     build:
       context: ./worklenz-frontend
       dockerfile: Dockerfile
@@ -14,16 +16,13 @@ services:
       - worklenz    
 
   backend:
-    image: ghcr.io/worklenz/worklenz-backend
+    image: opple/worklenz-backend:20241108
     build:
       context: ./worklenz-backend
       dockerfile: Dockerfile
     container_name: worklenz_backend
     ports:
       - "3000:3000"
-    depends_on:
-      db:
-        condition: service_healthy
     environment:
       - ANGULAR_DIST_DIR
       - ANGULAR_SRC_DIR
@@ -32,12 +31,12 @@ services:
       - BACKEND_VIEWS_DIR
       - COMMIT_BUILD_IMMEDIATELY
       - COOKIE_SECRET
-      - DB_HOST
+      - DB_HOST=10.1.5.177
       - DB_MAX_CLIENTS
-      - DB_NAME
-      - DB_PASSWORD
-      - DB_PORT
-      - DB_USER
+      - DB_NAME=worklenz_db
+      - DB_PASSWORD=password
+      - DB_PORT=5432
+      - DB_USER=worklenz_backend
       - GOOGLE_CALLBACK_URL
       - GOOGLE_CLIENT_ID
       - GOOGLE_CLIENT_SECRET
@@ -59,22 +58,6 @@ services:
     networks:
       - worklenz  
 
-  db:
-    image: postgres:15
-    container_name: worklenz_db
-    environment:
-      POSTGRES_DB: "${DB_NAME}"
-      POSTGRES_PASSWORD: "${DB_PASSWORD}"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d ${DB_NAME} -U ${DB_USER}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - worklenz  
-    volumes:
-      - worklenz_postgres_data:/var/lib/postgresql/data
-      - ./worklenz-backend/database/:/docker-entrypoint-initdb.d
-
-volumes:
-  worklenz_postgres_data:
+networks:
+  worklenz:
+    driver: bridge

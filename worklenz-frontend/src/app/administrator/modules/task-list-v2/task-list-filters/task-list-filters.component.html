@@ -10,14 +10,14 @@
       </button>
       <nz-dropdown-menu #taskSearchDropdown="nzDropdownMenu">
         <form (submit)="search()" class="bg-white shadow rounded-4 p-2">
-          <input type="text" nz-input name="search" id="task-search-input" placeholder="Search by name"
+          <input type="text" nz-input name="search" id="task-search-input" placeholder="按名称搜索"
                  [(ngModel)]="taskSearch"/>
           <nz-space class="mt-2">
             <button *nzSpaceItem nz-button [nzSize]="'small'" type="submit" [nzType]="'primary'">
-              Search
+              搜索
             </button>
             <button *nzSpaceItem nz-button [nzSize]="'small'" type="button" (click)="reset()">
-              Reset
+              重置
             </button>
           </nz-space>
         </form>
@@ -28,7 +28,7 @@
               [class.filter-active]="sortFiltersActive"
               [nzClickHide]="false">
         <span nz-icon [nzType]="'sort-ascending'" [nzTheme]="'outline'" class="lg-only"></span>
-        Sort
+        排序
         <nz-badge class="ms-1 me-2" [nzCount]="sortedColumnsCount" [nzStyle]="COUNTS_LABELS_STYLE"
                   [nzSize]="'small'"
                   nzStandalone></nz-badge>
@@ -51,7 +51,7 @@
       <button nz-button nz-dropdown [nzTrigger]="'click'" class="me-2 button-mobile" [class.filter-active]="prioritiesFiltersActive"
               [nzClickHide]="false"
               [nzDropdownMenu]="priorityMenu">
-        Priority
+        优先级
 
         <nz-badge class="ms-1 me-2" [nzCount]="selectedPrioritiesCount" [nzStyle]="COUNTS_LABELS_STYLE"
                   [nzSize]="'small'"
@@ -76,7 +76,7 @@
       <button nz-button nz-dropdown [nzTrigger]="'click'" class="me-2 drop-down-btn active button-mobile" [nzClickHide]="false"
               [class.filter-active]="labelsFiltersActive"
               [nzDropdownMenu]="labelsMenu">
-        Labels
+        标签
         <nz-badge class="ms-1 me-2" [nzCount]="selectedLabelsCount" [nzStyle]="COUNTS_LABELS_STYLE" [nzSize]="'small'"
                   nzStandalone></nz-badge>
         <span nz-icon [nzType]="'caret-down'"></span>
@@ -84,7 +84,7 @@
       <nz-dropdown-menu #labelsMenu>
         <ul style="max-height:250px;overflow: hidden;overflow-y: auto;" nz-menu>
           <li class="px-3 py-2">
-            <input type="text" [(ngModel)]="labelsSearchText" name="label" placeholder="Search by name" nz-input>
+            <input type="text" [(ngModel)]="labelsSearchText" name="label" placeholder="按名称搜索" nz-input>
           </li>
           <li *ngFor="let item of labels | searchByName: labelsSearchText; trackBy: trackById"
               [(nzChecked)]="item.selected" (nzCheckedChange)="onLabelsFilterChange()" class="m-0" nz-checkbox
@@ -100,7 +100,7 @@
       <button nz-button nz-dropdown [nzTrigger]="'click'" class="me-2 drop-down-btn active button-mobile" [nzClickHide]="false"
               [class.filter-active]="membersFiltersActive"
               [nzDropdownMenu]="membersMenu">
-        Members
+        成员
         <nz-badge class="ms-1 me-2" [nzCount]="selectedMembersCount" [nzStyle]="COUNTS_LABELS_STYLE" [nzSize]="'small'"
                   nzStandalone></nz-badge>
         <span nz-icon nzType="caret-down"></span>
@@ -108,7 +108,7 @@
       <nz-dropdown-menu #membersMenu>
         <ul class="members-menu" nz-menu>
           <li class="px-3 py-2">
-            <input type="text" [(ngModel)]="memberSearchText" name="member" placeholder="Search by name" nz-input>
+            <input type="text" [(ngModel)]="memberSearchText" name="member" placeholder="按名称搜索" nz-input>
           </li>
           <li class="m-0" *ngFor="let item of members | searchByName: memberSearchText; trackBy: trackById"
               [(nzChecked)]="item.selected"
@@ -132,7 +132,7 @@
       <nz-divider [nzType]="'vertical'" class="mob-p-0"></nz-divider>
 
       <!-- Group by -->
-      <label class="ms-1">Group by: </label>
+      <label class="ms-1">分组依据: </label>
       <button nz-button nz-dropdown [nzTrigger]="'click'" class="ms-1 button-mobile" [nzDropdownMenu]="groupByMenu"
               [nzClickHide]="true">
         <span nz-tooltip [nzTooltipTitle]="selectedGroup.label">
@@ -159,7 +159,7 @@
 
       <button
         *ngIf="isGroupByStatus() && (auth.isOwnerOrAdmin() || isProjectManager())" nz-button [nzType]="'link'" class="ps-1 button-mobile" nz-tooltip
-        [nzTooltipTitle]="'Status settings'"
+        [nzTooltipTitle]="'状态设置'"
         (click)="statusSettingsClick()">
         <span nz-icon [nzType]="'setting'" [nzTheme]="'outline'"></span>
       </button>

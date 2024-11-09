@@ -7,7 +7,7 @@
         <div class="no-data-img-holder mx-auto mb-4">
           <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
         </div>
-        <span nz-typography class="mx-auto d-block no-data-text" style="width: max-content">The selected team has no scheduled projects.</span>
+        <span nz-typography class="mx-auto d-block no-data-text" style="width: max-content">所选团队没有安排的项目。</span>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
                         [style.grid-column]="month.min + '/' + month.max"
                         class="justify-content-between d-flex" style="z-index: 1;">
                     <small *ngIf="month.days_of_week && month.days_of_week.length > 1"
-                           class="ps-2">W{{month.week_index || 0 - 1 }}</small>
+                           class="ps-2">第{{month.week_index || 0 - 1 }}周</small>
                     <span *ngIf="month.days_of_week && month.days_of_week.length > 2"
                           class="month">{{month.month_name}}</span>
                     <span></span>
@@ -48,7 +48,7 @@
               <div (click)="resource.collapsed = !resource.collapsed" class="float-end p-0 project-collapse-icon"
                    nz-button
                    nzType="text">
-                <img width="16" src="/assets/images/chevron-down-solid.svg" alt="Subtasks"
+                <img width="16" src="/assets/images/chevron-down-solid.svg" alt="子任务"
                      class="align-self-center cursor-pointer img-fluid"
                      [class.expanded]="!resource.collapsed"/>
               </div>
@@ -83,7 +83,7 @@
                       {{element.invitee_email}}
                       <br>
                         <span class="text-muted">
-                          (Invitation Pending)
+                          (邀请待定)
                         </span>
                     </span>
                   </div>
@@ -109,7 +109,7 @@
                     <nz-avatar *ngIf="resource.unassigned_tasks" [nzSize]="28" [nzText]="'U'"
                                [style.background-color]="getColor('Unassigned')" class="me-2"></nz-avatar>
                   </div>
-                  <div class="member">Unassigned tasks</div>
+                  <div class="member">未分配的任务</div>
                 </div>
                 <div *ngIf="resource.unassigned_tasks.length" class="grid-entry m-0 p-0 d-flex" style="width: 0;">
                   <ul class="gantt__row-bars">

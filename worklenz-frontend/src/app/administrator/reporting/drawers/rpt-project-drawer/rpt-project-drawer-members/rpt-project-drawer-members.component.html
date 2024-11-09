@@ -1,6 +1,6 @@
 <nz-skeleton [nzLoading]="loading" [nzActive]="true" class="d-block">
   <nz-input-group style="width: 250px" class="mb-3" [nzSuffix]="suffixIconSearch">
-    <input type="text" nz-input placeholder="Search by name" [(ngModel)]="searchText"/>
+    <input type="text" nz-input placeholder="按姓名搜索" [(ngModel)]="searchText"/>
   </nz-input-group>
   <ng-template #suffixIconSearch>
     <span nz-icon nzType="search"></span>
@@ -12,14 +12,14 @@
             #membersTable>
     <thead>
     <tr>
-      <th nzLeft [nzWidth]="'260px'">Name</th>
-      <th [nzWidth]="'120px'" class="text-center">Tasks Count</th>
-      <th [nzWidth]="'120px'" class="text-center">Completed Tasks</th>
-      <th [nzWidth]="'120px'" class="text-center">Incomplete Tasks</th>
-      <th [nzWidth]="'120px'" class="text-center">Overdue Tasks</th>
-      <th [nzWidth]="'180px'">Contribution</th>
-      <th [nzWidth]="'180px'">Progress</th>
-      <th [nzWidth]="'120px'" class="text-center">Logged Time</th>
+      <th nzLeft [nzWidth]="'260px'">姓名</th>
+      <th [nzWidth]="'120px'" class="text-center">任务数量</th>
+      <th [nzWidth]="'120px'" class="text-center">已完成任务</th>
+      <th [nzWidth]="'120px'" class="text-center">未完成任务</th>
+      <th [nzWidth]="'120px'" class="text-center">逾期任务</th>
+      <th [nzWidth]="'180px'">贡献</th>
+      <th [nzWidth]="'180px'">进度</th>
+      <th [nzWidth]="'120px'" class="text-center">记录时间</th>
     </tr>
     </thead>
     <tbody>

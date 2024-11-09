@@ -5,7 +5,7 @@
         <ng-template #statusCardTitle>
           <div class="d-flex align-items-center">
             <div>
-              <h4 class="mb-0">Tasks By Status</h4>
+              <h4 class="mb-0">任务状态</h4>
             </div>
           </div>
         </ng-template>
@@ -15,7 +15,7 @@
               <div class="no-data-img-holder mx-auto mb-3">
                 <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
               </div>
-              <span nz-typography class="no-data-text">No tasks to show.</span>
+              <span nz-typography class="no-data-text">没有任务显示。</span>
             </div>
           </ng-container>
           <div *ngIf="!loading && !isStatusChartEmpty" class="d-flex">
@@ -46,7 +46,7 @@
         <ng-template #priorityCardTitle>
           <div class="d-flex align-items-center">
             <div>
-              <h4 class="mb-0">Tasks By Priority</h4>
+              <h4 class="mb-0">任务优先级</h4>
             </div>
           </div>
         </ng-template>
@@ -56,7 +56,7 @@
               <div class="no-data-img-holder mx-auto mb-3">
                 <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
               </div>
-              <span nz-typography class="no-data-text">No tasks to show.</span>
+              <span nz-typography class="no-data-text">没有任务显示。</span>
             </div>
           </ng-container>
           <div *ngIf="!loading && !isPriorityChartEmpty" class="d-flex">
@@ -87,7 +87,7 @@
         <ng-template #phaseCardTitle>
           <div class="d-flex align-items-center">
             <div>
-              <h4 class="mb-0">Tasks By Phase</h4>
+              <h4 class="mb-0">任务阶段</h4>
             </div>
           </div>
         </ng-template>
@@ -97,7 +97,7 @@
               <div class="no-data-img-holder mx-auto mb-3">
                 <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
               </div>
-              <span nz-typography class="no-data-text">No tasks have been assigned to phases.</span>
+              <span nz-typography class="no-data-text">没有分配到阶段的任务。</span>
             </div>
           </ng-container>
           <div *ngIf="!loading && !isPhaseChartEmpty" class="d-flex">
@@ -128,7 +128,7 @@
         <ng-template #datesCardTitle>
           <div class="d-flex align-items-center">
             <div>
-              <h4 class="mb-0">Tasks By Dates</h4>
+              <h4 class="mb-0">任务日期</h4>
             </div>
           </div>
         </ng-template>
@@ -138,7 +138,7 @@
               <div class="no-data-img-holder mx-auto mb-3">
                 <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
               </div>
-              <span nz-typography class="no-data-text">No tasks to show.</span>
+              <span nz-typography class="no-data-text">没有任务显示。</span>
             </div>
           </ng-container>
           <div *ngIf="!loading && !isDatesChartEmpty" class="d-flex">

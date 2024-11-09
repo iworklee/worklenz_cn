@@ -5,32 +5,32 @@
         <li class="d-flex mb-3 list-clickable" (click)="openProjects()">
           <span nz-icon class="stat-icon me-2" [nzType]="'file-excel'" [nzTheme]="'outline'"
                 style="color: #ffc63b; font-size: 24px;"></span>
-          {{model.stats?.projects || 0}} Projects
+          {{model.stats?.projects || 0}} 项目
         </li>
         <li class="d-flex mb-3 list-clickable" (click)="openTaskStatDrawer()">
           <span nz-icon class="stat-icon me-2" [nzType]="'exclamation-circle'" [nzTheme]="'outline'"
                 style="color: #7590c9; font-size: 24px;"></span>
-          {{model.stats?.assigned || 0}} Assigned Tasks
+          {{model.stats?.assigned || 0}} 已分配任务
         </li>
         <li class="d-flex mb-3 list-clickable" (click)="openTaskStatDrawer()">
           <span nz-icon class="stat-icon me-2" [nzType]="'exclamation-circle'" [nzTheme]="'outline'"
                 style="color: #75c997; font-size: 24px;"></span>
-          {{model.stats?.completed || 0}} Completed Tasks
+          {{model.stats?.completed || 0}} 已完成任务
         </li>
         <li class="d-flex mb-3 list-clickable" (click)="openTaskStatDrawer()">
           <span nz-icon class="stat-icon me-2" [nzType]="'clock-circle'" [nzTheme]="'outline'"
                 style="color: #7cb5ec; font-size: 24px;"></span>
-          {{model.stats?.ongoing || 0}} Ongoing Tasks
+          {{model.stats?.ongoing || 0}} 进行中任务
         </li>
         <li class="d-flex mb-3 list-clickable" (click)="openTaskStatDrawer()">
           <span nz-icon class="stat-icon me-2" [nzType]="'clock-circle'" [nzTheme]="'outline'"
                 style="color: #eb6363; font-size: 24px;"></span>
-          {{model.stats?.overdue || 0}} Overdue Tasks
+          {{model.stats?.overdue || 0}} 逾期任务
         </li>
         <li class="d-flex list-clickable" (click)="openTimeLogsTab()">
           <span nz-icon class="stat-icon me-2" [nzType]="'clock-circle'" [nzTheme]="'outline'"
                 style="color: #75c997; font-size: 24px;"></span>
-          {{model.stats?.total_logged || 0}} Logged Hours
+          {{model.stats?.total_logged || 0}} 已记录小时数
         </li>
       </ul>
     </nz-card>
@@ -42,7 +42,7 @@
       <ng-template #projectsCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Tasks By Projects</h4>
+            <h4 class="mb-0">按项目分类的任务</h4>
           </div>
         </div>
       </ng-template>
@@ -52,7 +52,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No tasks to show.</span>
+            <span nz-typography class="no-data-text">没有任务显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isProjectsChartEmpty" class="d-flex">
@@ -70,7 +70,7 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#333333'" [nzText]="'All (' + (model.by_project?.total || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#333333'" [nzText]="'全部 (' + (model.by_project?.total || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label" *ngFor="let project of model.by_project?.data">
                 <nz-badge [nzColor]="project.color"></nz-badge>
@@ -90,7 +90,7 @@
       <ng-template #priorityCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Tasks By Priority</h4>
+            <h4 class="mb-0">按优先级分类的任务</h4>
           </div>
         </div>
       </ng-template>
@@ -100,7 +100,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No tasks to show.</span>
+            <span nz-typography class="no-data-text">没有任务显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isPriorityChartEmpty" class="d-flex">
@@ -118,7 +118,7 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#333333'" [nzText]="'All (' + (model.by_priority?.total || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#333333'" [nzText]="'全部 (' + (model.by_priority?.total || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label" *ngFor="let priority of model.by_priority?.data">
                 <nz-badge [nzColor]="priority.color"
@@ -137,7 +137,7 @@
       <ng-template #statusCardTitle>
         <div class="d-flex align-items-center">
           <div>
-            <h4 class="mb-0">Tasks By Status</h4>
+            <h4 class="mb-0">按状态分类的任务</h4>
           </div>
         </div>
       </ng-template>
@@ -147,7 +147,7 @@
             <div class="no-data-img-holder mx-auto mb-3">
               <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
             </div>
-            <span nz-typography class="no-data-text">No tasks to show.</span>
+            <span nz-typography class="no-data-text">没有任务显示。</span>
           </div>
         </ng-container>
         <div *ngIf="!loading && !isStatusChartEmpty" class="d-flex">
@@ -165,7 +165,7 @@
           <div class="chart-details ms-3">
             <ul class="list-unstyled">
               <li class="mb-1 chart-label">
-                <nz-badge [nzColor]="'#333333'" [nzText]="'All (' + (model.by_status?.total || 0) + ')'"></nz-badge>
+                <nz-badge [nzColor]="'#333333'" [nzText]="'全部 (' + (model.by_status?.total || 0) + ')'"></nz-badge>
               </li>
               <li class="mb-1 chart-label" *ngFor="let status of model.by_status?.data">
                 <nz-badge [nzColor]="status.color"

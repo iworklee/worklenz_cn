@@ -8,7 +8,7 @@
            (focus)="taskInputFocus()"
            (blur)="taskInputBlur()"
            (keydown)="onKeyDown($event)"
-           class="task-name-input-field task-input-default" placeholder="+ Add Task" #task_input/>
+           class="task-name-input-field task-input-default" placeholder="+ 添加任务" #task_input/>
     <!--  new task date -->
     <ng-container *nzSpaceItem>
       <nz-select *ngIf="taskCreateIndex === 2 || taskCreateIndex === 3" #due_date_selector
@@ -18,7 +18,7 @@
                  [nzOpen]="true"
                  (nzBlur)="dueDateFieldValidate($event, due_date_selector)"
                  (keydown.enter)="dueDateFieldValidate($event, due_date_selector)"
-                 [nzDropdownMatchSelectWidth]="false" [nzShowArrow]="false" nzPlaceHolder="Due Date"
+                 [nzDropdownMatchSelectWidth]="false" [nzShowArrow]="false" nzPlaceHolder="截止日期"
                  class="task-due-date-selector task-input-default" [(nzOpen)]="dueDateOpened"
                  (keydown.enter)="dueDateFieldValidate($event,due_date_selector)">
         <nz-option *ngFor="let option of dueDateOptionsList" [nzValue]="option"
@@ -35,7 +35,7 @@
                  (ngModelChange)="createMainTask('')"
                  [nzOpen]="true"
                  [nzDropdownMatchSelectWidth]="false"
-                 [nzShowArrow]="false" nzPlaceHolder="Project"
+                 [nzShowArrow]="false" nzPlaceHolder="项目"
                  [(nzOpen)]="projectSelectOpened"
                  (nzOpenChange)="handleProjectOpen()"
                  class="task-project-selector task-input-default">
@@ -46,8 +46,8 @@
   </nz-space>
   <div *ngIf="taskCreateIndex === 1 && newTaskName"
        style="background: #e6f7ff; border: 1px solid #91d5ff; margin-top: 4px; max-width: max-content;padding-left: 4px; padding-right: 4px">
-    <small *ngIf="!isPersonal" style="color: #000000d9">Press <b>Tab</b> to select a <b>'Due date'</b> and a <b>'Project' </b>.</small>
-    <small *ngIf="isPersonal" style="color: #000000d9">Press <b>Enter</b> to create.</small>
+    <small *ngIf="!isPersonal" style="color: #000000d9">按 <b>Tab</b> 选择 <b>'截止日期'</b> 和 <b>'项目'</b>。</small>
+    <small *ngIf="isPersonal" style="color: #000000d9">按 <b>Enter</b> 创建。</small>
   </div>
 </div>
 
@@ -61,7 +61,7 @@
            (focus)="taskInputFocus()"
            (blur)="taskInputBlur()"
            (keydown)="onKeyDown($event)"
-           class="task-name-input-field task-input-default" placeholder="+ Add Task" #task_input/>
+           class="task-name-input-field task-input-default" placeholder="+ 添加任务" #task_input/>
     <!--  new task project -->
     <ng-container *nzSpaceItem>
       <nz-space *ngIf="taskCreateIndex === 3">
@@ -77,7 +77,7 @@
                    (ngModelChange)="createMainTask('')"
                    [nzOpen]="true"
                    [nzDropdownMatchSelectWidth]="false"
-                   [nzShowArrow]="false" nzPlaceHolder="Project"
+                   [nzShowArrow]="false" nzPlaceHolder="项目"
                    [(nzOpen)]="projectSelectOpened"
                    (nzOpenChange)="handleProjectOpen()"
                    class="task-project-selector task-input-default">
@@ -89,7 +89,7 @@
   </nz-space>
   <div *ngIf="taskCreateIndex === 1 && newTaskName"
        style="background: #e6f7ff; border: 1px solid #91d5ff; margin-top: 4px; max-width: max-content;padding-left: 4px; padding-right: 4px">
-    <small *ngIf="!isPersonal" style="color: #000000d9">Press <b>Tab</b> to select a <b>'Project' </b>.</small>
-    <small *ngIf="isPersonal" style="color: #000000d9">Press <b>Enter</b> to create.</small>
+    <small *ngIf="!isPersonal" style="color: #000000d9">按 <b>Tab</b> 选择 <b>'项目'</b>。</small>
+    <small *ngIf="isPersonal" style="color: #000000d9">按 <b>Enter</b> 创建。</small>
   </div>
 </div>

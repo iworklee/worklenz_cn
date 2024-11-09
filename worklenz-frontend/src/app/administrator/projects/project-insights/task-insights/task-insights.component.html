@@ -1,23 +1,22 @@
 <div #tasksInsightsExportDiv>
   <worklenz-project-stats [archived]="archived"></worklenz-project-stats>
 
-
   <nz-row [nzGutter]="16" class="mt-3">
     <nz-col [nzSpan]="12">
       <nz-card [nzTitle]="overdueTitleTemplate" [nzExtra]="lastExtraTemplate" class="h-100">
         <ng-template #overdueTitleTemplate>
-          Overdue Tasks
+          逾期任务
           <span
             nz-icon
             nzType="info-circle"
             nzTheme="outline"
             [nz-tooltip]="'true'"
-            [nzTooltipTitle]="'Tasks that are past their due date'"
+            [nzTooltipTitle]="'已过期的任务'"
             style="color: #3587ff; font-size: 14px;">
         </span>
         </ng-template>
         <ng-template #lastExtraTemplate>
-          <a (click)="goToList()">See all</a>
+          <a (click)="goToList()">查看全部</a>
         </ng-template>
 
         <nz-table #tasksTable [nzData]="overdueTasks" [nzHideOnSinglePage]="true"
@@ -25,10 +24,10 @@
                   nzPaginationType="small" [nzNoResult]="noDataTemplate1">
           <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">End Date</th>
-            <th scope="col" class="text-center">Days overdue</th>
+            <th scope="col">名称</th>
+            <th scope="col">状态</th>
+            <th scope="col">结束日期</th>
+            <th scope="col" class="text-center">逾期天数</th>
           </tr>
           </thead>
           <tbody>
@@ -53,18 +52,18 @@
       <nz-card [nzTitle]="titleTemplate" [nzExtra]="lastExtraTemplate" class="h-100">
 
         <ng-template #titleTemplate>
-          Over logged Tasks
+          超时任务
           <span
             nz-icon
             nzType="info-circle"
             nzTheme="outline"
             [nz-tooltip]="'true'"
-            [nzTooltipTitle]="'Tasks that has time logged past their estimated time'"
+            [nzTooltipTitle]="'已超出预估时间的任务'"
             style="color: #3587ff; font-size: 14px;">
         </span>
         </ng-template>
         <ng-template #lastExtraTemplate>
-          <a (click)="goToList()">See all</a>
+          <a (click)="goToList()">查看全部</a>
         </ng-template>
 
         <nz-table #overLogTasksTable [nzData]="overloggedTasks" [nzHideOnSinglePage]="true"
@@ -72,10 +71,10 @@
                   nzPaginationType="small" [nzNoResult]="noDataTemplate2">
           <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">Members</th>
-            <th scope="col">Over Logged Time</th>
+            <th scope="col">名称</th>
+            <th scope="col">状态</th>
+            <th scope="col">成员</th>
+            <th scope="col">超时</th>
           </tr>
           </thead>
           <tbody>
@@ -102,7 +101,7 @@
                 <ul class="members-dropdown" *ngIf="members.length" nz-menu>
                   <li class="px-3 py-2">
                     <input type="text" [(ngModel)]="memberSearchText"
-                           placeholder="Search by name" nz-input
+                           placeholder="按名称搜索" nz-input
                            #memberSearchInput>
                   </li>
                 </ul>
@@ -117,10 +116,10 @@
   </nz-row>
   <nz-row [nzGutter]="16" class="mt-3">
     <nz-col [nzSpan]="12">
-      <nz-card [nzTitle]="'Tasks completed early'" [nzExtra]="lastExtraTemplate" class="h-100">
+      <nz-card [nzTitle]="'提前完成的任务'" [nzExtra]="lastExtraTemplate" class="h-100">
 
         <ng-template #lastExtraTemplate>
-          <a (click)="goToList()">See all</a>
+          <a (click)="goToList()">查看全部</a>
         </ng-template>
 
         <nz-table #earlyTasksTable [nzData]="earlyTasks" [nzHideOnSinglePage]="true"
@@ -128,10 +127,10 @@
                   nzPaginationType="small" [nzNoResult]="noDataTemplate3">
           <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Completed At</th>
+            <th scope="col">名称</th>
+            <th scope="col">状态</th>
+            <th scope="col">结束日期</th>
+            <th scope="col">完成时间</th>
           </tr>
           </thead>
           <tbody>
@@ -153,10 +152,10 @@
       </nz-card>
     </nz-col>
     <nz-col [nzSpan]="12">
-      <nz-card [nzTitle]="'Tasks completed late'" [nzExtra]="lastExtraTemplate" class="h-100">
+      <nz-card [nzTitle]="'延迟完成的任务'" [nzExtra]="lastExtraTemplate" class="h-100">
 
         <ng-template #lastExtraTemplate>
-          <a (click)="goToList()">See all</a>
+          <a (click)="goToList()">查看全部</a>
         </ng-template>
 
         <nz-table #lateTasksTable [nzData]="lateTasks" [nzHideOnSinglePage]="true"
@@ -164,10 +163,10 @@
                   [nzPaginationType]="'small'" [nzNoResult]="noDataTemplate4">
           <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Completed At</th>
+            <th scope="col">名称</th>
+            <th scope="col">状态</th>
+            <th scope="col">结束日期</th>
+            <th scope="col">完成时间</th>
           </tr>
           </thead>
           <tbody>
@@ -196,7 +195,7 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/confetti (1).png" class="img-fluid" alt="">
     </div>
-    <div><span nz-typography class="no-data-text">All tasks completed on time.</span></div>
+    <div><span nz-typography class="no-data-text">所有任务按时完成。</span></div>
   </div>
 </ng-template>
 
@@ -205,7 +204,7 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/confetti (1).png" class="img-fluid" alt="">
     </div>
-    <div><span nz-typography class="no-data-text">All tasks completed on time.</span></div>
+    <div><span nz-typography class="no-data-text">所有任务按时完成。</span></div>
   </div>
 </ng-template>
 
@@ -214,7 +213,7 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
-    <span nz-typography class="no-data-text">No tasks completed early in the project.</span>
+    <span nz-typography class="no-data-text">项目中没有提前完成的任务。</span>
   </div>
 </ng-template>
 
@@ -223,6 +222,6 @@
     <div class="no-data-img-holder mx-auto mb-3">
       <img src="/assets/images/confetti (1).png" class="img-fluid" alt="">
     </div>
-    <span nz-typography class="no-data-text">All tasks completed on time.</span>
+    <span nz-typography class="no-data-text">所有任务按时完成。</span>
   </div>
 </ng-template>

@@ -3,10 +3,10 @@
                 (nzValueChange)="handleIndexChange($event)"></nz-segmented>
   <div class="float-end ms-auto">
     <span class="me-2 archived-toggler" [ngClass]="includeArchived ? 'archived' : ''">
-      <label nz-checkbox [(ngModel)]="includeArchived" (ngModelChange)="archivedChoiceChanged($event)">Include Archived Tasks</label>
+      <label nz-checkbox [(ngModel)]="includeArchived" (ngModelChange)="archivedChoiceChanged($event)">包含已归档任务</label>
     </span>
     <button nz-button nzType="primary" (click)="exportPdf()" [nzLoading]="isLoading"><span
-      nz-icon nzType="download"></span>Export
+      nz-icon nzType="download"></span>导出
     </button>
   </div>
 </nz-row>

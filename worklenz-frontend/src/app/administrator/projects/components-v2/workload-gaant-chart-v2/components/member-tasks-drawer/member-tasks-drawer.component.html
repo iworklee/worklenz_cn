@@ -13,17 +13,17 @@
       <nz-tabset [nzAnimated]="false" [nzType]="'card'" class="task-drawer-tabset pb-0"
                  [nzSelectedIndex]="activeTab"
                  (nzSelectedIndexChange)="tabChange($event)">
-        <nz-tab [nzTitle]="'Overview'">
+        <nz-tab [nzTitle]="'概览'">
           <worklenz-overview-tab [teamMember]="teamMember" [projectId]="projectId"></worklenz-overview-tab>
         </nz-tab>
-        <nz-tab [nzTitle]="'All Tasks'"></nz-tab>
-        <nz-tab [nzTitle]="'Tasks without Start date'"></nz-tab>
-        <nz-tab [nzTitle]="'Tasks without End date'"></nz-tab>
-        <nz-tab [nzTitle]="'Tasks without Start & End dates'"></nz-tab>
+        <nz-tab [nzTitle]="'所有任务'"></nz-tab>
+        <nz-tab [nzTitle]="'没有开始日期的任务'"></nz-tab>
+        <nz-tab [nzTitle]="'没有结束日期的任务'"></nz-tab>
+        <nz-tab [nzTitle]="'没有开始和结束日期的任务'"></nz-tab>
       </nz-tabset>
 
       <nz-space *ngIf="activeTab != 0" class="align-items-center p-skel mb-3">
-        <label *nzSpaceItem class="ms-1">Group by: </label>
+        <label *nzSpaceItem class="ms-1">分组依据: </label>
         <button *nzSpaceItem nz-button nz-dropdown [nzTrigger]="'click'" class="ms-1" [nzDropdownMenu]="groupByMenu"
                 [nzClickHide]="true">
         <span nz-tooltip [nzTooltipTitle]="selectedGroup.label">
@@ -64,7 +64,7 @@
                 </ng-container>
                 <div class="tasks-empty-placeholder d-flex align-items-center mb-0 ps-3"
                      *ngIf="!group.tasks.length" nz-typography nzType="secondary">
-                  No tasks available
+                  没有可用的任务
                 </div>
                 <div class="new-task-input" #td1>
                   <worklenz-member-task-add-container

@@ -4,7 +4,7 @@
   (nzVisibleChange)="onVisibleChange($event)"
   [nzClosable]="true"
   [nzPlacement]="'right'"
-  [nzTitle]="'Project Members'"
+  [nzTitle]="'项目成员'"
 >
   <ng-container *nzDrawerContent>
     <nz-spin [nzSpinning]="false">
@@ -12,8 +12,8 @@
         <worklenz-team-members-autocomplete
           (membersChange)="membersChange($event)"
           (refresh)="getMembers()"
-          [label]="'Add members by adding their name or email'"
-          [placeholder]="'Type name or email...'"
+          [label]="'通过添加姓名或电子邮件添加成员'"
+          [placeholder]="'输入姓名或电子邮件...'"
           [autofocus]="autofocus"
           [disableTeamInvites]="adminAndManager()"
         ></worklenz-team-members-autocomplete>
@@ -42,11 +42,11 @@
             nz-button
             nz-popconfirm
             nz-tooltip
-            [nzOkText]="'OK'"
-            [nzPopconfirmTitle]="'Member will also removes from assigned tasks.'"
+            [nzOkText]="'确定'"
+            [nzPopconfirmTitle]="'成员也将从分配的任务中移除。'"
             [nzSize]="'small'"
             [nzTooltipPlacement]="'top'"
-            [nzTooltipTitle]="'Remove from project'"
+            [nzTooltipTitle]="'从项目中移除'"
             [nzType]="'default'"
           >
             <span nz-icon nzType="delete"></span>

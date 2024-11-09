@@ -18,16 +18,16 @@
                   [nzScroll]="{ x: '300px' }" [nzNoResult]="emptyData" #memberTable>
           <thead>
           <tr>
-            <th nzLeft [nzWidth]="'300px'">Task</th>
-            <th [nzWidth]="'120px'">Status</th>
-            <th [nzWidth]="'120px'">Priority</th>
-            <th [nzWidth]="'150px'">Phase</th>
-            <th [nzWidth]="'120px'">Due Date</th>
-            <th [nzWidth]="'120px'">Completed On</th>
-            <th [nzWidth]="'120px'" class="text-center">Days Overdue</th>
-            <th [nzWidth]="'120px'" class="text-center">Estimated Time</th>
-            <th [nzWidth]="'120px'" class="text-center">Logged Time</th>
-            <th [nzWidth]="'180px'" class="text-center">Overlogged Time</th>
+            <th nzLeft [nzWidth]="'300px'">任务</th>
+            <th [nzWidth]="'120px'">状态</th>
+            <th [nzWidth]="'120px'">优先级</th>
+            <th [nzWidth]="'150px'">阶段</th>
+            <th [nzWidth]="'120px'">截止日期</th>
+            <th [nzWidth]="'120px'">完成日期</th>
+            <th [nzWidth]="'120px'" class="text-center">逾期天数</th>
+            <th [nzWidth]="'120px'" class="text-center">预计时间</th>
+            <th [nzWidth]="'120px'" class="text-center">记录时间</th>
+            <th [nzWidth]="'180px'" class="text-center">超时记录</th>
           </tr>
           </thead>
           <tbody>
@@ -67,7 +67,7 @@
 </ng-template>
 
 <ng-template #title>
-  <span nz-typography class="title-text">{{titleText}}'s Tasks</span>
+  <span nz-typography class="title-text">{{titleText}}的任务</span>
 </ng-template>
 
 <ng-template #closeIcon>
@@ -79,6 +79,6 @@
   <div class="no-data-img-holder mx-auto mb-3">
     <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
   </div>
-  <span nz-typography class="no-data-text">No tasks to show.</span>
+  <span nz-typography class="no-data-text">没有任务显示。</span>
 </div>
 </ng-template>

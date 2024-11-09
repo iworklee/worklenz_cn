@@ -73,9 +73,9 @@ export class ProjectOverviewComponent implements OnInit {
       const res = await this.statusesApi.getCategories();
       if (res.done) {
         this.categories = res.body;
-        this.toDoColorCode = this.categories.find(e => e.name === 'To do')?.color_code || '';
-        this.pendingColorCode = this.categories.find(e => e.name === 'Doing')?.color_code || '';
-        this.completedColorCode = this.categories.find(e => e.name === 'Done')?.color_code || '';
+        this.toDoColorCode = this.categories.find(e => e.name === '待办')?.color_code || '';
+        this.pendingColorCode = this.categories.find(e => e.name === '进行中')?.color_code || '';
+        this.completedColorCode = this.categories.find(e => e.name === '已完成')?.color_code || '';
       }
       this.loadingCategories = false;
       this.cdr.markForCheck();
@@ -132,7 +132,7 @@ export class ProjectOverviewComponent implements OnInit {
         doc.addImage(LogoImg, 'PNG', (doc.internal.pageSize.getWidth() / 2) - 12, 5, 30, 6.5);
         doc.setFontSize(14);
         doc.setTextColor(0, 0, 0, 0.85);
-        doc.text([`Insights - ` + projectName + ` - Overview`, `${formatDate(new Date(), 'yyyy-MM-dd', 'en')}`], 105, 17, {
+        doc.text([`洞察 - ` + projectName + ` - 概览`, `${formatDate(new Date(), 'yyyy-MM-dd', 'zh')}`], 105, 17, {
           maxWidth: pdfWidth,
           align: 'center'
         });
@@ -140,7 +140,7 @@ export class ProjectOverviewComponent implements OnInit {
         return doc;
 
       }).then((doc) => {
-        doc.save('Overview ' + formatDate(new Date(), 'yyyy-MM-dd', 'en') + '.pdf');
+        doc.save('概览 ' + formatDate(new Date(), 'yyyy-MM-dd', 'zh') + '.pdf');
         this.projectInsightsComponent.isLoading = false;
       });
 

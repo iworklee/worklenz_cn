@@ -4,7 +4,7 @@
       <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
     </div>
     <div class="text-center mb-3">
-      <span nz-typography class="no-data-text">You have not assigned to any project yet.Therefore you cannot create tasks or view tasks.</span>
+      <span nz-typography class="no-data-text">您尚未分配到任何项目。因此，您无法创建任务或查看任务。</span>
     </div>
   </ng-container>
   <ng-container *ngIf="projects.length">
@@ -12,10 +12,10 @@
       *ngIf="homePageService.tasksViewConfig?.current_tab === 'All'" [isPersonal]="false"></worklenz-task-add-container>
     <nz-table class=" mt-2">
       <tr style="background: #fafafa;">
-        <th class="tasks-td name-td">Task</th>
-        <th class="tasks-td project-td pe-0">Project</th>
-        <th class="tasks-td status-td ps-0">Status</th>
-        <th class="tasks-td due-date-td">Due date</th>
+        <th class="tasks-td name-td">任务</th>
+        <th class="tasks-td project-td pe-0">项目</th>
+        <th class="tasks-td status-td ps-0">状态</th>
+        <th class="tasks-td due-date-td">截止日期</th>
       </tr>
     </nz-table>
     <nz-table
@@ -40,7 +40,7 @@
         <img src="/assets/images/empty-box.webp" class="img-fluid" alt="">
       </div>
       <div class="text-center mb-3">
-        <span nz-typography class="no-data-text">No tasks to show.</span>
+        <span nz-typography class="no-data-text">没有任务可显示。</span>
       </div>
     </ng-container>
   </ng-container>

@@ -8,7 +8,7 @@
     (ngModelChange)="handleEndDateChange($event, task)"
     [nzFormat]="'MMM dd,yyyy'"
     [nzSuffixIcon]="''"
-    [nzPlaceHolder]="'Set due date'"
+    [nzPlaceHolder]="'设置截止日期'"
     [nzDisabledDate]="task.start_date | validateMinDate"
   >
   </nz-date-picker>

@@ -23,7 +23,7 @@ export class ProjectInsightsComponent {
   @Input() projectName: string | null = null;
   private readonly includeArchivedTasks = "include-archived-tasks";
 
-  options = ['Overview', 'Members', 'Tasks'];
+  options = ['概览', '成员', '任务'];
   selectedMode: number = IInsightModes.overview;
   modes = IInsightModes;
   isLoading = false;

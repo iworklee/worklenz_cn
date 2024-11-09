@@ -2,7 +2,7 @@
   <nz-skeleton [nzActive]="true" [nzLoading]="loading || updating">
     <form (ngSubmit)="submit()" [formGroup]="form" nz-form nzLayout="vertical">
       <nz-form-item>
-        <nz-form-label nzFor="name" nzRequired>Language</nz-form-label>
+        <nz-form-label nzFor="name" nzRequired>语言</nz-form-label>
         <nz-form-control [nzSm]="8" [nzXs]="24">
           <nz-select [formControlName]="'language'">
             <nz-option *ngFor="let item of options" [nzLabel]="item" [nzValue]="item" nzCustomContent>
@@ -12,7 +12,7 @@
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label nzFor="name" nzRequired>Time zone</nz-form-label>
+        <nz-form-label nzFor="name" nzRequired>时区</nz-form-label>
         <nz-form-control [nzSm]="8" [nzXs]="24">
           <nz-select nzShowSearch [formControlName]="'timezone'">
             <nz-option *ngFor="let item of timezones" nzLabel="{{item.name}}" [nzValue]="item.id" nzCustomContent>
@@ -26,7 +26,7 @@
       <nz-form-item class="register-area" nz-row>
         <nz-form-control>
           <button [disabled]="loading" [nzLoading]="updating" nz-button nzType="primary">
-            Save Changes
+            保存更改
           </button>
         </nz-form-control>
       </nz-form-item>

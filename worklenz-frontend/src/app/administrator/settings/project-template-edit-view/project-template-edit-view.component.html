@@ -62,7 +62,7 @@
 
                     <div class="tasks-empty-placeholder d-flex align-items-center mb-0 ps-3"
                          *ngIf="!group.tasks.length" nz-typography nzType="secondary">
-                      No tasks available
+                      没有可用的任务
                     </div>
 
                     <!-- Group tasks -->
@@ -89,7 +89,7 @@
                               <div class="w-100">
                                 <worklenz-add-task-input
                                   [templateId]="templateId"
-                                  [label]="'Add sub-task'"
+                                  [label]="'添加子任务'"
                                   [parentTask]="task.id"
                                   [groupId]="group.id"
                                   [subTaskInput]="true"
@@ -138,7 +138,7 @@
   [templateId]="templateId"
   (onCreateOrUpdate)="refreshWithoutLoading()"
   [(show)]="displayStatusModal"
-  action="Create"
+  action="创建"
 ></worklenz-status-settings-drawer>
 
 <worklenz-context-menu

@@ -16,7 +16,7 @@
     <ng-container [ngSwitch]="loadingArchived">
       <div class="me-2" *ngSwitchCase="true">
         <span nz-icon [nzType]="'loading'"></span>
-        Show archived
+        显示已归档
       </div>
       <label
         *ngSwitchCase="false"
@@ -24,7 +24,7 @@
         [(nzChecked)]="showArchived"
         (nzCheckedChange)="onArchiveChange()"
         class="me-2"
-      >Show archived</label>
+      >显示已归档</label>
     </ng-container>
   </div>
 </div>
@@ -38,12 +38,12 @@
     <span nz-typography class="mx-auto d-block text-center no-data-text" style="width: max-content;"
           [ngSwitch]="isGroupByPhase()">
       <ng-container *ngSwitchCase="false">
-        There are no status groups to show in this project. <br> Please go to the <b>"Board"</b> section to create status groups as you desire.
+        该项目中没有状态组可显示。<br> 请转到 <b>"看板"</b> 部分以创建所需的状态组。
       </ng-container>
       <ng-container *ngSwitchCase="true">
-        There are no phases to show in this project.
-        <br> You can <button nz-button class="p-0" nzType="link"
-                             (click)="openAddColumnDrawer()"><b><u>Create</u></b></button> Phases as you desire.
+        该项目中没有阶段可显示。
+        <br> 您可以 <button nz-button class="p-0" nzType="link"
+                             (click)="openAddColumnDrawer()"><b><u>创建</u></b></button> 所需的阶段。
       </ng-container>
     </span>
   </div>
@@ -80,7 +80,7 @@
 
                 <div class="tasks-empty-placeholder d-flex align-items-center mb-0 ps-3"
                      *ngIf="!group.tasks.length" nz-typography nzType="secondary">
-                  No tasks available
+                  没有可用任务
                 </div>
 
                 <!-- Group tasks -->
@@ -109,7 +109,7 @@
                           <div class="w-100">
                             <worklenz-task-list-add-task-input
                               [projectId]="projectId"
-                              [label]="'Add sub-task'"
+                              [label]="'添加子任务'"
                               [parentTask]="task.id"
                               [groupId]="group.id"
                               [subTaskInput]="true"
@@ -185,7 +185,7 @@
   *ngIf="projectId"
   (onCancel)="showStatusModal = false;"
   (onCreateOrUpdate)="onStatusCreateOrUpdate()"
-  action="Create"
+  action="创建"
   [show]="showStatusModal"
   [showStatusGroups]="false"
   [statusId]="null"

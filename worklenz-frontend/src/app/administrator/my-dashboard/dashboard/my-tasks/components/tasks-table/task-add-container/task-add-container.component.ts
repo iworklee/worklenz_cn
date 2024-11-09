@@ -46,11 +46,11 @@ export class TaskAddContainerComponent implements OnInit {
   loadingProjects = false;
 
   dueDateOptionsList = [
-    {label: 'Today', value: 'Today'},
-    {label: 'Tomorrow', value: 'Tomorrow'},
-    {label: 'Next Week', value: 'Next Week'},
-    {label: 'Next Month', value: 'Next Month'},
-    {label: 'No Due Date', value: 'No Due Date'}
+    {label: '今天', value: 'Today'},
+    {label: '明天', value: 'Tomorrow'},
+    {label: '下周', value: 'Next Week'},
+    {label: '下个月', value: 'Next Month'},
+    {label: '无截止日期', value: 'No Due Date'}
   ];
 
   selectedDueDate = this.dueDateOptionsList[4];

@@ -2,7 +2,7 @@
   [nzClosable]="true"
   [nzVisible]="show"
   [nzPlacement]="'right'"
-  [nzTitle]="'Configure Phases'"
+  [nzTitle]="'配置阶段'"
   (nzOnClose)="close()"
   (nzVisibleChange)="onVisibleChange($event)"
 >
@@ -10,9 +10,9 @@
     <nz-skeleton [nzActive]="true" [nzLoading]="loading">
       <form [nzLayout]="'vertical'" nz-form>
         <nz-form-item>
-          <nz-form-label [nzFor]="'label'">Phase Label:</nz-form-label>
+          <nz-form-label [nzFor]="'label'">阶段标签:</nz-form-label>
           <nz-form-control>
-            <input nz-input id="label" placeholder="Enter a name for label" name="label" [(ngModel)]="phaseLabel"
+            <input nz-input id="label" placeholder="输入标签名称" name="label" [(ngModel)]="phaseLabel"
                    (focus)="oldLabel = phaseLabel"
                    (blur)="updateLabel(phaseLabel)" required/>
           </nz-form-control>
@@ -25,13 +25,13 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
           <div class="d-block">
             <nz-form-label>
-              Phase Options
+              阶段选项
             </nz-form-label>
           </div>
           <div class="d-block ms-auto">
             <button type="button" [nzType]="'primary'" nz-button [nzLoading]="creating" (click)="addNewOption()" nzBlock>
               <span nz-icon [nzType]="'plus'" [nzTheme]="'outline'"></span>
-              Add Option
+              添加选项
             </button>
           </div>
         </div>
@@ -60,7 +60,7 @@
                 <nz-tag
                   [nzColor]="item+'69'"
                   class="me-1 w-100 rounded-pill"
-                  style="height: 16px !important;width: 16px !important;">&nbsp;
+                  style="height: 16px !important;width: 16px !重要;">&nbsp;
                 </nz-tag>
               </li>
             </ul>

@@ -4,9 +4,8 @@
               nzPaginationType="small" nzSize="small">
       <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th colspan="2" nzAlign="left" scope="col">Created</th>
-
+        <th scope="col">名称</th>
+        <th colspan="2" nzAlign="left" scope="col">创建时间</th>
       </tr>
       </thead>
       <tbody>
@@ -18,14 +17,14 @@
             <nz-space>
               <button *nzSpaceItem (click)="editTemplate(data.id)" nz-button nz-tooltip nzSize="small"
                       nzTooltipPlacement="top"
-                      nzTooltipTitle="Edit"
+                      nzTooltipTitle="编辑"
                       nzType="default">
                 <span nz-icon nzType="edit"></span>
               </button>
               <button *nzSpaceItem (nzOnConfirm)="deleteTemplate(data.id)"
-                      nz-button nz-popconfirm nz-tooltip nzOkText="Yes"
-                      nzPopconfirmTitle="Are you sure?" nzSize="small" nzTooltipPlacement="top"
-                      nzTooltipTitle="Delete"
+                      nz-button nz-popconfirm nz-tooltip nzOkText="是"
+                      nzPopconfirmTitle="你确定吗？" nzSize="small" nzTooltipPlacement="top"
+                      nzTooltipTitle="删除"
                       nzType="default">
                 <span nz-icon nzType="delete"></span>
               </button>

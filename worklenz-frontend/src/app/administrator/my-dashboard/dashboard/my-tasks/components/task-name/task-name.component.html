@@ -14,14 +14,14 @@
       [nzTooltipTitle]="task.name">{{task.name | ellipsis : 100}}</span>
 
 <button *ngIf="task && task.is_task" nz-tooltip nz-button (click)="openTask(task)"
-        [nzTooltipTitle]="'Click open task form'"
+        [nzTooltipTitle]="'点击打开任务表单'"
         [nzTooltipPlacement]="'top'" [nzTooltipMouseEnterDelay]="2"
         class="plus-icon"
         [nzType]="'text'">
   <span nz-icon [nzType]="'expand-alt'" [nzTheme]="'outline'"></span>
-  Open
+  打开
 </button>
 
 <ng-template #subTasksTitle>
-  <p class="mb-0">Sub-task of {{task?.parent_task_name}}</p>
+  <p class="mb-0">子任务属于 {{task?.parent_task_name}}</p>
 </ng-template>

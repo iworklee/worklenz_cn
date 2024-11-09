@@ -3,13 +3,13 @@
           [nzTooltipTitle]="UPDATES_MESSAGE"
           (click)="applyUpdates()"
           nzDanger>
-    Apply Updates
+    应用更新
   </button>
   <nz-divider *ngIf="members.length && updatesAvailable" [nzType]="'vertical'"></nz-divider>
   <ng-container *ngIf="members.length">
     <div class="position-relative" style="top: 3px;">
           <span class="online-members-help" nz-tooltip
-                [nzTooltipTitle]="'Members who are active on this project will be displayed here.'" nz-icon
+                [nzTooltipTitle]="'活跃在此项目的成员将显示在这里.'" nz-icon
                 nzType="question-circle" nzTheme="outline"></span>
       <worklenz-avatars [names]="members | wlSafeArray" [showDot]="true"></worklenz-avatars>
     </div>
@@ -19,11 +19,11 @@
 <ng-template #updatesTemplate let-notification>
   <div class="ant-notification-notice-content">
     <div>
-      <div class="ant-notification-notice-message">Project Updated</div>
+      <div class="ant-notification-notice-message">项目已更新</div>
       <div class="ant-notification-notice-description">{{UPDATES_MESSAGE}}</div>
       <span class="ant-notification-notice-btn">
         <button nz-button nzType="primary" [nzLoading]="refreshing" (click)="applyUpdates();notification.close();">
-          <span>Refresh Project</span>
+          <span>刷新项目</span>
         </button>
       </span>
     </div>
@@ -33,11 +33,11 @@
 <ng-template #projectManagerUpdateTemplate let-notification>
   <div class="ant-notification-notice-content">
     <div>
-      <div class="ant-notification-notice-message">Project Information Updated</div>
+      <div class="ant-notification-notice-message">项目信息已更新</div>
       <div class="ant-notification-notice-description">{{UPDATES_MESSAGE}}</div>
       <span class="ant-notification-notice-btn">
         <button nz-button nzType="primary" [nzLoading]="refreshing" (click)="applyPMUpdate();notification.close();">
-          <span>Refresh Now</span>
+          <span>立即刷新</span>
         </button>
       </span>
     </div>
