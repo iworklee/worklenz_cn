@@ -41,7 +41,7 @@ export class ProjectScheduleComponent implements OnChanges, OnInit, OnDestroy {
 
   get title() {
     return `Scheduled tasks - ${this.selectedDate}`
-  };
+  }
 
   open(): void {
     this.visible = true;

@@ -161,32 +161,38 @@ export class TimeMembersComponent implements OnInit, OnChanges {
       const today = moment();
 
       switch (key) {
-        case YESTERDAY:
+        case YESTERDAY: {
           const yesterday = moment().subtract(1, "days");
           this.service.setDateRange([yesterday.toString(), yesterday.toString()]);
           break;
-        case LAST_WEEK:
+        }
+        case LAST_WEEK: {
           const lastWeekStart = moment().subtract(1, "weeks");
           this.service.setDateRange([lastWeekStart.toString(), today.toString()]);
           break;
-        case LAST_MONTH:
+        }
+        case LAST_MONTH: {
           const lastMonthStart = moment().subtract(1, "months");
           this.service.setDateRange([lastMonthStart.toString(), today.toString()]);
           break;
-        case LAST_QUARTER:
+        }
+        case LAST_QUARTER: {
           const lastQuaterStart = moment().subtract(3, "months");
           this.service.setDateRange([lastQuaterStart.toString(), today.toString()]);
           break;
-        case PREV_WEEK:
+        }
+        case PREV_WEEK: {
           const prevWeekStart = moment().subtract(1, "weeks").startOf("week");
           const prevWeekEnd = moment().subtract(1, "weeks").endOf("week");
           this.service.setDateRange([prevWeekStart.toString(), prevWeekEnd.toString()]);
           break;
-        case PREV_MONTH:
+        }
+        case PREV_MONTH: {
           const prevMonthStart = moment().subtract(1, "month").startOf("month");
           const prevMonthEnd = moment().subtract(1, "month").endOf("month");
           this.service.setDateRange([prevMonthStart.toString(), prevMonthEnd.toString()]);
           break;
+        }
       }
     }
   }

@@ -141,7 +141,7 @@ export class TaskViewTimeLogComponent implements OnInit, OnDestroy {
       });
 
       if (momentStartTime.isAfter(momentEndTime, 'minute')) {
-        this.errorText = "Start time cannot be larger than End time.";
+        this.errorText = "开始时间不能大于结束时间。";
         this.errorDatePair = true;
         this.cdr.markForCheck();
         return true;
@@ -155,7 +155,7 @@ export class TaskViewTimeLogComponent implements OnInit, OnDestroy {
       // }
 
       if (!this.form.value.date) {
-        this.errorText = "Select date first.";
+        this.errorText = "请先选择日期。";
         this.errorDatePair = true;
         this.cdr.markForCheck();
         return true;
