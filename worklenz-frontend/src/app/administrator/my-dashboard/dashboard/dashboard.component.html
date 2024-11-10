@@ -5,7 +5,7 @@
         <nz-space>
           <h3 *nzSpaceItem nz-typography>你好 {{name}}, {{greetingTime}}!</h3>
         </nz-space>
-        <h4 nz-typography class="mb-0" style="margin-top: 5px;">今天是 {{currentDate | date:'EEEE, MMMM d, y'}}</h4>
+        <h4 nz-typography class="mb-0" style="margin-top: 5px;">今天是 {{currentDate | date:'y年M月d日 EEEE'}}</h4>
       </div>
       <div class="home-top-action w-auto">
         <nz-button-group *ngIf="isOwnerOrAdmin()">

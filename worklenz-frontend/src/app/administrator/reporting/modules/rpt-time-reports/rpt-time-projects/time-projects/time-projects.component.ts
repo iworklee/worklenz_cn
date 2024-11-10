@@ -63,7 +63,7 @@ export class TimeProjectsComponent implements OnInit, OnChanges {
 
   barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: [],
-    datasets: [{data: [], label: 'Logged Time (hours) ', backgroundColor: this.projectColors, barThickness: 40}]
+    datasets: [{data: [], label: '记录时间（小时）', backgroundColor: this.projectColors, barThickness: 40}]
   };
 
   barChartOptions: ChartConfiguration<'bar'>['options'] = {
@@ -84,7 +84,7 @@ export class TimeProjectsComponent implements OnInit, OnChanges {
       y: {
         title: {
           display: true,
-          text: 'Projects',
+          text: '项目',
           align: "end",
           font: {
             family: 'Helvetica'
@@ -99,7 +99,7 @@ export class TimeProjectsComponent implements OnInit, OnChanges {
       x: {
         title: {
           display: true,
-          text: 'Logged Time(hours)',
+          text: '记录时间（小时）',
           align: "end",
           font: {
             family: 'Helvetica'
@@ -232,32 +232,38 @@ export class TimeProjectsComponent implements OnInit, OnChanges {
       const today = moment();
 
       switch (key) {
-        case YESTERDAY:
+        case YESTERDAY: {
           const yesterday = moment().subtract(1, "days");
           this.service.setDateRange([yesterday.toString(), yesterday.toString()]);
           break;
-        case LAST_WEEK:
+        }
+        case LAST_WEEK: {
           const lastWeekStart = moment().subtract(1, "weeks");
           this.service.setDateRange([lastWeekStart.toString(), today.toString()]);
           break;
-        case LAST_MONTH:
+        }
+        case LAST_MONTH: {
           const lastMonthStart = moment().subtract(1, "months");
           this.service.setDateRange([lastMonthStart.toString(), today.toString()]);
           break;
-        case LAST_QUARTER:
+        }
+        case LAST_QUARTER: {
           const lastQuaterStart = moment().subtract(3, "months");
           this.service.setDateRange([lastQuaterStart.toString(), today.toString()]);
           break;
-        case PREV_WEEK:
+        }
+        case PREV_WEEK: {
           const prevWeekStart = moment().subtract(1, "weeks").startOf("week");
           const prevWeekEnd = moment().subtract(1, "weeks").endOf("week");
           this.service.setDateRange([prevWeekStart.toString(), prevWeekEnd.toString()]);
           break;
-        case PREV_MONTH:
+        }
+        case PREV_MONTH: {
           const prevMonthStart = moment().subtract(1, "month").startOf("month");
           const prevMonthEnd = moment().subtract(1, "month").endOf("month");
           this.service.setDateRange([prevMonthStart.toString(), prevMonthEnd.toString()]);
           break;
+        }
       }
     }
   }
@@ -339,7 +345,7 @@ export class TimeProjectsComponent implements OnInit, OnChanges {
     const chartElement = this.exportChartCanvas.nativeElement;
     const image = chartElement.toDataURL("image/png").replace("image/png", "image/octet-stream")
     const a = document.createElement('a');
-    const filename = 'Projects time sheet.png';
+    const filename = '项目时间表.png';
     a.setAttribute("href", image);
     a.setAttribute('download', filename);
     a.click();

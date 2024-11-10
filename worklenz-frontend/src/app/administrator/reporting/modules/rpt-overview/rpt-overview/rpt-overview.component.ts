@@ -26,7 +26,7 @@ export class RptOverviewComponent implements OnInit {
     private readonly drawer: ReportingDrawersService,
     private reportingApi: ReportingService,
   ) {
-    this.app.setTitle("Reporting - Overview");
+    this.app.setTitle("报告 - 概览");
 
     this.reportingApi.onIncludeToggleChange
       .pipe(takeUntilDestroyed())

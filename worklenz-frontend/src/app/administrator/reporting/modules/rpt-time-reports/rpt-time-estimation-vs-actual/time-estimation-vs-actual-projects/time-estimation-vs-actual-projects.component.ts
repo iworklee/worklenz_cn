@@ -43,7 +43,7 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
   teamSearchText: string | null = null;
   categorySearchText: string | null = null;
   projectSearchText: string | null = null;
-  tabTitle: string | null = "Working Days";
+  tabTitle: string | null = "工作日";
 
   teamsDropdown: IProjectCategoryViewModel[] = [];
   categoriesDropdown: IProjectCategoryViewModel[] = [];
@@ -51,7 +51,7 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
 
   barChartPlugins = [];
   projects: IRPTTimeProject[] = [];
-  toggleOptions = ['Working Days', 'Man Days'];
+  toggleOptions = ['工作日', '人天'];
   type = 0;
 
   exportChart: Chart | null = null;
@@ -60,8 +60,8 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
   barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: [],
     datasets: [
-      {data: [], label: 'Estimated Days ', backgroundColor: '#A5AAD9', barThickness: 50},
-      {data: [], label: 'Actual Days ', backgroundColor: '#c191cc', barThickness: 50},
+      {data: [], label: '预计天数', backgroundColor: '#A5AAD9', barThickness: 50},
+      {data: [], label: '实际天数', backgroundColor: '#c191cc', barThickness: 50},
     ]
   };
 
@@ -71,7 +71,7 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
       y: {
         title: {
           display: true,
-          text: 'Days',
+          text: '天',
           align: "end",
           font: {
             family: 'Helvetica'
@@ -81,7 +81,7 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
       x: {
         title: {
           display: true,
-          text: 'Project',
+          text: '项目',
           align: "end",
           font: {
             family: 'Helvetica'
@@ -100,7 +100,7 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
           footer: (items) => {
             if (items.length > 0) {
               const project = this.projects[items[0].dataIndex];
-              if (project.end_date) return 'Ends On: ' + moment(project.end_date).format("MMM, DD YYYY");
+              if (project.end_date) return '结束日期: ' + moment(project.end_date).format("YYYY-MM-DD");
             }
             return '';
           },
@@ -182,32 +182,38 @@ export class TimeEstimationVsActualProjectsComponent implements OnInit, OnChange
       const today = moment();
 
       switch (key) {
-        case YESTERDAY:
+        case YESTERDAY: {
           const yesterday = moment().subtract(1, "days");
           this.service.setDateRange([yesterday.toString(), yesterday.toString()]);
           break;
-        case LAST_WEEK:
+        }
+        case LAST_WEEK: {
           const lastWeekStart = moment().subtract(1, "weeks");
           this.service.setDateRange([lastWeekStart.toString(), today.toString()]);
           break;
-        case LAST_MONTH:
+        }
+        case LAST_MONTH: {
           const lastMonthStart = moment().subtract(1, "months");
           this.service.setDateRange([lastMonthStart.toString(), today.toString()]);
           break;
-        case LAST_QUARTER:
+        }
+        case LAST_QUARTER: {
           const lastQuaterStart = moment().subtract(3, "months");
           this.service.setDateRange([lastQuaterStart.toString(), today.toString()]);
           break;
-        case PREV_WEEK:
+        }
+        case PREV_WEEK: {
           const prevWeekStart = moment().subtract(1, "weeks").startOf("week");
           const prevWeekEnd = moment().subtract(1, "weeks").endOf("week");
           this.service.setDateRange([prevWeekStart.toString(), prevWeekEnd.toString()]);
           break;
-        case PREV_MONTH:
+        }
+        case PREV_MONTH: {
           const prevMonthStart = moment().subtract(1, "month").startOf("month");
           const prevMonthEnd = moment().subtract(1, "month").endOf("month");
           this.service.setDateRange([prevMonthStart.toString(), prevMonthEnd.toString()]);
           break;
+        }
       }
     }
   }

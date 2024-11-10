@@ -3,7 +3,7 @@
     <!-- Teams -->
     <nz-card class="col-3 me-2" [nzLoading]="loading">
       <nz-card-meta
-        [nzTitle]="model.teams?.count + ' Teams'"
+        [nzTitle]="model.teams?.count + ' 团队'"
         [nzDescription]="tmDescriptionTmpl"
         [nzAvatar]="tmAvatarTmpl"
       ></nz-card-meta>
@@ -12,14 +12,14 @@
       <span class="card-icon" nz-icon [nzType]="'bank'" style="color: #70a6f3;" [nzTheme]="'outline'"></span>
     </ng-template>
     <ng-template #tmDescriptionTmpl>
-      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.teams?.projects}} Projects</p>
-      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.teams?.members}} Members</p>
+      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.teams?.projects}} 项目</p>
+      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.teams?.members}} 成员</p>
     </ng-template>
 
     <!-- Projects -->
     <nz-card class="col-3 me-2" [nzLoading]="loading">
       <nz-card-meta
-        [nzTitle]="model.projects?.count + ' Projects'"
+        [nzTitle]="model.projects?.count + ' 项目'"
         [nzDescription]="projDescriptionTmpl"
         [nzAvatar]="projAvatarTmpl"
       ></nz-card-meta>
@@ -28,15 +28,14 @@
       <span class="card-icon" nz-icon [nzType]="'file'" style="color: #74c3bb;" [nzTheme]="'outline'"></span>
     </ng-template>
     <ng-template #projDescriptionTmpl>
-      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.projects?.active}} Active Projects</p>
-      <p class="mb-0" nz-typography [nzType]="'secondary'" style="color: #f37070;">{{model.projects?.overdue}} Overdue
-        Projects</p>
+      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.projects?.active}} 活跃项目</p>
+      <p class="mb-0" nz-typography [nzType]="'secondary'" style="color: #f37070;">{{model.projects?.overdue}} 逾期项目</p>
     </ng-template>
 
     <!-- Members -->
     <nz-card class="col-4 me-2" [nzLoading]="loading">
       <nz-card-meta
-        [nzTitle]="model.members?.count + ' Members'"
+        [nzTitle]="model.members?.count + ' 成员'"
         [nzDescription]="mbrDescriptionTmpl"
         [nzAvatar]="mbrAvatarTmpl"
       ></nz-card-meta>
@@ -45,9 +44,9 @@
       <span class="card-icon" nz-icon [nzType]="'usergroup-add'" style="color: #8d7a9b;" [nzTheme]="'outline'"></span>
     </ng-template>
     <ng-template #mbrDescriptionTmpl>
-      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.members?.unassigned}} Unassigned Members</p>
+      <p class="mb-0" nz-typography [nzType]="'secondary'">{{model.members?.unassigned}} 未分配成员</p>
       <p class="mb-0" nz-typography [nzType]="'secondary'" style="color: #f37070;">
-        {{model.members?.overdue}} Members with Overdue Tasks
+        {{model.members?.overdue}} 有逾期任务的成员
       </p>
     </ng-template>
   </div>

@@ -34,10 +34,10 @@ export class RptSingleMemberDrawerComponent {
   isDurationLabelSelected_ = false;
 
   readonly tabs = [
-    {label: 'Overview', tab: 'overview'},
-    {label: 'Time Logs', tab: 'time-logs'},
-    {label: 'Activity Logs', tab: 'activity-logs'},
-    {label: 'Tasks', tab: 'tasks'}
+    {label: '概览', tab: 'overview'},
+    {label: '时间日志', tab: 'time-logs'},
+    {label: '活动日志', tab: 'activity-logs'},
+    {label: '任务', tab: 'tasks'}
   ];
 
   selectedTab = 0;
@@ -45,20 +45,20 @@ export class RptSingleMemberDrawerComponent {
   dateRange: string[] = [];
 
   durations: IRPTDuration[] = [
-      {label: "Yesterday", key: YESTERDAY, dates: moment().subtract(1, "days").format('MMM,DD YYYY').toString()},
-      {label: "Last 7 days", key: LAST_WEEK, dates: moment().subtract(1, "weeks").format('MMM,DD YYYY').toString() + " - " + moment().format('MMM,DD YYYY').toString()},
-      {label: "Last week", key: PREV_WEEK, dates: moment().subtract(1, "weeks").startOf("week").format('MMM,DD YYYY').toString() + " - " + moment().subtract(1, "weeks").endOf("week").format('MMM,DD YYYY').toString()},
-      {label: "Last 30 days", key: LAST_MONTH, dates: moment().subtract(1, "month").format('MMM,DD YYYY').toString() + " - " + moment().format('MMM,DD YYYY').toString()},
-      {label: "Last month", key: PREV_MONTH, dates: moment().subtract(1, "month").startOf("month").format('MMM,DD YYYY').toString() + " - " + moment().subtract(1, "month").endOf("month").format('MMM,DD YYYY').toString()},
-      {label: "Last 3 months", key: LAST_QUARTER, dates: moment().subtract(3, "months").format('MMM,DD YYYY').toString() + " - " + moment().format('MMM,DD YYYY').toString()},
-      {label: "All time", key: ALL_TIME, dates: ''}
+    {label: "昨天", key: YESTERDAY, dates: moment().subtract(1, "days").format('MMM,DD YYYY').toString()},
+    {label: "过去7天", key: LAST_WEEK, dates: moment().subtract(1, "weeks").format('MMM,DD YYYY').toString() + " - " + moment().format('MMM,DD YYYY').toString()},
+    {label: "上周", key: PREV_WEEK, dates: moment().subtract(1, "weeks").startOf("week").format('MMM,DD YYYY').toString() + " - " + moment().subtract(1, "weeks").endOf("week").format('MMM,DD YYYY').toString()},
+    {label: "过去30天", key: LAST_MONTH, dates: moment().subtract(1, "month").format('MMM,DD YYYY').toString() + " - " + moment().format('MMM,DD YYYY').toString()},
+    {label: "上个月", key: PREV_MONTH, dates: moment().subtract(1, "month").startOf("month").format('MMM,DD YYYY').toString() + " - " + moment().subtract(1, "month").endOf("month").format('MMM,DD YYYY').toString()},
+    {label: "过去3个月", key: LAST_QUARTER, dates: moment().subtract(3, "months").format('MMM,DD YYYY').toString() + " - " + moment().format('MMM,DD YYYY').toString()},
+    {label: "所有时间", key: ALL_TIME, dates: ''}
   ];
 
   get durationLabel() {
     const f = "yy-MM-DD";
     if (this.dateRange.length == 2)
       return `${moment(this.dateRange[0]).format(f)} - ${moment(this.dateRange[1]).format(f)}`;
-    return this.selectedDuration ? this.selectedDuration.label : "Duration";
+    return this.selectedDuration ? this.selectedDuration.label : "时间段";
   }
 
   get selectedDuration() {
@@ -235,32 +235,38 @@ export class RptSingleMemberDrawerComponent {
       const today = moment();
 
       switch (key) {
-        case YESTERDAY:
+        case YESTERDAY: {
           const yesterday = moment().subtract(1, "days");
           this.service.setDrawerDateRange([yesterday.toString(), yesterday.toString()]);
           break;
-        case LAST_WEEK:
+        }
+        case LAST_WEEK: {
           const lastWeekStart = moment().subtract(1, "weeks");
           this.service.setDrawerDateRange([lastWeekStart.toString(), today.toString()]);
           break;
-        case LAST_MONTH:
+        }
+        case LAST_MONTH: {
           const lastMonthStart = moment().subtract(1, "months");
           this.service.setDrawerDateRange([lastMonthStart.toString(), today.toString()]);
           break;
-        case LAST_QUARTER:
+        }
+        case LAST_QUARTER: {
           const lastQuaterStart = moment().subtract(3, "months");
           this.service.setDrawerDateRange([lastQuaterStart.toString(), today.toString()]);
           break;
-        case PREV_WEEK:
+        }
+        case PREV_WEEK: {
           const prevWeekStart = moment().subtract(1, "weeks").startOf("week");
           const prevWeekEnd = moment().subtract(1, "weeks").endOf("week");
           this.service.setDrawerDateRange([prevWeekStart.toString(), prevWeekEnd.toString()]);
           break;
-        case PREV_MONTH:
+        }
+        case PREV_MONTH: {
           const prevMonthStart = moment().subtract(1, "month").startOf("month");
           const prevMonthEnd = moment().subtract(1, "month").endOf("month");
           this.service.setDrawerDateRange([prevMonthStart.toString(), prevMonthEnd.toString()]);
           break;
+        }
       }
     }
   }

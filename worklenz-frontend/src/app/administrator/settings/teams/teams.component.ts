@@ -32,7 +32,7 @@ export class TeamsComponent implements OnInit {
     public menu: MenuService,
     private readonly auth: AuthService
   ) {
-    this.app.setTitle("Teams");
+    this.app.setTitle("团队");
     this.form = this.fb.group({
       name: [null, Validators.required]
     });

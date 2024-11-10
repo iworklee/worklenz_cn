@@ -40,7 +40,7 @@ export class MyTasksComponent implements OnInit, OnDestroy {
   showTaskDrawer = false;
   updating = false;
 
-  options = ['List', 'Calendar'];
+  options = ['列表', '日历'];
   private readonly myTasksActiveFilterKey = "my-dashboard-active-filter";
 
   projectId = null;

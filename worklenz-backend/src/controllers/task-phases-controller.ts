@@ -19,7 +19,7 @@ export default class TaskPhasesController extends WorklenzControllerBase {
     const q = `
         INSERT INTO project_phases (name, color_code, project_id, sort_index)
         VALUES (
-                CONCAT('Untitled Phase (', (SELECT COUNT(*) FROM project_phases WHERE project_id = $2) + 1, ')'),
+                CONCAT('未命名阶段 (', (SELECT COUNT(*) FROM project_phases WHERE project_id = $2) + 1, ')'),
                 $1,
                 $2,
                 (SELECT COUNT(*) FROM project_phases WHERE project_id = $2) + 1)

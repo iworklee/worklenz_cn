@@ -51,7 +51,7 @@ export class TeamsComponent {
   inviting = false;
 
   get buttonText() {
-    return this.isValueIsAnEmail() ? 'Invite as a member' : 'Invite a new member by email';
+    return this.isValueIsAnEmail() ? '邀请为成员' : '通过电子邮件邀请新成员';
   }
 
   constructor(
@@ -64,7 +64,7 @@ export class TeamsComponent {
     private readonly membersApi: ProjectMembersApiService,
     private readonly auth: AuthService
   ) {
-    this.app.setTitle("Admin Center - Teams");
+    this.app.setTitle("管理中心 - 团队");
     this.form = this.fb.group({
       name: [null, [Validators.required]]
     });

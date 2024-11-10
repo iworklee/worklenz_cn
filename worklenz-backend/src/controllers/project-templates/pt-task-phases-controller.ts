@@ -18,7 +18,7 @@ export default class PtTaskPhasesController extends WorklenzControllerBase {
 
         const q = `
             INSERT INTO cpt_phases (name, color_code, template_id)
-            VALUES (CONCAT('Untitled Phase (', (SELECT COUNT(*) FROM cpt_phases WHERE template_id = $2) + 1, ')'), $1,
+            VALUES (CONCAT('未命名阶段 (', (SELECT COUNT(*) FROM cpt_phases WHERE template_id = $2) + 1, ')'), $1,
                     $2)
             RETURNING id, name, color_code;
         `;

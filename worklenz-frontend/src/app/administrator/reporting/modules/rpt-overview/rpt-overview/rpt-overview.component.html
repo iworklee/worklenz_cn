@@ -1,16 +1,16 @@
-<worklenz-rpt-header [title]="'Overview'" [showDuration]="false" (isDurationLabelSelected)="isDurationLabelSelected = $event" [showExport]="false"></worklenz-rpt-header>
+<worklenz-rpt-header [title]="'概览'" [showDuration]="false" (isDurationLabelSelected)="isDurationLabelSelected = $event" [showExport]="false"></worklenz-rpt-header>
 
 <nz-content>
   <worklenz-rpt-overview-cards class="d-block mb-4"></worklenz-rpt-overview-cards>
 
   <nz-card [nzLoading]="loading">
-    <h3>Teams</h3>
+    <h3>团队</h3>
     <nz-table [nzSize]="'small'" [nzData]="teams" [nzShowPagination]="true" [nzHideOnSinglePage]="true" #table>
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Projects</th>
-        <th>Members</th>
+        <th>名称</th>
+        <th>项目</th>
+        <th>成员</th>
       </tr>
       </thead>
       <tbody>

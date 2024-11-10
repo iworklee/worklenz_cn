@@ -933,19 +933,19 @@ export default class ReportingOverviewBase extends ReportingControllerBase {
                   'needs_attention', (SELECT COUNT(*)
                           FROM projects
                           WHERE team_id = $1 ${archivedClause}
-                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = 'Needs Attention')),
+                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = '需要关注')),
                   'at_risk', (SELECT COUNT(*)
                           FROM projects
                           WHERE team_id = $1 ${archivedClause}
-                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = 'At Risk')),
+                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = '有风险')),
                   'good', (SELECT COUNT(*)
                           FROM projects
                           WHERE team_id = $1 ${archivedClause}
-                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = 'Good')),
+                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = '良好')),
                   'not_set', (SELECT COUNT(*)
                           FROM projects
                           WHERE team_id = $1 ${archivedClause}
-                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = 'Not Set'))
+                            AND health_id = (SELECT id FROM sys_project_healths WHERE name = '未设置'))
                   ) AS counts;
     `;
     const res = await db.query(q, [teamId]);
@@ -971,22 +971,22 @@ export default class ReportingOverviewBase extends ReportingControllerBase {
   // Team Overview
   protected static createByProjectStatusChartData(body: any) {
     body.chart = [
-      this.createChartObject("Cancelled", "#f37070", body.cancelled),
-      this.createChartObject("Blocked", "#cbc8a1", body.blocked),
-      this.createChartObject("On Hold", "#cbc8a1", body.on_hold),
-      this.createChartObject("Proposed", "#cbc8a1", body.proposed),
-      this.createChartObject("In Planning", "#cbc8a1", body.in_planning),
-      this.createChartObject("In Progress", "#80ca79", body.in_progress),
-      this.createChartObject("Completed", "#80ca79", body.completed)
+      this.createChartObject("已取消", "#f37070", body.cancelled),
+      this.createChartObject("已阻塞", "#cbc8a1", body.blocked),
+      this.createChartObject("暂停", "#cbc8a1", body.on_hold),
+      this.createChartObject("提议", "#cbc8a1", body.proposed),
+      this.createChartObject("计划中", "#cbc8a1", body.in_planning),
+      this.createChartObject("进行中", "#80ca79", body.in_progress),
+      this.createChartObject("已完成", "#80ca79", body.completed)
     ];
   }
 
   protected static createByProjectHealthChartData(body: any) {
     body.chart = [
-      this.createChartObject("Not Set", "#a9a9a9", body.not_set),
-      this.createChartObject("Needs Attention", "#f37070", body.needs_attention),
-      this.createChartObject("At Risk", "#fbc84c", body.at_risk),
-      this.createChartObject("Good", "#75c997", body.good)
+      this.createChartObject("未设置", "#a9a9a9", body.not_set),
+      this.createChartObject("需要关注", "#f37070", body.needs_attention),
+      this.createChartObject("有风险", "#fbc84c", body.at_risk),
+      this.createChartObject("良好", "#75c997", body.good)
     ];
   }
 

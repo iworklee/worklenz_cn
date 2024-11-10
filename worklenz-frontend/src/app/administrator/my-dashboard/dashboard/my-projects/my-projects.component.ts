@@ -15,7 +15,7 @@ export class MyProjectsComponent implements OnInit {
   projects: IProjectViewModel[] = [];
 
   loading = true;
-  options = ['Recent', 'Favorites'];
+  options = ['最近', '收藏'];
 
   private readonly myProjectsActiveFilterKey = "my-dashboard-active-projects-filter";
 

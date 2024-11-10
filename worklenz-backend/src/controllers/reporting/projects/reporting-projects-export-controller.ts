@@ -26,21 +26,21 @@ export default class ReportingProjectsExportController extends ReportingProjects
 
     // define columns in table
     sheet.columns = [
-      { header: "Project", key: "name", width: 30 },
-      { header: "Client", key: "client", width: 20 },
-      { header: "Category", key: "category", width: 20 },
-      { header: "Status", key: "status", width: 20 },
-      { header: "Start Date", key: "start_date", width: 20 },
-      { header: "End Date", key: "end_date", width: 20 },
-      { header: "Days Left/Overdue", key: "days_left", width: 20 },
-      { header: "Estimated Hours", key: "estimated_hours", width: 20 },
-      { header: "Actual Hours", key: "actual_hours", width: 20 },
-      { header: "Done Tasks(%)", key: "done_tasks", width: 20 },
-      { header: "Doing Tasks(%)", key: "doing_tasks", width: 20 },
-      { header: "Todo Tasks(%)", key: "todo_tasks", width: 20 },
-      { header: "Last Activity", key: "last_activity", width: 20 },
-      { header: "Project Health", key: "project_health", width: 20 },
-      { header: "Project Update", key: "project_update", width: 20 }
+      { header: "项目", key: "name", width: 30 },
+      { header: "客户", key: "client", width: 20 },
+      { header: "分类", key: "category", width: 20 },
+      { header: "状态", key: "status", width: 20 },
+      { header: "开始日期", key: "start_date", width: 20 },
+      { header: "结束日期", key: "end_date", width: 20 },
+      { header: "剩余天数/逾期", key: "days_left", width: 20 },
+      { header: "预计小时数", key: "estimated_hours", width: 20 },
+      { header: "实际小时数", key: "actual_hours", width: 20 },
+      { header: "已完成任务(%)", key: "done_tasks", width: 20 },
+      { header: "进行中任务(%)", key: "doing_tasks", width: 20 },
+      { header: "待办任务(%)", key: "todo_tasks", width: 20 },
+      { header: "最后活动", key: "last_activity", width: 20 },
+      { header: "项目健康", key: "project_health", width: 20 },
+      { header: "项目更新", key: "project_update", width: 20 }
     ];
 
     // set title

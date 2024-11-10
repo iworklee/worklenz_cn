@@ -44,7 +44,7 @@ export class RptTeamOverviewComponent implements OnInit, OnDestroy {
   statusChartData: ChartConfiguration<'doughnut'>['data'] = {
     labels: [],
     datasets: [{
-      label: 'Projects',
+      label: '项目',
       data: [],
       backgroundColor: this.statusColors,
       hoverOffset: 2
@@ -54,7 +54,7 @@ export class RptTeamOverviewComponent implements OnInit, OnDestroy {
   categoryChartData: ChartConfiguration<'doughnut'>['data'] = {
     labels: [],
     datasets: [{
-      label: 'Projects',
+      label: '项目',
       data: [],
       backgroundColor: this.categoryColors,
       hoverOffset: 2
@@ -64,7 +64,7 @@ export class RptTeamOverviewComponent implements OnInit, OnDestroy {
   healthChartData: ChartConfiguration<'doughnut'>['data'] = {
     labels: [],
     datasets: [{
-      label: 'Projects',
+      label: '项目',
       data: [],
       backgroundColor: this.healthColors,
       hoverOffset: 2,

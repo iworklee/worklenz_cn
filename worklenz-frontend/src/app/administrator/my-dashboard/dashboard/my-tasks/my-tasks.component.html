@@ -45,7 +45,7 @@
         <nz-calendar (nzSelectChange)="selectDateChange($event)"
                      class="home-calendar"></nz-calendar>
         <nz-alert nzType="success"
-                  nzMessage="任务截止日期 : {{service.tasksViewConfig?.selected_date | date:'MMM d, y'}}"
+                  nzMessage="任务截止日期 : {{service.tasksViewConfig?.selected_date | date:'y年M月d日'}}"
                   [nzIcon]="customIconTemplate"
                   nzShowIcon class="mt-2 mb-3"></nz-alert>
         <ng-template #customIconTemplate>

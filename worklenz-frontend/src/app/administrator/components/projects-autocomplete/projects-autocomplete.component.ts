@@ -26,8 +26,8 @@ export class ProjectsAutocompleteComponent implements OnInit {
   @Output() projectNamesChange: EventEmitter<string[]> = new EventEmitter<string[]>();
   @Input() projectNames: string[] = [];
 
-  @Input() placeholder = 'Select Projects';
-  @Input() label = 'Projects';
+  @Input() placeholder = '选择项目';
+  @Input() label = '项目';
 
   @Input() multiple = false;
   @Input() disabled = false;

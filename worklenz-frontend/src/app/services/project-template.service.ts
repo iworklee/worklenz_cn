@@ -8,7 +8,7 @@ import {PtTaskListService} from "../administrator/settings/project-template-edit
 export class ProjectTemplateService {
   private readonly _labelChangeSbj$ = new Subject<string>();
   private readonly _phaseOptionsChangeSbj$ = new Subject<void>();
-  private readonly DEFAULT_LABEL = 'Phase';
+  private readonly DEFAULT_LABEL = '阶段';
 
   private _label: string | null = null;
 

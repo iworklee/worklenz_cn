@@ -4386,37 +4386,37 @@ $$
 DECLARE
 BEGIN
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Key', 'KEY', 0, FALSE);
+    VALUES (_project_id, '项目编号', 'KEY', 0, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Description', 'DESCRIPTION', 2, FALSE);
+    VALUES (_project_id, '描述', 'DESCRIPTION', 2, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Progress', 'PROGRESS', 3, TRUE);
+    VALUES (_project_id, '进度', 'PROGRESS', 3, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Members', 'ASSIGNEES', 4, TRUE);
+    VALUES (_project_id, '成员', 'ASSIGNEES', 4, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Labels', 'LABELS', 5, TRUE);
+    VALUES (_project_id, '标签', 'LABELS', 5, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Status', 'STATUS', 6, TRUE);
+    VALUES (_project_id, '状态', 'STATUS', 6, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Priority', 'PRIORITY', 7, TRUE);
+    VALUES (_project_id, '优先级', 'PRIORITY', 7, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Time Tracking', 'TIME_TRACKING', 8, TRUE);
+    VALUES (_project_id, '时间跟踪', 'TIME_TRACKING', 8, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Estimation', 'ESTIMATION', 9, FALSE);
+    VALUES (_project_id, '估计', 'ESTIMATION', 9, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Start Date', 'START_DATE', 10, FALSE);
+    VALUES (_project_id, '开始日期', 'START_DATE', 10, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Due Date', 'DUE_DATE', 11, TRUE);
+    VALUES (_project_id, '截止日期', 'DUE_DATE', 11, TRUE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Completed Date', 'COMPLETED_DATE', 12, FALSE);
+    VALUES (_project_id, '完成日期', 'COMPLETED_DATE', 12, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Created Date', 'CREATED_DATE', 13, FALSE);
+    VALUES (_project_id, '创建日期', 'CREATED_DATE', 13, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Last Updated', 'LAST_UPDATED', 14, FALSE);
+    VALUES (_project_id, '最后更新', 'LAST_UPDATED', 14, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Reporter', 'REPORTER', 15, FALSE);
+    VALUES (_project_id, '报告人', 'REPORTER', 15, FALSE);
     INSERT INTO project_task_list_cols (project_id, name, key, index, pinned)
-    VALUES (_project_id, 'Phase', 'PHASE', 16, FALSE);
+    VALUES (_project_id, '阶段', 'PHASE', 16, FALSE);
 END
 $$;
 
@@ -5026,13 +5026,13 @@ AS
 $$
 BEGIN
     INSERT INTO sys_project_healths (name, color_code, sort_order, is_default)
-    VALUES ('Not Set', '#a9a9a9', 0, TRUE);
+    VALUES ('未设置', '#a9a9a9', 0, TRUE);
     INSERT INTO sys_project_healths (name, color_code, sort_order, is_default)
-    VALUES ('Needs Attention', '#fbc84c', 1, FALSE);
+    VALUES ('需要关注', '#fbc84c', 1, FALSE);
     INSERT INTO sys_project_healths (name, color_code, sort_order, is_default)
-    VALUES ('At Risk', '#f37070', 2, FALSE);
+    VALUES ('有风险', '#f37070', 2, FALSE);
     INSERT INTO sys_project_healths (name, color_code, sort_order, is_default)
-    VALUES ('Good', '#75c997', 3, FALSE);
+    VALUES ('良好', '#75c997', 3, FALSE);
 END;
 $$;
 

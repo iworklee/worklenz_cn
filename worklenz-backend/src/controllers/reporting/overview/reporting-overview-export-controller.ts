@@ -345,16 +345,16 @@ export default class ReportingOverviewExportController extends ReportingOverview
 
     // define columns in table
     sheet.columns = [
-      { header: "Task", key: "task", width: 30 },
-      { header: "Status", key: "status", width: 20 },
-      { header: "Priority", key: "priority", width: 20 },
-      { header: "Phase", key: "phase", width: 20 },
-      { header: "Due Date", key: "due_date", width: 20 },
-      { header: "Completed On", key: "completed_on", width: 20 },
-      { header: "Days Overdue", key: "days_overdue", width: 20 },
-      { header: "Estimated Time", key: "estimated_time", width: 20 },
-      { header: "Logged Time", key: "logged_time", width: 20 },
-      { header: "Overlogged Time", key: "overlogged_time", width: 20 },
+      { header: "任务", key: "task", width: 30 },
+      { header: "状态", key: "status", width: 20 },
+      { header: "优先级", key: "priority", width: 20 },
+      { header: "阶段", key: "phase", width: 20 },
+      { header: "截止日期", key: "due_date", width: 20 },
+      { header: "完成日期", key: "completed_on", width: 20 },
+      { header: "逾期天数", key: "days_overdue", width: 20 },
+      { header: "预计时间", key: "estimated_time", width: 20 },
+      { header: "记录时间", key: "logged_time", width: 20 },
+      { header: "超时记录", key: "overlogged_time", width: 20 },
     ];
 
     // set title

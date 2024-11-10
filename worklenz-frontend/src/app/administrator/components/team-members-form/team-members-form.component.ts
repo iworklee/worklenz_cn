@@ -74,11 +74,11 @@ export class TeamMembersFormComponent {
   }
 
   get title() {
-    return this.isEditMember() ? (this.model.name || 'Edit Member') : 'Add Member';
+    return this.isEditMember() ? (this.model.name || '编辑成员') : '添加成员';
   }
-
+  
   get okButtonText() {
-    return this.isEditMember() ? 'Update' : 'Add to team';
+    return this.isEditMember() ? '更新' : '添加到团队';
   }
 
   get email() {

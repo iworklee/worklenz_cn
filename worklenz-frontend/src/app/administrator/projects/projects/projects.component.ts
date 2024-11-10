@@ -71,9 +71,9 @@ export class ProjectsComponent implements OnInit {
   filteredByStatus = false;
 
   readonly filters = [
-    'All',
-    'Favorites',
-    'Archived',
+    '全部',
+    '收藏',
+    '已归档',
   ];
 
   get filterIndex() {
@@ -98,7 +98,7 @@ export class ProjectsComponent implements OnInit {
     private readonly list: TaskListV2Service,
     private readonly statusesApi: ProjectStatusesApiService
   ) {
-    this.app.setTitle('Projects');
+    this.app.setTitle('项目');
 
     this.pageSize = +(this.route.snapshot.queryParamMap.get("size") || DEFAULT_PAGE_SIZE);
     this.pageIndex = +(this.route.snapshot.queryParamMap.get("index") || 1);
@@ -234,10 +234,10 @@ export class ProjectsComponent implements OnInit {
 
   getTaskProgressTitle(data: IProjectViewModel) {
     if (!data.all_tasks_count)
-      return 'No tasks available.';
+      return '没有可用任务。';
     if (data.all_tasks_count == data.completed_tasks_count)
-      return 'All tasks completed.';
-    return `${data.completed_tasks_count || 0}/${data.all_tasks_count || 0} tasks completed.`;
+      return '所有任务已完成。';
+    return `${data.completed_tasks_count || 0}/${data.all_tasks_count || 0} 任务已完成。`;
   }
 
   async toggleFavorite(id?: string) {

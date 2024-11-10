@@ -34,7 +34,7 @@ export class ProjectsTasksComponent implements IPaginationComponent {
   sortField: string | null = null;
   sortOrder: string | null = null;
   // Changing this order should also reflect to projects-controller:getAllTasks
-  options = ['Today', 'Upcoming', 'Overdue'];
+  options = ['今天', '即将到来', '逾期'];
   private readonly activeFilterKey = "my-dashboard-active-filter";
 
   constructor(
@@ -55,10 +55,10 @@ export class ProjectsTasksComponent implements IPaginationComponent {
 
   get title() {
     const index = this.activeFilter;
-    if (index === 0) return `My Tasks (${this.total})`;
-    if (index === 1) return `Upcoming (${this.total})`;
-    if (index === 2) return `Overdue (${this.total})`;
-    return "Tasks";
+    if (index === 0) return `我的任务 (${this.total})`;
+    if (index === 1) return `即将到来 (${this.total})`;
+    if (index === 2) return `逾期 (${this.total})`;
+    return "任务";
   }
 
   get activeFilter() {

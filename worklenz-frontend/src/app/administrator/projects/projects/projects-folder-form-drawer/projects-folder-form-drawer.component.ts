@@ -37,11 +37,11 @@ export class ProjectsFolderFormDrawerComponent {
   }
 
   get title() {
-    return this.folderId ? "Update the folder" : "Create a folder";
+    return this.folderId ? "更新文件夹" : "创建文件夹";
   }
 
   get buttonText() {
-    return this.folderId ? "Update" : "Create";
+    return this.folderId ? "更新" : "创建";
   }
 
   get valid() {

@@ -58,7 +58,7 @@ export class RptProjectsComponent implements OnInit, OnDestroy {
   sortOrder: string | null = null;
   categorySearchText: string | null = null;
   projectManagerSearchText: string | null = null;
-  pageTitle: string = "Projects"
+  pageTitle: string = "项目"
 
   public COLUMN_KEYS = {
     CLIENT: "CLIENT",
@@ -150,7 +150,7 @@ export class RptProjectsComponent implements OnInit, OnDestroy {
     private readonly projectManagersApi: ProjectManagersApiService,
     private readonly service: ReportingService
   ) {
-    this.app.setTitle("Reporting - Projects");
+    this.app.setTitle("报告 - 项目");
 
     this.projectUpdatesService.onGetLatestUpdate
       .pipe(takeUntilDestroyed())
@@ -230,7 +230,7 @@ export class RptProjectsComponent implements OnInit, OnDestroy {
       if (res.done) {
         this.total = res.body.total || 0;
         this.projects = res.body.projects || [];
-        this.pageTitle = this.total + " Projects"
+        this.pageTitle = this.total + " 项目"
       }
       this.loading = false;
     } catch (e) {

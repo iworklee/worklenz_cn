@@ -21,10 +21,10 @@
         </nz-form-item>
 
         <nz-form-item *ngIf="projectId">
-          <nz-form-label [nzSpan]="null" nzRequired>键</nz-form-label>
+          <nz-form-label [nzSpan]="null" nzRequired>项目编号</nz-form-label>
           <nz-form-control [nzSpan]="null">
             <input [formControlName]="'key'" [maxlength]="5" (keyup)="onKeyChange()" nz-input
-                   placeholder="键"/>
+                   placeholder="项目编号"/>
           </nz-form-control>
         </nz-form-item>
 
