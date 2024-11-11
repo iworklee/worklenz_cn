@@ -1,11 +1,6 @@
-version: '3.8'
-
 services:
   frontend:
-    image: opple/worklenz-frontend:20241108
-    build:
-      context: ./worklenz-frontend
-      dockerfile: Dockerfile
+    image: registry.cn-hangzhou.aliyuncs.com/iworklee/worklenz-cn-frontend:2024111006
     container_name: worklenz_frontend
     ports:
       - "4200:4200"
@@ -16,13 +11,13 @@ services:
       - worklenz    
 
   backend:
-    image: opple/worklenz-backend:20241108
-    build:
-      context: ./worklenz-backend
-      dockerfile: Dockerfile
+    image: registry.cn-hangzhou.aliyuncs.com/iworklee/worklenz-cn-backend:2024111001
     container_name: worklenz_backend
     ports:
       - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
       - ANGULAR_DIST_DIR
       - ANGULAR_SRC_DIR
@@ -31,7 +26,7 @@ services:
       - BACKEND_VIEWS_DIR
       - COMMIT_BUILD_IMMEDIATELY
       - COOKIE_SECRET
-      - DB_HOST=10.1.5.177
+      - DB_HOST=192.168.0.2
       - DB_MAX_CLIENTS
       - DB_NAME=worklenz_db
       - DB_PASSWORD=password
@@ -57,6 +52,25 @@ services:
       - S3_SECRET_ACCESS_KEY
     networks:
       - worklenz  
+
+  db:
+    image: postgres:15
+    container_name: worklenz_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "worklenz_db"
+      POSTGRES_PASSWORD: "password"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d worklenz_db -U worklenz_backend"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - worklenz  
+    volumes:
+      - ./pg/data/:/var/lib/postgresql/data
+      - ./worklenz-backend/database/:/docker-entrypoint-initdb.d
 
 networks:
   worklenz:
